@@ -1,0 +1,16 @@
+#MAC
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.lnk
+
+#ETC
+.sass-cache
+*.sass-cache*
+config.codekit
+*.zip
