@@ -1,0 +1,569 @@
+<!DOCTYPE HTML>
+<head>
+  <title>LoL Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/onepcssgrid.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="jquery.js"></script>
+  <script src="code.js"></script>
+</head>
+<body>
+  <div class="content">
+    <form class="data">
+      <div class="logo">
+        <h1>LoL Project</h1>
+      </div>
+      <div class="inpt-group">
+        <input type="text" placeholder=" Summoner Name" class="name">
+        <div class="opt">
+          <select class="serverOpt">
+            <option>br</option>
+            <option>na</option>
+            <option>eune</option>
+            <option>euw</option>
+            <option>kr</option>
+            <option>lan</option>
+            <option>las</option>
+            <option>na</option>
+            <option>oce</option>
+            <option>tr</option>
+            <option>ru</option>
+          </select>
+        </div>
+        <button type="submit" class="send">Send </button>
+      </div>
+    </form>
+    <div id="Home">
+      <h1>Welcome Summoner! This is a Riot API based Website.</h1>
+      <h3>We are currently under development and more features are coming soon...</h3><br>
+      <h3>Upcoming features:</h3>
+      <ul>
+        <li>List last 50 games with a chosen champion or the last 50 games;</li>
+        <li>Runes and Masteries Support;</li>
+        <li>Current game information like Tier, Division, Runes, Masteries, KDA and more;</li>
+        <li>More in-depth information about ranked games and matches;</li>
+        <li>And + tons of things that Riot API Allow;</li>
+      </ul>
+      <p>I'm not trying to compete with any existing "Summoner Info" Website, I'm just doing this for fun and educational puropse. SE YA!</p>
+    </div>
+    <div class="modal"></div>
+    <div class="Result">
+      <div class="basicInfo">
+        <div class="profileIcon"><img src="http://placehold.it/128x128" class="outIcon"></div>
+        <div class="profileInfo">
+          <p class="outName">Champion</p>
+          <p class="outLevel">Level 30</p>
+        </div>
+        <div class="profileRanked">
+          <div class="t3v3">
+            <h3>Team 3v3</h3><img src="tier/unranked.png" class="outTierImg">
+            <p class="outTier">UNRANKED</p>
+            <p class="outLP">0 LP</p>
+            <p class="outElo">0 Points</p>
+          </div>
+          <div class="solo">
+            <h3>Solo 5v5</h3><img src="tier/unranked.png" class="outTierImg">
+            <p class="outTier">UNRANKED</p>
+            <p class="outLP">0 LP</p>
+            <p class="outElo">0 Points</p>
+          </div>
+          <div class="t5v5">
+            <h3>Team 5v5</h3><img src="tier/unranked.png" class="outTierImg">
+            <p class="outTier">UNRANKED</p>
+            <p class="outLP">0 LP</p>
+            <p class="outElo">0 Points</p>
+          </div>
+        </div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- SiteLOL --><ins style="display:inline-block;width:280px;height:250px" data-ad-client="ca-pub-9211196233969408" data-ad-slot="4659942514" class="adsbygoogle"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          
+          
+        </script>
+      </div>
+      <div class="matchHistory">
+        <div class="matchHeader">
+          <h2>Match History</h2>
+        </div>
+        <div class="container">
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="match">
+                    <div class="header">
+                      <div class="mode">
+                        <p class="outGameType">NORMAL 5v5</p>
+                        <p class="small">Mode</p>
+                      </div>
+                      <div class="date">
+                        <p class="outDate">01/01/1970</p>
+                        <p class="small">Created in</p>
+                      </div>
+                      <div class="duration">
+                        <p class="outDuratiom">35min</p>
+                        <p class="small">Duration</p>
+                      </div>
+                      <div class="gold">
+                        <p class="outGold">10k Gold</p>
+                        <p class="small">Gold</p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp">
+                        <div class="nameBlock">
+                          <p class="outChampionName">Champion Name</p>
+                        </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"><img src="http://placehold.it/38x38" class="outSummonerSpell2">
+                      </div>
+                      <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"></div>
+                      <div class="players"></div>
+                      <div class="matchInfo">
+                        <div class="group">
+                          <p class="outK">00 </p>
+                          <p class="small">Kills</p>
+                        </div>
+                        <div class="group">
+                          <p class="outD">00 </p>
+                          <p class="small">Deaths</p>
+                        </div>
+                        <div class="group">
+                          <p class="outA">00</p>
+                          <p class="small">Assists</p>
+                        </div>
+                        <div class="group">
+                          <p class="outCreeps">200</p>
+                          <p class="small">Creeps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="menu"><a href="#" class="linkHome">Home</a><a href="#">About Us</a><a href="#">Contact</a>
+        <p>murilobast @ 2015</p>
+      </div>
+    </footer>
+  </div>
+</body>

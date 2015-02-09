@@ -1,0 +1,146 @@
+doctype HTML
+head
+    title LoL Project
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="css/onepcssgrid.css")
+    link(rel="stylesheet", href="css/style.css")
+    script(src="jquery.js")
+    script(src="code.js")
+body
+    .content
+        form.data
+            .logo
+                h1 LoL Project
+            .inpt-group
+                input.name(type="text", placeholder=" Summoner Name")
+                .opt
+                    select.serverOpt
+                        option br
+                        option na
+                        option eune
+                        option euw
+                        option kr
+                        option lan
+                        option las
+                        option na
+                        option oce
+                        option tr
+                        option ru
+                button.send(type="submit") Send 
+        #Home
+            h1 Welcome Summoner! This is a Riot API based Website.
+            h3 We are currently under development and more features are coming soon...
+            br
+            h3 Upcoming features:
+            ul
+                li List last 50 games with a chosen champion or the last 50 games;
+                li Runes and Masteries Support;
+                li Current game information like Tier, Division, Runes, Masteries, KDA and more;
+                li More in-depth information about ranked games and matches;
+                li And + tons of things that Riot API Allow;
+            
+            p I'm not trying to compete with any existing "Summoner Info" Website, I'm just doing this for fun and educational puropse. SE YA!
+        .modal
+        .Result
+            .basicInfo
+                .profileIcon
+                    img.outIcon(src='http://placehold.it/128x128')
+                .profileInfo
+                    p.outName Champion
+                    p.outLevel Level 30
+                    
+                .profileRanked
+                    .t3v3
+                        h3 Team 3v3
+                        img.outTierImg(src='tier/unranked.png')
+                        p.outTier UNRANKED
+                        p.outLP 0 LP
+                        p.outElo 0 Points
+                    .solo
+                        h3 Solo 5v5
+                        img.outTierImg(src='tier/unranked.png')
+                        p.outTier UNRANKED
+                        p.outLP 0 LP
+                        p.outElo 0 Points
+                    .t5v5
+                        h3 Team 5v5
+                        img.outTierImg(src='tier/unranked.png')
+                        p.outTier UNRANKED
+                        p.outLP 0 LP
+                        p.outElo 0 Points
+                script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+                // SiteLOL 
+                ins(class="adsbygoogle", style="display:inline-block;width:280px;height:250px", data-ad-client="ca-pub-9211196233969408", data-ad-slot="4659942514")
+                script.
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+            
+                    
+            .matchHistory
+                .matchHeader
+                    h2 Match History
+                mixin match
+                        .match
+                            .header
+                                .mode
+                                    p.outGameType NORMAL 5v5
+                                    p.small Mode
+                                .date
+                                    p.outDate 01/01/1970
+                                    p.small Created in
+                                .duration
+                                    p.outDuratiom 35min
+                                    p.small Duration
+                                .gold
+                                    p.outGold 10k Gold
+                                    p.small Gold
+                                
+                            .content
+                                .championInfo
+                                    img.outChamp(src='http://placehold.it/72x72')
+                                    .nameBlock
+                                        p.outChampionName Champion Name
+                                    img.outSummonerSpell1(src="http://placehold.it/38x38")
+                                    img.outSummonerSpell2(src="http://placehold.it/38x38")
+                                    
+                                .matchItems
+                                    img.outItem0(src='http://cdn.replays.io/resources/img/item/0.png')
+                                    img.outItem1(src='http://cdn.replays.io/resources/img/item/0.png')
+                                    img.outItem2(src='http://cdn.replays.io/resources/img/item/0.png')
+                                    img.outItem6(src='http://cdn.replays.io/resources/img/item/0.png')
+                                    img.outItem4(src='http://cdn.replays.io/resources/img/item/0.png')
+                                    img.outItem5(src='http://cdn.replays.io/resources/img/item/0.png')
+                                    img.outItem3(src='http://cdn.replays.io/resources/img/item/0.png')
+                                .players
+                                
+                                .matchInfo
+                                    .group
+                                        p.outK 00 
+                                        p.small Kills
+                                    .group
+                                        p.outD 00 
+                                        p.small Deaths
+                                    .group
+                                        p.outA 00
+                                        p.small Assists
+                                    .group
+                                        p.outCreeps 200
+                                        p.small Creeps
+                .container
+                    +match
+                    +match
+                    +match
+                    +match
+                    +match
+                    +match
+                    +match
+                    +match
+                    +match
+                    +match
+        
+
+        footer.footer
+            .menu
+                a(href="#").linkHome Home
+                a(href="#") About Us
+                a(href="#") Contact
+                p murilobast @ 2015
