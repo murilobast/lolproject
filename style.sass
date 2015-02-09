@@ -1,29 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans)
-@import reset
-shadow-0
-    border: 1px solid #eee
-.shadow-1
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26)
-.shadow-2
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2)
-.shadow-3
-    box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19), 0 12px 15px 0 rgba(0, 0, 0, 0.24)
-.shadow-4
-    box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.21), 0 16px 28px 0 rgba(0, 0, 0, 0.22)
-.shadow-5
-    box-shadow: 0 40px 77px 0 rgba(0, 0, 0, 0.22), 0 27px 24px 0 rgba(0, 0, 0, 0.2)
-*
-    font-family: 'Open Sans', sans-serif !important
-body
-    padding: 0
-    margin: 0
-    background: #eee
-
+@import includes/_vars
+@import includes/_base
 .data
     border-radius: 2px
     margin: 0 auto
     height: 64px
-    background: #fff
+    background: #white
     padding-bottom: 5px
     width: 100%
     text-align: center
@@ -49,7 +30,7 @@ body
         height: 30px
         font-size: 16px
         margin: 0 auto
-        background: #1abc9c
+        background: $light-green
         border: none
         @extend .shadow-1
         border-radius: 5px
@@ -67,7 +48,7 @@ body
         padding-left: 10px
         margin-right: 20px
         font-weight: bold
-        border: solid 1px #1abc9c
+        border: solid 1px $light-green
         vertical-align: middle
         &:focus
             outline: 0
@@ -131,7 +112,7 @@ body
             line-height: 12px
             margin: 10px 0
             margin-bottom: 0
-            background: #eee
+            background: $grey-white
             @extend .shadow-1
             width: 100%
             display: inline-block
@@ -167,7 +148,7 @@ body
         @extend .shadow-1
         height: 20px
         position: absolute
-        background-color: #eee
+        background-color: $grey-white
         width: 610px
         margin-top: -20px
         h2
@@ -185,7 +166,7 @@ body
         .header
             height: 30px
             width: 590px
-            background: #333
+            background: $dark
             text-align: left
             padding: 4px
             display: inline-block
@@ -227,7 +208,7 @@ body
                 width: 96px
                 display: block
                 height: 20px
-                color: #eee
+                color: $grey-white
                 background: #333
                 font-size: 12px
                 margin-top: -20px
@@ -274,17 +255,12 @@ body
                 width: 38px
                 @extend .shadow-1
                 border-radius: 2px
-            .outGold
-                font-size: 12px
-                line-height: 1
-                color: #f1c40f
-                font-weight: bold
         .players
             width: 332px
             display: block
             height: 170px
             opacity: 0.3
-            background: #333
+            background: $dark
             float: right
                 
 .footer
@@ -293,11 +269,11 @@ body
     bottom: 0
     height: 60px
     width: 100%
-    background: #fff
+    background: $white
     text-align: center
     a
         text-decoration: none
-        color: #333
+        color: $dark
         padding: 20px
         display: inline-block
         text-transform: uppercase
@@ -311,7 +287,7 @@ body
         opacity: 0.6
 ins
     display: none !important
-    background: #333
+    background: $dark
     margin: 0 auto
     margin-top: 10px
     

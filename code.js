@@ -4,11 +4,25 @@ $(document).ready(function(){
     $(window).resize(function(){
         $('.Result .container, .matchHistory').css('height', $(window).height() - 202 + 'px');
     });
+    
+    
+    //LIVE GAMES RIOT API
+    $.ajax({
+        url: 'https://br.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/BR1/1624734?api_key=a0797630-9996-4ab6-85d6-704029984adf',
+        dataType: 'json',
+        success : function(retorno) {
+        
+        }
+    });
+    
+    
+    
     $('.linkHome').click(function(event){
         event.preventDefault();
         $('#Home').show(100);
         $('.Result').hide();
     });
+    //$('#Home').hide();
     $('.Result').hide();
     $('.send').click(function(event){
         $('.solo .outElo').text('0 Points');
@@ -19,6 +33,7 @@ $(document).ready(function(){
         $('.outLP').text(0);
         data.name = $('.name').val().replace(/ /g,'');
         data.server = $('.serverOpt').val();
+        // BASIC INFO RIOT API
         $.ajax({
             url: 'https://' + data.server + '.api.pvp.net/api/lol/' + data.server + '/v1.4/summoner/by-name/' + data.name + '?api_key=a0797630-9996-4ab6-85d6-704029984adf',
             beforeSend: function() { $('body').addClass("loading"); },
@@ -29,6 +44,7 @@ $(document).ready(function(){
                 $('.outLevel').text('Level: ' + retorno[data.name].summonerLevel);
                 $('.outIcon').attr('src', 'http://ddragon.leagueoflegends.com/cdn/' + data.ver + '/img/profileicon/' + retorno[data.name].profileIconId + '.png');
                 data.sid = retorno[data.name].id;
+                //RANKED GAMES RIOT API
                 $.ajax({
                     url: 'https://na.api.pvp.net/api/lol/' + data.server + '/v2.5/league/by-summoner/' + data.sid + '/entry?api_key=a0797630-9996-4ab6-85d6-704029984adf',
                     beforeSend: function() { $('body').addClass("loading"); },
@@ -56,6 +72,7 @@ $(document).ready(function(){
                         $('.solo .outElo').text(elo + (parseInt(retorno2[data.sid][0].entries[0].leaguePoints / 2) ) + ' Points');
                     }
                 })
+                //MATCH HISTORY RIOT API
                 $.ajax({
                     url: 'https://na.api.pvp.net/api/lol/' + data.server + '/v1.3/game/by-summoner/' + data.sid + '/recent?api_key=a0797630-9996-4ab6-85d6-704029984adf',
                     beforeSend: function() { $('body').addClass("loading"); },
@@ -93,6 +110,7 @@ $(document).ready(function(){
                             }else{
                                 $('.matchHistory .content:eq(' + game + ')').css('background', '#52B3D9');
                             };
+                            //CHAMPION INFO RIOT API
                             $.ajax({
                                 url: 'https://na.api.pvp.net/api/lol/static-data/' + data.server + '/v1.2/champion/' + static.championId + '?api_key=a0797630-9996-4ab6-85d6-704029984adf',
                                 dataType: 'json',
@@ -106,6 +124,7 @@ $(document).ready(function(){
                         });
                     }                        
                 });
+                
                 if ($(".outTier").empty){
                     $('.outTier').text('Unranked');
                     $('.outTierImg').attr('src', 'tier/unranked.png');

@@ -1,0 +1,49 @@
+// Mach History Base
+
+mixin match
+    .match
+        .header
+            .mode
+                p.outGameType NORMAL 5v5
+                p.small Mode
+            .date
+                p.outDate 01/01/1970
+                p.small Created in
+            .duration
+                p.outDuratiom 35min
+                p.small Duration
+            .gold
+                p.outGold 10k Gold
+                p.small Gold
+
+        .content
+            .championInfo
+                img.outChamp(src='http://placehold.it/72x72')
+                .nameBlock
+                    p.outChampionName Champion Name
+                img.outSummonerSpell1(src="http://placehold.it/38x38")
+                img.outSummonerSpell2(src="http://placehold.it/38x38")
+
+            .matchItems
+                img.outItem0(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem1(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem2(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem6(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem4(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem5(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem3(src='http://cdn.replays.io/resources/img/item/0.png')
+            .players
+
+            .matchInfo
+                .group
+                    p.outK 00 
+                    p.small Kills
+                .group
+                    p.outD 00 
+                    p.small Deaths
+                .group
+                    p.outA 00
+                    p.small Assists
+                .group
+                    p.outCreeps 200
+                    p.small Creeps
