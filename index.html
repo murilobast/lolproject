@@ -13,38 +13,46 @@
         <h1>LoL Project</h1>
       </div>
       <div class="inpt-group">
-        <input type="text" placeholder=" Summoner Name" class="name">
-        <div class="opt">
-          <select class="serverOpt">
-            <option>br</option>
-            <option>na</option>
-            <option>eune</option>
-            <option>euw</option>
-            <option>kr</option>
-            <option>lan</option>
-            <option>las</option>
-            <option>na</option>
-            <option>oce</option>
-            <option>tr</option>
-            <option>ru</option>
-          </select>
+        <div class="form-misc">
+          <input type="text" placeholder=" Summoner Name" class="name">
+          <!--.form-misc-->
+          <div class="opt">
+            <select class="serverOpt">
+              <option>br</option>
+              <option>na</option>
+              <option>eune</option>
+              <option>euw</option>
+              <option>kr</option>
+              <option>lan</option>
+              <option>las</option>
+              <option>na</option>
+              <option>oce</option>
+              <option>tr</option>
+              <option>ru</option>
+            </select>
+          </div>
+          <div class="switch">
+            <input id="cb5" type="checkbox" class="tgl tgl-flip mode">
+            <label data-tg-off="Active Match" data-tg-on="Info" for="cb5" class="tgl-btn">      </label>
+          </div>
         </div>
-        <button type="submit" class="send">Send </button>
+        <button type="submit" class="send">Search </button>
       </div>
     </form>
     <div id="Home">
-      <!--    h1 Welcome Summoner! This is a Riot API based Website.-->
-      <!--    h3 We are currently under development and more features are coming soon...-->
-      <!--    br-->
-      <!--    h3 Upcoming features:-->
-      <!--    ul-->
-      <!--        li List last 50 games with a chosen champion or the last 50 games;-->
-      <!--        li Runes and Masteries Support;-->
-      <!--        li Current game information like Tier, Division, Runes, Masteries, KDA and more;-->
-      <!--        li More in-depth information about ranked games and matches;-->
-      <!--        li And + tons of things that Riot API Allow;-->
-      <!---->
-      <!--    p I'm not trying to compete with any existing "Summoner Info" Website, I'm just doing this for fun and educational puropse. SE YA!22-->
+      <h1>Welcome Summoner! This is a Riot API based Website.</h1>
+      <h3>We are currently under development and more features are coming soon...</h3><br>
+      <h3>Upcoming features:</h3>
+      <ul>
+        <li>List last 50 games with a chosen champion or the last 50 games;</li>
+        <li>Runes and Masteries Support;</li>
+        <li>Current game information like Tier, Division, Runes, Masteries, KDA and more;</li>
+        <li>More in-depth information about ranked games and matches;</li>
+        <li>And + tons of things that Riot API Allow;</li>
+      </ul>
+      <p>I'm not trying to compete with any existing "Summoner Info" Website, I'm just doing this for fun and educational puropse. SE YA!22</p>
+    </div>
+    <div id="Active">
       <h1>Friend team</h1>
       <p class="outFriendTeam">Summoner Name</p>
       <p class="outFriendTeam">Summoner Name</p>
