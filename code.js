@@ -20,8 +20,6 @@ $(document).ready(function(){
         event.preventDefault();
         if ($('.tgl').is(":checked"))
         {
-            data.name = $('.name').val().replace(/ /g,'');
-            data.server = $('.serverOpt').val();
             $('#Home').hide(100);
             $('.Result').hide(100);
             $.ajax({
