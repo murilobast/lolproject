@@ -23,9 +23,11 @@ body
                             option ru
                     .switch
                         input#cb5.tgl.tgl-flip(type="checkbox").mode
-                        label.tgl-btn(data-tg-off="Active Match", data-tg-on="Info", for="cb5")       
+                        label.tgl-btn(data-tg-off="Summoner Info", data-tg-on="Active Match", for="cb5")       
                 button.send(type="submit") Search 
         include ./includes/_home.jade
+        include ./includes/_about.jade
+        include ./includes/_contact.jade
         include ./includes/_activematch.jade
         .modal
         .Result

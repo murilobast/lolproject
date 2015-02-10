@@ -274,10 +274,34 @@
             width: 332px
             display: block
             height: 170px
-            opacity: 0.3
             background: $dark
             float: right
-                
+            .outTeamMembers, .outEnemyMembers
+                padding-top: 1px
+                width: 160px
+                display: inline-block
+            .player
+                margin: 2px auto
+                height: 30px
+                display: block
+                img
+                    display: inline-block
+                    vertical-align: middle
+                    width: 30px !important
+                .playerInfo
+                    display: inline-table
+                    height: 30px
+                    line-height: 30px
+                    overflow: hidden
+                    position: relative
+                    top: -6px
+                    p
+                        vertical-align: middle
+                        display: block
+                        line-height: 15px
+                        font-size: 12px
+                        color: $white
+                    .outKDA
 .footer
     @extend .shadow-2
     position: fixed
@@ -323,7 +347,7 @@ body.loading
 body.loading .modal 
     display: block
 
-#Home
+#Home, #Active, #About, #Contact
     position: absolute
     top: 0
     bottom: 0
@@ -358,25 +382,3 @@ body.loading .modal
     li
         font-size: 16px
         padding-left: 10px
-#Active
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    width: 50%
-    height: 50%
-    margin: auto
-    @extend .shadow-3
-    overflow: auto
-    text-align: center
-    h1
-        margin-top: 25px
-        font-size: 24px  
-        padding-bottom: 10px
-    p
-        font-size: 16px
-        opacity: 0.65
-        vertical-align: bottom
-        width: 75%
-        margin: 0 auto

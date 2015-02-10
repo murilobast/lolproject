@@ -1,4 +1,10 @@
 // Mach History Base
+mixin player
+    .player
+        img.outChampTeam(src='http://placehold.it/30x30')
+        .playerInfo
+            p.outName Summoner Name
+            p.outKDA 0/0/0
 
 mixin match
     .match
@@ -7,13 +13,13 @@ mixin match
                 p.outGameType NORMAL 5v5
                 p.small Mode
             .date
-                p.outDate 01/01/1970
+                p.outDate 00 MINS AGO
                 p.small Created in
             .duration
                 p.outDuratiom 35min
                 p.small Duration
             .gold
-                p.outGold 10k Gold
+                p.outGold 0k GOLD
                 p.small Gold
 
         .content
@@ -29,11 +35,22 @@ mixin match
                 img.outItem1(src='http://cdn.replays.io/resources/img/item/0.png')
                 img.outItem2(src='http://cdn.replays.io/resources/img/item/0.png')
                 img.outItem6(src='http://cdn.replays.io/resources/img/item/0.png')
+                img.outItem3(src='http://cdn.replays.io/resources/img/item/0.png')
                 img.outItem4(src='http://cdn.replays.io/resources/img/item/0.png')
                 img.outItem5(src='http://cdn.replays.io/resources/img/item/0.png')
-                img.outItem3(src='http://cdn.replays.io/resources/img/item/0.png')
             .players
-
+                .outTeamMembers
+                    +player
+                    +player
+                    +player
+                    +player
+                    +player
+                .outEnemyMembers
+                    +player
+                    +player
+                    +player
+                    +player
+                    +player     
             .matchInfo
                 .group
                     p.outK 00 
