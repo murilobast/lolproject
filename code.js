@@ -80,6 +80,7 @@ $(function(){
                         $('.outChampionName:eq(' + game + ')').text(championName);
                         jQuery.each(matchHistory.games[game].fellowPlayers, function(player) {
                                 var championTeamName = result.data[matchHistory.games[game].fellowPlayers[player].championId].key;
+                                console.log(game + ' ' + player + ' ' + championTeamName);
                                 $('.players:eq(' + game + ') .outChampTeam:eq(' + [player+1] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
                        });                                     
                     });
