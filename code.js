@@ -3,7 +3,6 @@ $(function(){
         hideAllBut($('.Result'));
         event.preventDefault();
         data.name = noAcentos($('.name').val().replace(/ /g,'').toLowerCase());
-        console.log(data.name);
         data.server = $('.serverOpt').val();
         //Basic Summoner Info
         ajaxLoL(basicInfoURL(data.server, data.name), function(result){
@@ -32,11 +31,13 @@ $(function(){
                     i++;
                 });
                 $('.solo .outElo').text(elo + (parseInt(result[data.sid][0].entries[0].leaguePoints / 2) ) + ' Points');
-            });
+            }, 'ranked');
             
             //Match History
             ajaxLoL(matchHistoryURL(data.server, data.sid), function(result) {
                 matchHistory = result;
+                console.log(matchHistory.games);                
+                
                 jQuery.each(matchHistory.games, function(game){
                     date = new Date(matchHistory.games[game].createDate);
                     //$('.outDate:eq(' + game + ')').text(('0' + date.getDate()).slice(-2) + '/' + ('0' + date.getMonth() +1).slice(-2) + '/' + date.getFullYear());
@@ -51,17 +52,7 @@ $(function(){
                                 $('.outItem' + i + ':eq(' + game + ')').attr('src', imageDb(data.ver,+ 'tem', item[i]));
                             };
                         };
-                    };
-                    
-                    
-                    for (player=0;player<9;player++){
-                        if (matchHistory.games[game].gameType =! 'CUSTOM_GAME') {
-                            $('.player').attr('src', imageDb(data.ver, 'champion', matchHistory.games[game].fellowPlayers[player].championId));
-                        };
-                        console.log('game ' + game + ' player ' + player);
-                    };
-                    
-                    
+                    };                   
                     $('.outK:eq(' + game + ')').text(('0' + (parseInt(matchHistory.games[game].stats.championsKilled) || 0)).slice(-2));
                     $('.outD:eq(' + game + ')').text(('0' + (parseInt(matchHistory.games[game].stats.numDeaths) || 0)).slice(-2));
                     $('.outA:eq(' + game + ')').text(('0' + (parseInt(matchHistory.games[game].stats.assists) || 0)).slice(-2));
@@ -78,8 +69,22 @@ $(function(){
                         $('.matchHistory .content:eq(' + game + ')').css('background', '#52B3D9');
                     };                   
                     i++;
+                    
                 });
-            });
+                //Champion Info
+                ajaxLoL(championInfoURL(data.server), function(result) {
+                    jQuery.each(matchHistory.games, function(game){
+                        var championName = result.data[matchHistory.games[game].championId].key;
+                        $('.outChamp:eq(' + game + ')').attr('src', imageDb(data.ver, 'champion', championName));
+                        $('.players:eq(' + game + ') .outChampTeam:eq(0)').attr('src', imageDb(data.ver, 'champion', championName));
+                        $('.outChampionName:eq(' + game + ')').text(championName);
+                        jQuery.each(matchHistory.games[game].fellowPlayers, function(player) {
+                                var championTeamName = result.data[matchHistory.games[game].fellowPlayers[player].championId].key;
+                                $('.players:eq(' + game + ') .outChampTeam:eq(' + [player+1] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
+                       });                                     
+                    });
+                }, 'championInfo');
+            }, 'matchHistory');
         });
         if ($(".outTier").empty){
             $('.outTier').text('UNRANKED');

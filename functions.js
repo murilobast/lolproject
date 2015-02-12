@@ -1,9 +1,23 @@
 //Functions
-function ajaxLoL(url, job){
+function ajaxLoL(url, job, requestType){
     $.ajax({ 
         url: url,
         success: function(result){
             job(result);
+        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+            if (requestType == 'ranked') {
+                if (errorThrown == 'Not Found'){
+                    alert('No Ranked data');
+                }else{
+                    alert(errorThrown)
+                };
+            }else{
+                if (errorThrown == 'Not Found'){
+                    alert('Error: Check Summoner Name or Server');
+                }else{
+                    alert(errorThrown)
+                };
+            };
         }
     });
 };
@@ -35,15 +49,17 @@ function timeSince(date) {
 
 //URL functions
 function basicInfoURL(server, name){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.4/summoner/by-name/' + name + '?api_key=a0797630-9996-4ab6-85d6-704029984adf';
+    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.4/summoner/by-name/' + name + '?api_key=' + apiKey;
 };
 function rankedURL(server, sid){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v2.5/league/by-summoner/' + sid + '/entry?api_key=a0797630-9996-4ab6-85d6-704029984adf';
+    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v2.5/league/by-summoner/' + sid + '/entry?api_key=' + apiKey;
 };
 function matchHistoryURL(server, sid){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.3/game/by-summoner/' + sid + '/recent?api_key=a0797630-9996-4ab6-85d6-704029984adf';
+    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.3/game/by-summoner/' + sid + '/recent?api_key=' + apiKey;
 };
-
+function championInfoURL(server){
+    return 'https://' + server + '.api.pvp.net/api/lol/static-data/' + server + '/v1.2/champion?dataById=true&api_key=' + apiKey;
+};
 
 function imageDb(version, option, value){
     return 'http://ddragon.leagueoflegends.com/cdn/' + version + '/img/' + option + '/' + value + '.png';
