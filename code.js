@@ -1,6 +1,3 @@
-var data = {name: '',server: '', sid: ''};
-var matchHistory = new Object();
-var ranked = new Object();
 $(function(){
     $('.send').click(function(event){
         hideAllBut($('.Result'));
@@ -55,6 +52,16 @@ $(function(){
                             };
                         };
                     };
+                    
+                    
+                    for (player=0;player<9;player++){
+                        if (matchHistory.games[game].gameType =! 'CUSTOM_GAME') {
+                            $('.player').attr('src', imageDb(data.ver, 'champion', matchHistory.games[game].fellowPlayers[player].championId));
+                        };
+                        console.log('game ' + game + ' player ' + player);
+                    };
+                    
+                    
                     $('.outK:eq(' + game + ')').text(('0' + (parseInt(matchHistory.games[game].stats.championsKilled) || 0)).slice(-2));
                     $('.outD:eq(' + game + ')').text(('0' + (parseInt(matchHistory.games[game].stats.numDeaths) || 0)).slice(-2));
                     $('.outA:eq(' + game + ')').text(('0' + (parseInt(matchHistory.games[game].stats.assists) || 0)).slice(-2));

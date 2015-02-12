@@ -1,3 +1,6 @@
+var data = {name: '',server: '', sid: ''};
+var matchHistory = new Object();
+var ranked = new Object();
 $(function(){
     resizeWindow();
     hideAllBut($('#Home'));
