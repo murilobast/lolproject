@@ -3,11 +3,10 @@ body
     .content
         form.data
             .logo
-                h1 LoL Project
+                h1 Gankei.com
             .inpt-group
                 .form-misc
                     input.name(type="text", placeholder=" Summoner Name")
-                    //.form-misc
                     .opt
                         select.serverOpt
                             option br
@@ -25,30 +24,31 @@ body
                         input#cb5.tgl.tgl-flip(type="checkbox").mode
                         label.tgl-btn(data-tg-off="Summoner Info", data-tg-on="Active Match", for="cb5")       
                 button.send(type="submit") Search 
-        include ./includes/_home.jade
-        include ./includes/_about.jade
-        include ./includes/_contact.jade
-        include ./includes/_activematch.jade
-        .modal
-        .Result
-            include ./includes/_basicinfo.jade
-            
-                    
-            .matchHistory
-                .matchHeader
-                    h2 Match History
-                include ./includes/_mixins
-                .container
-                    +match
-                    +match
-                    +match
-                    +match
-                    +match
-                    +match
-                    +match
-                    +match
-                    +match
-                    +match
-        
+        .container
+            include ./includes/_home.jade
+            include ./includes/_about.jade
+            include ./includes/_contact.jade
+            include ./includes/_activematch.jade
+            .modal
+            .Result
+                include ./includes/_basicinfo.jade
+
+
+                .matchHistory
+                    .matchHeader
+                        h2 Match History
+                    include ./includes/_mixins
+                    .container
+                        +match
+                        +match
+                        +match
+                        +match
+                        +match
+                        +match
+                        +match
+                        +match
+                        +match
+                        +match
+
 
         include ./includes/_footer.jade

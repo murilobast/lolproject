@@ -4,23 +4,26 @@ mixin player
         img.outChampTeam(src='http://placehold.it/30x30')
         .playerInfo
             p.outName Summoner Name
-            p.outKDA 0/0/0
 
 mixin match
     .match
         .header
             .mode
-                p.outGameType NORMAL 5v5
                 p.small Mode
+                p.outGameType NORMAL 5v5
+                
             .date
+                p.small When
                 p.outDate 00 MINS AGO
-                p.small Created in
+                
             .duration
-                p.outDuratiom 35min
                 p.small Duration
+                p.outDuration 35min
+                
             .gold
-                p.outGold 0k GOLD
                 p.small Gold
+                p.outGold 0k GOLD
+                
 
         .content
             .championInfo

@@ -60,6 +60,9 @@ function matchHistoryURL(server, sid){
 function championInfoURL(server){
     return 'https://' + server + '.api.pvp.net/api/lol/static-data/' + server + '/v1.2/champion?dataById=true&api_key=' + apiKey;
 };
+function summonerNamesURL(server, sids){
+    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.4/summoner/' + sids + '?api_key=' + apiKey;
+};
 
 function imageDb(version, option, value){
     return 'http://ddragon.leagueoflegends.com/cdn/' + version + '/img/' + option + '/' + value + '.png';
@@ -78,7 +81,7 @@ $(function(){
     });
 });
 resizeWindow = (function(){
-    $('.Result .container, .matchHistory').css('height', $(window).height() - 202 + 'px');
+    $('#Home, #Active, #About, #Contact, .Result .container, .matchHistory').css('height', $(window).height() - 187 + 'px');
     //console.log('New Screen size = ' + $(window).height());
 });
 //Cross Domain Ajax fix
@@ -187,11 +190,11 @@ function noAcentos (str) {
 }
 
 function hideAllBut(element){
-    $('#Home').hide();
-    $('#About').hide();
-    $('#Contact').hide();
-    $('#Active').hide();
-    $('.Result').hide();
+    $('#Home').hide(100);
+    $('#About').hide(100);
+    $('#Contact').hide(100);
+    $('#Active').hide(100);
+    $('.Result').hide(100);
     //add more
-    element.show();
+    element.show(100);
 };
