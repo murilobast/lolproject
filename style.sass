@@ -1,7 +1,10 @@
 @import includes/_vars
 @import includes/_base
+
+    
 body
     background: #555
+    min-width: 320px
 .data
     background: $white
     border-radius: 2px
@@ -86,7 +89,7 @@ body
 .Result
     text-align: center
     display: block
-    width: 1080px
+    max-width: 1080px
     //@extend .shadow-2
     //background: #03A9F4
     padding: 10px
@@ -181,6 +184,7 @@ body
         height: 200px
         width: 590px
         overflow: hidden
+        background-size: cover !important
         .header
             height: 30px
             width: 590px
@@ -212,7 +216,6 @@ body
         .content
             height: 170px
             display: block
-            background: #fff    
             .championInfo
                 width: 96px
                 height: 160px
@@ -285,7 +288,7 @@ body
             width: 330px
             display: block
             height: 170px
-            background: $dark
+            background: $dark-transp
             float: right
             .outTeamMembers, .outEnemyMembers
                 padding-top: 1px
@@ -302,7 +305,6 @@ body
                     vertical-align: middle
                     width: 30px !important
                 .playerInfo
-                    display: inline-table
                     height: 30px
                     line-height: 30px
                     overflow: hidden
@@ -310,8 +312,10 @@ body
                         vertical-align: middle
                         display: block
                         line-height: 30px
-                        font-size: 14px
+                        font-size: 13px
                         color: $white
+                        text-align: left
+                        padding-left: 5px
                     .outKDA
 .footer
     @extend .shadow-2
@@ -394,3 +398,7 @@ body.loading .modal
     li
         font-size: 16px
         padding-left: 10px
+        
+        
+        
+@import includes/_mobile

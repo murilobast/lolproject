@@ -4,6 +4,7 @@ $(function(){
         event.preventDefault();
         data.name = noAcentos($('.name').val().replace(/ /g,'').toLowerCase());
         data.server = $('.serverOpt').val();
+        
         //Basic Summoner Info
         ajaxLoL(basicInfoURL(data.server, data.name), function(result){
             data.sid = result[data.name].id;
@@ -21,17 +22,17 @@ $(function(){
                 var division = ['V', 'IV', 'III', 'II', 'I']
                 jQuery.each(tier, function(i){
                     if(result[data.sid][0].tier == tier[i]){
-                        elo = ((i+1)*200)+900;
+                        elo = ((i+1)*500);
                     };
-                    i++;
+                    //i++;
                 });
                 jQuery.each(division, function(i){
                     if(result[data.sid][0].entries[0].division == division[i]){
-                        elo = elo + (i*40);
+                        elo = elo + (i*100);
                     };
-                    i++;
+                    //i++;
                 });
-                $('.solo .outElo').text(elo + (parseInt(result[data.sid][0].entries[0].leaguePoints / 2) ) + ' Points');
+                $('.solo .outElo').text(elo + (parseInt(result[data.sid][0].entries[0].leaguePoints / 2) ) + ' Total LP');
             }, 'ranked');
             
             //Match History
@@ -152,9 +153,9 @@ $(function(){
                     $('.outSummonerSpell1:eq(' + game + ')').attr('src', 'spell/' + matchHistory.games[game].spell1 + '.png');
                     $('.outSummonerSpell2:eq(' + game + ')').attr('src', 'spell/' + matchHistory.games[game].spell2 + '.png');
                     if(matchHistory.games[game].stats.win == true) {
-                       $('.matchHistory .content:eq(' + game + ')').css('background', '#03C9A9');
+                       $('.matchHistory .content:eq(' + game + ')').css('background', 'rgba(26,188,156,0.45)');
                     }else if (matchHistory.games[game].stats.win == false) {
-                        $('.matchHistory .content:eq(' + game + ')').css('background', '#EF4836 ');
+                        $('.matchHistory .content:eq(' + game + ')').css('background', 'rgba(231, 76, 60, 0.45)');
                     }else{
                         $('.matchHistory .content:eq(' + game + ')').css('background', '#52B3D9');
                     };                   
@@ -214,6 +215,7 @@ $(function(){
                         var championName = result.data[matchHistory.games[game].championId].key;
                         $('.outChamp:eq(' + game + ')').attr('src', imageDb(data.ver, 'champion', championName));
                         $('.outChampionName:eq(' + game + ')').text(championName);
+                        $('.matchHistory .match:eq(' + game + ')').css('background', 'url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + championName + '_0.jpg)');
                         jQuery.each(matchHistory.games[game].fellowPlayers, function(player) {
                             jQuery.each(team[game].blue, function(bluePlayer){
                                 var championTeamName = result.data[team[game].blue[bluePlayer].champId].key;

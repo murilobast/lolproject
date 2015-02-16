@@ -49,28 +49,29 @@ function timeSince(date) {
 
 //URL functions
 function basicInfoURL(server, name){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.4/summoner/by-name/' + name + '?api_key=' + apiKey;
+    return mainHost + '/basicbyname/' + server + '/' + name;
 };
 function rankedURL(server, sid){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v2.5/league/by-summoner/' + sid + '/entry?api_key=' + apiKey;
+    return mainHost + '/rankedbyid/' + server + '/' + sid;
 };
 function matchHistoryURL(server, sid){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.3/game/by-summoner/' + sid + '/recent?api_key=' + apiKey;
+    return mainHost + '/historybyid/' + server + '/' + sid;
 };
 function championInfoURL(server){
-    return 'https://' + server + '.api.pvp.net/api/lol/static-data/' + server + '/v1.2/champion?dataById=true&api_key=' + apiKey;
+    return mainHost + '/championbyids/' + server;
 };
 function summonerNamesURL(server, sids){
-    return 'https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.4/summoner/' + sids + '?api_key=' + apiKey;
+    return mainHost + '/namesbyids/' + server + '/' + sids;
 };
 
 function imageDb(version, option, value){
     return 'http://ddragon.leagueoflegends.com/cdn/' + version + '/img/' + option + '/' + value + '.png';
 };
+
 //Extra Functions
 $(function(){
     $.ajax({
-        url: 'https://br.api.pvp.net/api/lol/static-data/br/v1.2/versions?api_key=a0797630-9996-4ab6-85d6-704029984adf',
+        url: mainHost + '/staticdata/br',
         beforeSend: function() { $('body').addClass("loading"); },
         complete: function() { $('body').removeClass("loading"); },
         dataType: 'json',
@@ -81,16 +82,18 @@ $(function(){
     });
 });
 resizeWindow = (function(){
-    $('#Home, #Active, #About, #Contact, .Result .container, .matchHistory').css('height', $(window).height() - 187 + 'px');
-    //console.log('New Screen size = ' + $(window).height());
-});
-//Cross Domain Ajax fix
-$.ajaxPrefilter(function(options) {
-    if(options.crossDomain && jQuery.support.cors) {
-        var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-        options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+    if ($(window).width() > 680){
+        $('#Home, #Active, #About, #Contact, .Result .container, .matchHistory').css('height', $(window).height() - 187 + 'px');
     };
 });
+
+//Cross Domain Ajax fix
+//$.ajaxPrefilter(function(options) {
+//    if(options.crossDomain && jQuery.support.cors) {
+//        var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+//        options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+//    };
+//});
 
 var defaultDiacriticsRemovalMap = [
     {'base':'A', 'letters':/[\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F]/g},
