@@ -12,8 +12,18 @@ mixin bluePlayer
         .spells
             img.outSpell1(src='spell/4.png')
             img.outSpell2(src='spell/11.png')
-        .name
+        .summonerInfo
             p.outBluePlayer Blue Player
+            p.outMastery Mastery Page
+            p.outRunePage Rune Page
+        .stats
+            p KDA
+            p.outKDA 10/5/14
+        .outRankedStats
+            img.outTierImg(src='tier/GOLD_III.png')
+            p.outTier GOLD III
+            p.outRankedWins 32/27 RANKED WINS
+            p.outNormalWinds 200 NORMAL WINS
 
 mixin purplePlayer
     .player
@@ -22,9 +32,18 @@ mixin purplePlayer
         .spells
             img.outSpell1(src='spell/4.png')
             img.outSpell2(src='spell/11.png')
-        .name
+        .summonerInfo
             p.outPurplePlayer Purple Player
-            
+            p.outMastery Mastery Page
+            p.outRunePage Rune Page
+        .stats
+            p KDA
+            p.outKDA 10/5/14
+        .outRankedStats
+            img.outTierImg(src='tier/GOLD_III.png')
+            p.outTier GOLD III
+            p.outRankedWins 32/27 RANKED WINS
+            p.outNormalWinds 200 NORMAL WINS 
 
 
 mixin match

@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="jquery.js"></script>
   <script src="base.js"></script>
-  <script src="code.js"></script>
   <script src="activematch.js"></script>
+  <script src="basicinfo.js"></script>
   <script src="functions.js"></script>
 </head>
 <body>
@@ -28,7 +28,6 @@
               <option>kr</option>
               <option>lan</option>
               <option>las</option>
-              <option>na</option>
               <option>oce</option>
               <option>tr</option>
               <option>ru</option>
@@ -47,11 +46,12 @@
         <div class="header">
           <h1>Welcome Summoner! This is a Riot API based Website.</h1>
         </div>
-        <div class="body"></div>
+        <div class="body">
+          <!--        h3 We are currently under development and more features are coming soon...-->
+          <!--        img(src="tier/GOLD_I.png")-->
+          <p>Type your Summoner Name in the box above and press "Search".</p>
+        </div>
       </div>
-      <!--        h3 We are currently under development and more features are coming soon...-->
-      <!--        img(src="tier/GOLD_I.png")-->
-      <!--        p Lorem inpsum mussum-->
       <div id="About">
         <h1>Welcome Summoner! This is a Riot API based Website.</h1>
         <h3>We are currently under development and more features are coming soon...</h3>
@@ -61,79 +61,216 @@
         <h3>We are currently under development and more features are coming soon...</h3>
       </div>
       <div id="Active">
-        <div class="blueTeam">
-          <h1>Blue team</h1>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outBluePlayer">Blue Player</p>
-            </div>
+        <div class="header">
+          <h1>Active Match</h1>
+        </div>
+        <div class="summonerInfoHeader">
+          <div class="icon"><img src="http://img3.wikia.nocookie.net/__cb20140528061130/leagueoflegends/images/5/53/ProfileIcon_Pentakill.jpg" class="outSummonerIcon"></div>
+          <div class="gameInfo">
+            <p class="outSummonerName">Summoner Name</p>
+            <p class="outSummonerLevel">Level 00</p>
+            <p class="outGameTime">Time 00:00:00</p>
+            <p class="outServer">BR Server</p>
           </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outBluePlayer">Blue Player</p>
-            </div>
-          </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outBluePlayer">Blue Player</p>
-            </div>
-          </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outBluePlayer">Blue Player</p>
-            </div>
-          </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outBluePlayer">Blue Player</p>
-            </div>
+          <div class="gameType">
+            <h3 class="outGameType">Ranked Game 5v5</h3>
           </div>
         </div>
-        <div class="purpleTeam">
-          <h1>Purple team</h1>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outPurplePlayer">Purple Player</p>
+        <div class="info">
+          <div class="blueTeam">
+            <div class="header">
+              <h1>Blue team</h1>
+            </div>
+            <div class="inferior"></div>
+            <div class="frame">
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outBluePlayer">Blue Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS</p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outBluePlayer">Blue Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS</p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outBluePlayer">Blue Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS</p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outBluePlayer">Blue Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS</p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outBluePlayer">Blue Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outPurplePlayer">Purple Player</p>
+          <div class="purpleTeam">
+            <div class="header">
+              <h1>Purple team</h1>
             </div>
-          </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outPurplePlayer">Purple Player</p>
-            </div>
-          </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outPurplePlayer">Purple Player</p>
-            </div>
-          </div>
-          <div class="player">
-            <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-            <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
-            <div class="name">
-              <p class="outPurplePlayer">Purple Player</p>
+            <div class="inferior"></div>
+            <div class="frame">
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outPurplePlayer">Purple Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS </p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outPurplePlayer">Purple Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS </p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outPurplePlayer">Purple Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS </p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outPurplePlayer">Purple Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS </p>
+                </div>
+              </div>
+              <div class="player">
+                <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
+                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="summonerInfo">
+                  <p class="outPurplePlayer">Purple Player</p>
+                  <p class="outMastery">Mastery Page</p>
+                  <p class="outRunePage">Rune Page</p>
+                </div>
+                <div class="stats">
+                  <p>KDA</p>
+                  <p class="outKDA">10/5/14</p>
+                </div>
+                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                  <p class="outTier">GOLD III</p>
+                  <p class="outRankedWins">32/27 RANKED WINS</p>
+                  <p class="outNormalWinds">200 NORMAL WINS </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

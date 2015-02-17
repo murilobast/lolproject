@@ -1,22 +1,178 @@
 #Active
-    .blueTeam, .purpleTeam
-        width: 40%
-        display: inline-block
-        .player
-            height: 80px
-            overflow: hidden
-            width: 95%
-            background: $dark-transp
-            margin: 5px
-            .champ
+    .header
+        h1
+            font-size: 32px
+            text-align: left
+            text-transform: uppercase
+            margin-left: 20px
+            margin-bottom: 20px
+    .summonerInfoHeader
+        background: $dark
+        width: 97%
+        height: 60px
+        margin: 0 auto
+        margin-bottom: 20px
+        border-radius: 2px
+        @extend .shadow-2
+        .icon
+            width: 60px
+            height: inherit
+            float: left
+            img
+                width: 60px
+        .gameInfo
+            height: inherit
+            text-align: left
+            float: left
+            p
+                color: $white
+                line-height: 60px
+                display: inline-block
+                margin: 0 10px
+                text-transform: uppercase
+            .outSummonerName
+                text-transform: none
+                margin-left: 20px   
+        .gameType
+            float: right
+            height: 60px
+            h3
+                line-height: 60px
+                color: $white
+                margin: 0 20px
+                text-transform: uppercase
+                opacity: 0.85
+                font-size: 18px
+    .frame
+        background: $dark
+        width: 100%
+        height: 330px
+        padding: 8px 0
+        clear: both
+    .info
+        width: 97%
+        height: 386px
+        margin: 0 auto
+        //@extend .shadow-2
+        .blueTeam
+            float: left
+            .player
                 float: left
-                .outChampImg
-                    width: 80px
-            .spells
-                width: 40px
-                height: inherit
+                margin: 3px 2%
+                border-radius: 2px
+            .header
+                @extend .shadow-1
                 float: left
-                img
-                    width: 40px
-                    margin: 0
-                    display: block
+                height: 30px
+                margin-bottom: 10px
+                margin-left: 6px
+                background: $dark
+                color: $white
+                width: 130px
+                h1
+                    font-size: 14px
+                    text-transform: uppercase
+                    line-height: 22px
+                    vertical-aligh: middle
+            .inferior
+                height: 20px
+                width: 100%
+                background: $blue
+                margin-top: 20px
+        .purpleTeam
+            float: right
+            .player
+                float: right
+                margin: 3px 2%
+            .header
+                @extend .shadow-1
+                float: right
+                height: 30px
+                margin-bottom: 10px
+                margin-right: 6px
+                background: $dark
+                color: $white
+                width: 130px
+                h1
+                    font-size: 14px
+                    text-transform: uppercase
+                    line-height: 22px
+                    vertical-aligh: middle
+            .inferior
+                height: 20px
+                width: 100%
+                background: $purple
+                margin-top: 20px
+        .blueTeam, .purpleTeam
+            width: 50%
+            display: inline-block
+            .player
+                height: 60px
+                overflow: hidden
+                width: 94%
+                background: $white
+                //margin: 3px 0
+                display: inline-block
+                @extend .shadow-2
+                .champ
+                    float: left
+                    @extend .shadow-2
+                    .outChampImg
+                        width: 60px
+                .spells
+                    width: 30px
+                    height: inherit
+                    float: left
+                    @extend .shadow-2
+                    img
+                        width: 30px
+                        margin: 0
+                        display: block
+                .summonerInfo
+                    width: 120px
+                    height: inherit
+                    float: left
+                    text-align: left
+                    
+                    p
+                        margin: 0
+                        margin-left: 10px
+                        font-size: 12px
+                        line-height: 20px
+                        vertical-align: middle
+                    .outBluePlayer, .outPurplePlayer
+                        font-size: 14px
+                .stats
+                    //float: left
+                    height: inherit
+                    margin: 0 auto
+                    display: inline-block
+                    p
+                        margin: 0
+                        font-size: 12px
+                        line-height: 30px
+                        
+                .outRankedStats
+                    width: 160px
+                    height: inherit
+                    float: right
+                    position: relative
+                    img
+                        width: 24px
+                        display: inline-block
+                        position: absolute
+                        right: 65px
+                        
+                    p
+                        display: inline-block
+                        font-size: 12px
+                        text-align: right
+                        line-height: 18px
+                        float: right
+                        padding-right: 10px
+                    .outTier
+                        line-height: 24px
+.active
+    background: $sea-blue !important
+    p
+        color: $white

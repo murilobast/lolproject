@@ -1,20 +1,40 @@
 #Active
-    .blueTeam
-        h1 Blue team
-        +bluePlayer
-        +bluePlayer
-        +bluePlayer
-        +bluePlayer
-        +bluePlayer   
-        
-        
-        
-        
-    .purpleTeam
-        h1 Purple team
-        +purplePlayer
-        +purplePlayer
-        +purplePlayer
-        +purplePlayer
-        +purplePlayer
-        
+    .header
+        h1 Active Match
+    .summonerInfoHeader
+        .icon
+            img.outSummonerIcon(src='http://img3.wikia.nocookie.net/__cb20140528061130/leagueoflegends/images/5/53/ProfileIcon_Pentakill.jpg')
+        .gameInfo
+            p.outSummonerName Summoner Name
+            p.outSummonerLevel Level 00
+            p.outGameTime Time 00:00:00
+            p.outServer BR Server
+        .gameType
+            h3.outGameType Ranked Game 5v5
+    .info
+        .blueTeam
+            .header
+                h1 Blue team
+            .inferior
+            .frame
+                
+                +bluePlayer
+                +bluePlayer
+                +bluePlayer
+                +bluePlayer
+                +bluePlayer   
+
+
+
+
+        .purpleTeam
+            .header
+                h1 Purple team
+            .inferior
+            .frame
+                
+                +purplePlayer
+                +purplePlayer
+                +purplePlayer
+                +purplePlayer
+                +purplePlayer

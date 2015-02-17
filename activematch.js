@@ -1,7 +1,7 @@
 function activeMatch(event){
     //event.preventDefault();
     hideAllBut($('#Active'), 200);
-    ajaxLoL('https://br.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/BR1/1304498?api_key=a0797630-9996-4ab6-85d6-704029984adf', function(result){
+    ajaxLoL(activeMatchURL(data.server, data.sid), function(result){
         console.log(result.participants);
         
         jQuery.each(result.participants, function(player){
