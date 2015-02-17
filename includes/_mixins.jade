@@ -5,6 +5,28 @@ mixin player
         .playerInfo
             p.outName Summoner Name
 
+mixin bluePlayer
+    .player
+        .champ
+            img.outChampImg(src='http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png')
+        .spells
+            img.outSpell1(src='spell/4.png')
+            img.outSpell2(src='spell/11.png')
+        .name
+            p.outBluePlayer Blue Player
+
+mixin purplePlayer
+    .player
+        .champ
+            img.outChampImg(src='http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png')
+        .spells
+            img.outSpell1(src='spell/4.png')
+            img.outSpell2(src='spell/11.png')
+        .name
+            p.outPurplePlayer Purple Player
+            
+
+
 mixin match
     .match
         .header

@@ -10,7 +10,7 @@ var sidList3 = 431005;
 
 $(function(){
     resizeWindow();
-    hideAllBut($('#Home'));
+    hideAllBut($('#Active'), 200);
     $(window).resize(function(){ resizeWindow(); });
     $('.linkHome').click(function(event){
         event.preventDefault();

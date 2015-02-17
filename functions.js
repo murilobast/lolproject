@@ -81,6 +81,7 @@ $(function(){
         }
     });
 });
+
 resizeWindow = (function(){
     if ($(window).width() > 680){
         $('#Home, #Active, #About, #Contact, .Result .container, .matchHistory').css('height', $(window).height() - 187 + 'px');
@@ -88,12 +89,12 @@ resizeWindow = (function(){
 });
 
 //Cross Domain Ajax fix
-//$.ajaxPrefilter(function(options) {
-//    if(options.crossDomain && jQuery.support.cors) {
-//        var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-//        options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-//    };
-//});
+$.ajaxPrefilter(function(options) {
+    if(options.crossDomain && jQuery.support.cors) {
+        var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+        options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+    };
+});
 
 var defaultDiacriticsRemovalMap = [
     {'base':'A', 'letters':/[\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F]/g},
@@ -192,12 +193,12 @@ function noAcentos (str) {
     return str;
 }
 
-function hideAllBut(element){
-    $('#Home').hide(100);
-    $('#About').hide(100);
-    $('#Contact').hide(100);
-    $('#Active').hide(100);
-    $('.Result').hide(100);
+function hideAllBut(element, time){
+    $('#Home').hide(time);
+    $('#About').hide(time);
+    $('#Contact').hide(time);
+    $('#Active').hide(time);
+    $('.Result').hide(time);
     //add more
-    element.show(100);
+    element.show(time);
 };

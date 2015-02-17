@@ -227,7 +227,7 @@ $(function(){
                             });
                        });                                     
                     });
-                    hideAllBut($('.Result'));
+                    hideAllBut($('.Result'), 200);
                 }, 'championInfo');
             }, 'matchHistory');
         });

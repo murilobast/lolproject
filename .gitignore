@@ -14,4 +14,9 @@ Desktop.ini
 *.sass-cache*
 config.codekit
 *.zip
-prepos.cfg
+prepros.cfg
+
+_includes/*.css
+_includes/*.html
+
+*.zip

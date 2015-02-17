@@ -25,7 +25,7 @@ body
     .inpt-group
         width: 320px
         float: right
-        //margin-top: 40px
+        height: 69px
         line-height: 70px
     label
         font-size: 14px
@@ -58,7 +58,7 @@ body
         padding-left: 10px
         //margin-right: 10px
         font-weight: bold
-        border: solid 1px $light-green
+        border: solid 1px $dark-transp
         //vertical-align: middle
         &:focus
             outline: 0
@@ -81,11 +81,12 @@ body
         vertical-align: top
         margin-top: 8px
     .form-misc
-        //background: $dark
-        width: 200px
+        padding-left: 2px
+        float: left
+        width: 175px
         display: inline-block
         height: 60px
-        vertical-align: middle
+        padding-top: 5px
 .Result
     text-align: center
     display: block
@@ -364,27 +365,32 @@ body.loading .modal
 
 #Home, #Active, #About, #Contact
     background: $white
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    width: 50%
-    height: 50%
-    margin: auto
+    //    position: absolute
+    //    top: 0
+    //    bottom: 0
+    //    left: 0
+    //    right: 0
+    //    width: 50%
+    //    height: 50%
+    padding-top: 20px
+    border-radius: 2px
+    margin: 0 auto
+    margin-top: 20px
+    box-sizing: border-box
+    width: 95%
+    max-width: 1080px
     @extend .shadow-3
     overflow: auto
     text-align: center
     h1
-        margin-top: 25px
-        font-size: 24px  
-        padding-bottom: 10px
+        font-size: 32px 
+        padding: 5px 0
     h3 
         font-size:  20px
         padding-bottom: 10px
     p
         font-size: 16px
-        opacity: 0.65
+        opacity: 0.8
         vertical-align: bottom
         width: 75%
         margin: 0 auto
@@ -402,3 +408,4 @@ body.loading .modal
         
         
 @import includes/_mobile
+@import includes/_activematch
