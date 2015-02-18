@@ -22,6 +22,7 @@ $(function(){
 
 $(function(){
     $('.send').click(function(event){
+        hideAllBut($('.modal'), 300);
         event.preventDefault();
         data.name = noAcentos($('.name').val().replace(/ /g,'').toLowerCase());
         data.server = $('.serverOpt').val();
@@ -39,10 +40,14 @@ $(function(){
             var summonerInfos = result;
             data.sid = result[data.name].id;
             $('.basicInfo .outName').text(result[data.name].name);
+            $.each($('.players'), function(game){
+                $('.players:eq(' + game + ') .outName').text('');
+                $('.players:eq(' + game + ') .outName:eq(0)').text(result[data.name].name);
+            });
             $('.outLevel').text('Level ' + result[data.name].summonerLevel);
             $('.outIcon').attr('src', imageDb(data.ver, 'profileicon', result[data.name].profileIconId));
             if ($('.tgl').is(':checked')){
-                activeMatch();
+                //activeMatch();
             }else{
                 basicInfo();
             };

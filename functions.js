@@ -12,7 +12,8 @@ function ajaxLoL(url, job, requestType){
                     $('.solo .outLP').text('0 LP');
                     $('.solo .outElo').text('0 Total LP');
                 }else{
-                    alert(errorThrown)
+                    alert(errorThrown);
+                    hideAllBut($('#Home'));
                 };
             }else{
                 if (errorThrown == 'Not Found'){
@@ -21,12 +22,14 @@ function ajaxLoL(url, job, requestType){
                     setTimeout(function(){
                         $('.modalMsg').css('display', 'none');
                     }, 3000);
+                    hideAllBut($('#Home'));
                 }else{
                     $('.modalMsg p').text(errorThrown);
                     $('.modalMsg').css('display', 'block');
                     setTimeout(function(){
                         $('.modalMsg').css('display', 'none');
                     }, 3000);
+                    hideAllBut($('#Home'));
                 };
             };
         }
@@ -213,6 +216,7 @@ function hideAllBut(element, time){
     $('#Contact').hide(time);
     $('#Active').hide(time);
     $('.Result').hide(time);
+    $('.modal').hide(time);
     //add more
     element.show(time);
 };

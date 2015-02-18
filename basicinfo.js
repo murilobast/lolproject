@@ -38,6 +38,7 @@ function basicInfo(){
                 extra[game].player.push({champId: '0', sid: '0', name: '-'});
                 extra[game].player[0].champId= result.games[game].championId;
                 extra[game].player[0].sid= data.sid;
+                
                 jQuery.each(result.games[game].fellowPlayers, function(player){
                     extra[game].player.push({champId: '0', sid: '0', name: '-'});
                     extra[game].player[player+1].champId= result.games[game].fellowPlayers[player].championId;
@@ -48,6 +49,23 @@ function basicInfo(){
                         sidList4 = sidList4 + ',' + result.games[game].fellowPlayers[player].summonerId;
                     };
                 });     
+            }else if (result.games[game].subType == 'BOT_3x3'){
+                $('.outEnemyMembers:eq(' + game + ') .player').hide();
+                extra[game].player.push({champId: '0', sid: '0', name: '-'});
+                extra[game].player[0].champId= result.games[game].championId;
+                extra[game].player[0].sid= data.sid;
+                $('.outTeamMembers:eq(' + game + ') .player:eq(3)').hide();
+                $('.outTeamMembers:eq(' + game + ') .player:eq(4)').hide();
+                jQuery.each(result.games[game].fellowPlayers, function(player){
+                    extra[game].player.push({champId: '0', sid: '0', name: '-'});
+                    extra[game].player[player+1].champId= result.games[game].fellowPlayers[player].championId;
+                    extra[game].player[player+1].sid= result.games[game].fellowPlayers[player].summonerId;
+                    if (sidList4 == undefined){
+                        sidList4 = result.games[game].fellowPlayers[player].summonerId;
+                    }else{
+                        sidList4 = sidList4 + ',' + result.games[game].fellowPlayers[player].summonerId;
+                    };
+                });  
             }else if (result.games[game].subType == 'NONE'){
                 $('.players:eq(' + game + ')').children('div').hide();
             }else{
@@ -257,12 +275,16 @@ function basicInfo(){
                 $('.matchHistory .match:eq(' + game + ')').css('background', 'url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + championName + '_0.jpg)');
                 jQuery.each(matchHistory.games[game].fellowPlayers, function(player) {
                     jQuery.each(team[game].blue, function(bluePlayer){
-                        var championTeamName = result.data[team[game].blue[bluePlayer].champId].key;
-                        $('.players:eq(' + game + ') .outChampTeam:eq(' + [bluePlayer] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
+                        if (team[game].blue[bluePlayer].champId != 0){
+                            var championTeamName = result.data[team[game].blue[bluePlayer].champId].key;
+                            $('.players:eq(' + game + ') .outChampTeam:eq(' + [bluePlayer] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
+                        };
                     });
                     jQuery.each(team[game].purple, function(purplePlayer){
-                        var championTeamName = result.data[team[game].purple[purplePlayer].champId].key;
-                        $('.players:eq(' + game + ') .outChampTeam:eq(' + [purplePlayer+5] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
+                        if (team[game].purple[purplePlayer].champId != 0){
+                            var championTeamName = result.data[team[game].purple[purplePlayer].champId].key;
+                            $('.players:eq(' + game + ') .outChampTeam:eq(' + [purplePlayer+5] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
+                        };
                     });
                     if (typeof extra[game] != 'undefined'){
                         if (typeof extra[game].player != 'undefined'){
