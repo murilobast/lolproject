@@ -32,7 +32,15 @@ function basicInfo(){
     ajaxLoL(matchHistoryURL(data.server, data.sid), function(result) {
         matchHistory = result; 
         jQuery.each(matchHistory.games, function(game){
-            if (result.games[game].gameType == 'CUSTOM_GAME') {
+            extra.push({player: []});
+            if (result.games[game].subType == 'BOT') {
+                $('.outEnemyMembers:eq(' + game + ') .player').hide();
+                jQuery.each(result.games[game].fellowPlayers, function(player){
+                    extra[game].player.push({champId: '0', sid: '0', name: '-'});
+                    extra[game].player[player].champId= result.games[game].fellowPlayers[player].championId;
+                    extra[game].player[player].sid= result.games[game].fellowPlayers[player].summonerId;
+                });
+            }else if (result.games[game].subType == 'NONE'){
                 $('.players:eq(' + game + ')').children('div').hide();
             }else{
                 games[game] = result.games[game].fellowPlayers;
@@ -72,7 +80,6 @@ function basicInfo(){
                     team[game].blue[0].champId = result.games[game].championId;
                     jQuery.each(games[game], function(player){
                         if (games[game][player].teamId == 200) {
-                            //team[game].blue.push({champId: '', sid: ''});
                             team[game].blue[blue].champId = result.games[game].fellowPlayers[player].championId;
                             team[game].blue[blue].sid = result.games[game].fellowPlayers[player].summonerId;
                             blue++;
@@ -87,6 +94,7 @@ function basicInfo(){
                     if (game < 8){
                         if (game == 0){
                             if (player == 0 ) {
+                                sidList1 =  data.sid;
                                 sidList1 =  team[game].blue[player].sid;
                             }else{
                                 sidList1 =  sidList1 + ',' + team[game].blue[player].sid;  
@@ -98,6 +106,7 @@ function basicInfo(){
                     if (game < 8){
                         if (game == 0){
                             if (player == 0 ) {
+                                sidList2 =  data.sid;
                                 sidList2 =  team[game].purple[player].sid;
                             }else{
                                 sidList2 =  sidList2 + ',' + team[game].purple[player].sid;  
@@ -109,6 +118,7 @@ function basicInfo(){
                     if (game > 7){
                         if (game == 7){
                             if (player == 0 ) {
+                                sidList3 =  data.sid;
                                 sidList3 =  team[game].blue[player].sid;
                                 sidList3 =  sidList3 + ',' + team[game].purple[player].sid; 
                             }else{
@@ -122,6 +132,17 @@ function basicInfo(){
                     };
                 });
             };
+            
+            if (sidList1 == undefined) {
+                sidList1 = data.sid;
+            }
+            if (sidList2 == undefined) {
+                sidList2 = data.sid;
+            }
+            if (sidList3 == undefined) {
+                sidList3 = data.sid;
+            }
+
             when = new Date(matchHistory.games[game].createDate);
             var duration = parseInt(matchHistory.games[game].stats.timePlayed/60);
             $('.outDuration:eq(' + game + ')').text(duration + 'min');
@@ -218,6 +239,14 @@ function basicInfo(){
                         var championTeamName = result.data[team[game].purple[purplePlayer].champId].key;
                         $('.players:eq(' + game + ') .outChampTeam:eq(' + [purplePlayer+5] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
                     });
+                    if (typeof extra[game] != 'undefined'){
+                        if (typeof extra[game].player != 'undefined'){
+                            jQuery.each(extra[game].player, function(extraPlayer){
+                                var championTeamName = result.data[extra[game].player[extraPlayer].champId].key;
+                                $('.players:eq(' + game + ') .outChampTeam:eq(' + [extraPlayer] + ')').attr('src', imageDb(data.ver, 'champion', championTeamName));
+                            });
+                        };
+                    };
                });                                     
             });
             hideAllBut($('.Result'), 200);
