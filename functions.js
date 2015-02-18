@@ -7,15 +7,26 @@ function ajaxLoL(url, job, requestType){
         }, error: function (XMLHttpRequest, textStatus, errorThrown) {
             if (requestType == 'ranked') {
                 if (errorThrown == 'Not Found'){
-                    alert('No Ranked data');
+                    $('.solo .outTier').text('UNRANKED');
+                    $('.solo .outTierImg').attr('src', 'tier/unranked.png');
+                    $('.solo .outLP').text('0 LP');
+                    $('.solo .outElo').text('0 Total LP');
                 }else{
                     alert(errorThrown)
                 };
             }else{
                 if (errorThrown == 'Not Found'){
-                    alert('Error: Check Summoner Name or Server');
+                    $('.modalMsg p').text("Summoner doesn't exist or wrong server was selected");
+                    $('.modalMsg').css('display', 'block');
+                    setTimeout(function(){
+                        $('.modalMsg').css('display', 'none');
+                    }, 3000);
                 }else{
-                    alert(errorThrown)
+                    $('.modalMsg p').text(errorThrown);
+                    $('.modalMsg').css('display', 'block');
+                    setTimeout(function(){
+                        $('.modalMsg').css('display', 'none');
+                    }, 3000);
                 };
             };
         }

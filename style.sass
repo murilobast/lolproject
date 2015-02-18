@@ -318,7 +318,7 @@ body
                         color: $white
                         text-align: left
                         padding-left: 5px
-                    .outKDA
+
 .footer
     @extend .shadow-2
     position: fixed
@@ -350,13 +350,34 @@ ins
     
 .modal 
     display: none
-    position: fixed
+    position: absolute
     z-index: 1000
     top: 0
     left: 0
+    bottom: 0
+    right: 0
     height: 100%
     width: 100%
     background: rgba( 255, 255, 255, .8 ) url(../loader.gif) 50% 50% no-repeat
+        
+.modalMsg
+    display: none
+    position: absolute
+    z-index: 1000
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    height: 60px
+    width: 280px
+    margin: 75px auto
+    background: $dark-transp
+    padding: 20px 10px
+    p
+        color: $white
+        line-height: 20px
+        font-size: 14px
+        text-align: center
         
 body.loading 
     overflow: hidden

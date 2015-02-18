@@ -8,6 +8,7 @@ var team = [];
 var sidList1;
 var sidList2;
 var sidList3;
+var sidList4;
 var extra = [];
 $(function(){
     resizeWindow();
@@ -25,11 +26,14 @@ $(function(){
         data.name = noAcentos($('.name').val().replace(/ /g,'').toLowerCase());
         data.server = $('.serverOpt').val();
         team = [];
+        games = [];
         sidList1 = undefined;
         sidList2 = undefined;
         sidList3 = undefined;
-        $('.players').show();
+        sidList4 = undefined;
+        $('.player').show();
         $('.name').val('');
+        
         //Basic Summoner Info
         ajaxLoL(basicInfoURL(data.server, data.name), function(result){
             var summonerInfos = result;
@@ -42,6 +46,6 @@ $(function(){
             }else{
                 basicInfo();
             };
-        });
+        }, 'basic');
     });        
 });

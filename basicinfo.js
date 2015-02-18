@@ -35,11 +35,19 @@ function basicInfo(){
             extra.push({player: []});
             if (result.games[game].subType == 'BOT') {
                 $('.outEnemyMembers:eq(' + game + ') .player').hide();
+                extra[game].player.push({champId: '0', sid: '0', name: '-'});
+                extra[game].player[0].champId= result.games[game].championId;
+                extra[game].player[0].sid= data.sid;
                 jQuery.each(result.games[game].fellowPlayers, function(player){
                     extra[game].player.push({champId: '0', sid: '0', name: '-'});
-                    extra[game].player[player].champId= result.games[game].fellowPlayers[player].championId;
-                    extra[game].player[player].sid= result.games[game].fellowPlayers[player].summonerId;
-                });
+                    extra[game].player[player+1].champId= result.games[game].fellowPlayers[player].championId;
+                    extra[game].player[player+1].sid= result.games[game].fellowPlayers[player].summonerId;
+                    if (sidList4 == undefined){
+                        sidList4 = result.games[game].fellowPlayers[player].summonerId;
+                    }else{
+                        sidList4 = sidList4 + ',' + result.games[game].fellowPlayers[player].summonerId;
+                    };
+                });     
             }else if (result.games[game].subType == 'NONE'){
                 $('.players:eq(' + game + ')').children('div').hide();
             }else{
@@ -142,6 +150,9 @@ function basicInfo(){
             if (sidList3 == undefined) {
                 sidList3 = data.sid;
             }
+            if (sidList4 == undefined) {
+                sidList4 = data.sid;
+            }
 
             when = new Date(matchHistory.games[game].createDate);
             var duration = parseInt(matchHistory.games[game].stats.timePlayed/60);
@@ -218,7 +229,21 @@ function basicInfo(){
                                 $('.players:eq(' + game + ') .outName:eq(' + bluePlayer + ')').text(team[game].blue[bluePlayer].name);
                             };
                         });
+                        
                    };
+                });
+            });
+        });
+        
+        ajaxLoL(summonerNamesURL(data.server, sidList4), function(result){
+            jQuery.each(result, function(id){
+                $.each(extra, function(game){
+                    $.each(extra[game].player, function(player){
+                        if (result[id].id == extra[game].player[player].sid){
+                           extra[game].player[player].name = result[id].name;
+                           $('.players:eq(' + game + ') .outName:eq(' + [player] + ')').text(extra[game].player[player].name);
+                        };
+                    });
                 });
             });
         });
