@@ -1,6 +1,7 @@
 var data = {name: '',server: '', sid: ''};
 var matchHistory = new Object();
 var ranked = new Object();
+var items = new Object();
 var mainHost = 'http://gankei-backend.herokuapp.com'
 //var mainHost = 'http://localhost:3000'
 var games = [];
@@ -21,6 +22,7 @@ $(function(){
 });
 
 $(function(){
+    itemFloat();  
     $('.send').click(function(event){
         hideAllBut($('.modal'), 300);
         event.preventDefault();
@@ -34,6 +36,7 @@ $(function(){
         sidList4 = undefined;
         $('.player').show();
         $('.name').val('');
+        getItems();
         
         //Basic Summoner Info
         ajaxLoL(basicInfoURL(data.server, data.name), function(result){

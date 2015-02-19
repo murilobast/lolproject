@@ -182,8 +182,10 @@ function basicInfo(){
                 if (matchHistory.games[game].stats['item' + i]){
                     if (matchHistory.games[game].stats['item' + i] == 3128 || 3160){
                         $('.outItem' + i + ':eq(' + game + ')').attr('src', imageDb('4.21.1', 'item', item[i]));
+                        $('.outItem' + i + ':eq(' + game + ')').attr('alt', item[i]);
                     }else{                                        
                         $('.outItem' + i + ':eq(' + game + ')').attr('src', imageDb(data.ver,+ 'tem', item[i]));
+                        $('.outItem' + i + ':eq(' + game + ')').attr('alt', item[i]);
                     };
                 };
             };                   

@@ -29,9 +29,7 @@ body
             include ./includes/_about.jade
             include ./includes/_contact.jade
             include ./includes/_activematch.jade
-            .modal
-            .modalMsg
-                p Error MSG
+            
             .Result
                 include ./includes/_basicinfo.jade
 
@@ -53,3 +51,16 @@ body
 
 
         include ./includes/_footer.jade
+        
+        
+        .modal
+        .modalMsg
+            p Error MSG
+        .modalItem
+            .header
+                img.itemImg(src="http://ddragon.leagueoflegends.com/cdn/4.21.1/img/item/3031.png")
+                p.itemName Infinity Edge
+            .body
+                .itemDesc +80 Attack Damage +20% Critical Strike Chance UNIQUE Passive: Critical strikes deal 250% damage instead of 200%.
+                p.itemCost Cost: 3800 Gold
+            

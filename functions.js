@@ -99,12 +99,44 @@ $(function(){
     });
 });
 
+getItems = (function(){
+    locale = {br: 'pt_BR', na: 'en_US', eune: 'en_US', euw: 'en_US', kr: 'ko_KR', lan: 'es_ES', las: 'es_ES', oce: 'en_US', tr: 'tr_TR', ru: 'ru_RU'};
+    $.ajax({
+        url: 'http://ddragon.leagueoflegends.com/cdn/' + data.ver + '/data/' + locale[data.server] + '/item.json',
+        beforeSend: function() { $('body').addClass("loading"); },
+        complete: function() { $('body').removeClass("loading"); },
+        dataType: 'json',
+        success: function(response) {
+            items = response;
+        }
+    });
+});
+
 resizeWindow = (function(){
     if ($(window).width() > 680){
         $('#Home, #Active, #About, #Contact, .Result .container, .matchHistory').css('height', $(window).height() - 187 + 'px');
     };
 });
 
+itemFloat = (function(){
+    $('.outItem0, .outItem1, .outItem2, .outItem3, .outItem4, .outItem5, .outItem6, .outItem7').mouseenter(function(){
+        $('.modalItem img').attr('src', this.getAttribute('src'));
+        $('.modalItem .itemName').text(items.data[this.getAttribute('alt')].name);
+        $('.modalItem .itemDesc').empty().append(items.data[this.getAttribute('alt')].description);
+        $('.modalItem .itemCost').text('Cost: ' + items.data[this.getAttribute('alt')].gold.total + ' Gold');
+        $('.modalItem').css('display', 'block');
+    }).mouseleave(function(){
+        $('.modalItem').css('display', 'none');
+    });    
+    
+    
+    $('.outItem0, .outItem1, .outItem2, .outItem3, .outItem4, .outItem5, .outItem6, .outItem7').on('mousemove', function(e){
+        $('.modalItem').css({
+           left:  e.pageX+20,
+           top:   e.pageY-160
+        });
+    });
+});
 //Cross Domain Ajax fix
 //$.ajaxPrefilter(function(options) {
 //    if(options.crossDomain && jQuery.support.cors) {
