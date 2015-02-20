@@ -252,3 +252,20 @@ function hideAllBut(element, time){
     //add more
     element.show(time);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$( ".test" ).keydown(function(e) {
+  alert( "Handler for .keydown() called." );
+});

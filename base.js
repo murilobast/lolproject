@@ -22,6 +22,28 @@ $(function(){
 });
 
 $(function(){
+    
+    
+    
+    $('p').hide();
+    $( ".test" ).keydown(function() {
+        var re = new RegExp($( ".test" ).val());
+        $.each($('p'), function(){       
+            var exists = re.test($(this).text());;
+            if (exists && $( ".test" ).val() != ''){
+                console.log($( ".test" ).val());
+                $(this).show();
+            }else if ($( ".test" ).val() == ''){
+                $('p').hide();
+            }else{
+                $(this).hide();
+            };
+        });
+    });
+    
+    
+    
+    
     itemFloat();  
     $('.send').click(function(event){
         hideAllBut($('.modal'), 300);
