@@ -34,7 +34,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 * { font-family: "Roboto", sans-serif !important; }
 
-body { background-image: url("../img/bg.jpg"); }
+body { background: #303035; background-image: url("../img/bg.jpg"); background-repeat: no-repeat; }
 
 p { font-size: 14px; }
 
@@ -106,7 +106,7 @@ p { font-size: 14px; }
 #History .fullBox .basicInfo .profileIcon .outIcon { width: 180px; }
 #History .fullBox .basicInfo .profileRanked { width: 60%; display: inline-block; height: 180px; margin: 10px; }
 #History .fullBox .basicInfo .profileRanked .t3v3, #History .fullBox .basicInfo .profileRanked .t5v5, #History .fullBox .basicInfo .profileRanked .solo { width: 33%; height: 180px; float: right; margin: 0; padding: 0; }
-#History .fullBox .basicInfo .profileRanked .t3v3 h3, #History .fullBox .basicInfo .profileRanked .t5v5 h3, #History .fullBox .basicInfo .profileRanked .solo h3 { text-transform: uppercase; color: rgba(51, 51, 51, 0.6); text-align: center; margin-bottom: -30px; }
+#History .fullBox .basicInfo .profileRanked .t3v3 h3, #History .fullBox .basicInfo .profileRanked .t5v5 h3, #History .fullBox .basicInfo .profileRanked .solo h3 { text-transform: uppercase; color: rgba(51, 51, 51, 0.6); text-align: center; margin-bottom: -25px; }
 #History .fullBox .basicInfo .profileRanked .t3v3 .outTier, #History .fullBox .basicInfo .profileRanked .t5v5 .outTier, #History .fullBox .basicInfo .profileRanked .solo .outTier { text-transform: uppercase; color: rgba(51, 51, 51, 0.9); text-align: center; display: block; margin: 0 auto; margin-top: -20px; width: 50%; line-height: 20px; padding: 0; background: none; margin-bottom: 5px; }
 #History .fullBox .basicInfo .profileRanked .t3v3 p, #History .fullBox .basicInfo .profileRanked .t5v5 p, #History .fullBox .basicInfo .profileRanked .solo p { display: inline-block; height: 16px; padding: 2px 4px; margin: 1px 0; background: rgba(255, 255, 255, 0.1); line-height: 16px; }
 #History .fullBox .basicInfo .profileRanked .t3v3 .outTierImg, #History .fullBox .basicInfo .profileRanked .t5v5 .outTierImg, #History .fullBox .basicInfo .profileRanked .solo .outTierImg { width: 60%; margin: 0 auto; display: block; }
