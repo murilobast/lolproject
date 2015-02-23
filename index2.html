@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Gankei - LoL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style2.css">
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="headerLogo">
+        <h1>Gankei</h1>
+      </div>
+      <div class="formGroup">
+        <div class="search">
+          <select class="serverOpt">
+            <option>br</option>
+            <option>na</option>
+            <option>eune</option>
+            <option>euw</option>
+            <option>kr</option>
+            <option>lan</option>
+            <option>las</option>
+            <option>oce</option>
+            <option>tr</option>
+            <option>ru</option>
+          </select>
+          <input type="text" placeholder="Nome do Invocador" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do Invocador'" class="name">
+          <button type="submit" class="send">Enviar</button>
+        </div>
+        <div class="modeSelect">
+          <input type="radio" name="mode" value="true" checked id="activeRadio" class="active radio">
+          <label for="activeRadio" class="active">Histórico de Partidas</label>
+          <input type="radio" name="mode" value="false" id="historyRaadio" class="history radio">
+          <label for="historyRaadio" class="history">Partida em Andamento</label>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

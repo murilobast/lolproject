@@ -14,57 +14,57 @@ mixin bluePlayer
         .champ
             img.outChampImg(src='http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png')
         .spells
-            img.outSpell1(src='spell/4.png')
-            img.outSpell2(src='spell/11.png')
+            img.outSpell1(src='../spell/4.png')
+            img.outSpell2(src='../spell/11.png')
         .summonerInfo
             p.outBluePlayer Blue Player
-            p.outMastery Mastery Page (WIP)
-            p.outRunePage Rune Page (WIP)
+            p.outMastery Página de Talentos (WIP)
+            p.outRunePage Página de Runa (WIP)
             +modalRunes
         .stats
             p KDA
             p.outKDA --/--/-- (WIP)
         .outRankedStats
-            img.outTierImg(src='tier/GOLD_III.png')
+            img.outTierImg(src='../tier/GOLD_III.png')
             p.outTier GOLD III
-            p.outRankedWins 32/27 RANKED WINS
-            p.outNormalWinds --- (WIP) NORMAL WINS
+            p.outRankedWins 32/27 Vitórias Ranked
+            p.outNormalWinds --- (WIP) Vitórias Normal
 
 mixin purplePlayer
     .player
         .champ
             img.outChampImg(src='http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png')
         .spells
-            img.outSpell1(src='spell/4.png')
-            img.outSpell2(src='spell/11.png')
+            img.outSpell1(src='../spell/4.png')
+            img.outSpell2(src='../spell/11.png')
         .summonerInfo
             p.outPurplePlayer Purple Player
-            p.outMastery Mastery Page (WIP)
-            p.outRunePage Rune Page (WIP)
+            p.outMastery Página de Talentos (WIP)
+            p.outRunePage Página de Runa (WIP)
             +modalRunes
         .stats
             p KDA
             p.outKDA --/--/-- (WIP)
         .outRankedStats
-            img.outTierImg(src='tier/GOLD_III.png')
+            img.outTierImg(src='../tier/GOLD_III.png')
             p.outTier GOLD III
-            p.outRankedWins 32/27 RANKED WINS
-            p.outNormalWinds --- (WIP) NORMAL WINS 
+            p.outRankedWins 32/27 Vitórias Ranked
+            p.outNormalWinds --- (WIP) Vitórias Normal
 
 
 mixin match
     .match
         .header
             .mode
-                p.small Mode
+                p.small Modo
                 p.outGameType NORMAL 5v5
                 
             .date
-                p.small When
+                p.small Quando
                 p.outDate 00 MINS AGO
                 
             .duration
-                p.small Duration
+                p.small Duração
                 p.outDuration 35min
                 
             .gold
@@ -104,13 +104,13 @@ mixin match
             .matchInfo
                 .group
                     p.outK 00 
-                    p.small Kills
+                    p.small Abates
                 .group
                     p.outD 00 
-                    p.small Deaths
+                    p.small Mortes
                 .group
                     p.outA 00
-                    p.small Assists
+                    p.small Assistencias
                 .group
                     p.outCreeps 200
-                    p.small Creeps
+                    p.small Minions

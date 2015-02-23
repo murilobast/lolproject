@@ -6,6 +6,7 @@ function basicInfo(){
         
         var totalLP = [0, 0, 0];
         var tier = ['BRONZE', 'SILVER', 'GOLD', 'PLATINUM', 'DIAMOND', 'MASTER', 'CHALLENGER'];
+        var tierBR = {BRONZE: 'BRONZE', SILVER: 'PRATA', GOLD: 'OURO', PLATINUM: 'PLATINA', DIAMOND: 'DIAMANTE', MASTER: 'MESTRE', CHALLENGER: 'DESAFIANTE'};
         var division = ['V', 'IV', 'III', 'II', 'I'];
         var modeType = ['.solo', '.t5v5', '.t3v3'];
         
@@ -27,14 +28,14 @@ function basicInfo(){
                     };
                 });
             };
-            $(modeType[mode] + ' .outTier').text(ranked[data.sid][mode].tier + ' ' + ranked[data.sid][mode].entries[0].division);
-            $(modeType[mode] + ' .outTierImg').attr('src', 'tier/' + result[data.sid][mode].tier + '_' + ranked[data.sid][mode].entries[0].division+ '.png');
+            $(modeType[mode] + ' .outTier').text(tierBR[ranked[data.sid][mode].tier] + ' ' + ranked[data.sid][mode].entries[0].division);
+            $(modeType[mode] + ' .outTierImg').attr('src', '../tier/' + result[data.sid][mode].tier + '_' + ranked[data.sid][mode].entries[0].division+ '.png');
             $(modeType[mode] + ' .outLP').text(ranked[data.sid][mode].entries[0].leaguePoints + ' LP');
-            $(modeType[mode] + ' .outElo').text(totalLP[mode] + (parseInt(ranked[data.sid][mode].entries[0].leaguePoints) ) + ' Total LP');
-            $(modeType[mode] + ' .outWins').text(ranked[data.sid][mode].entries[0].wins + ' Wins');
-            $(modeType[mode] + ' .outLosses').text(ranked[data.sid][mode].entries[0].losses + ' Losses');
+            $(modeType[mode] + ' .outElo').text(totalLP[mode] + (parseInt(ranked[data.sid][mode].entries[0].leaguePoints) ) + ' LP Total');
+            $(modeType[mode] + ' .outWins').text(ranked[data.sid][mode].entries[0].wins + ' Vitórias');
+            $(modeType[mode] + ' .outLosses').text(ranked[data.sid][mode].entries[0].losses + ' Derrotas');
             var rate = ranked[data.sid][mode].entries[0].wins / (ranked[data.sid][mode].entries[0].wins + ranked[data.sid][mode].entries[0].losses) * 100
-            $(modeType[mode] + ' .outRate').text('Win rate ' + parseInt(rate) + '%');
+            $(modeType[mode] + ' .outRate').text('Win Rate ' + parseInt(rate) + '%');
         });
     }, 'ranked');
 
@@ -206,8 +207,8 @@ function basicInfo(){
             console.log((matchHistory.games[game].subType).replace(/_/g,' '));
             $('.outGameType:eq(' + [game +1]+ ')').text((matchHistory.games[game].subType).replace(/_/g,' '));
             $('.outCreeps:eq(' + game + ')').text(matchHistory.games[game].stats.minionsKilled);
-            $('.outSummonerSpell1:eq(' + game + ')').attr('src', 'spell/' + matchHistory.games[game].spell1 + '.png');
-            $('.outSummonerSpell2:eq(' + game + ')').attr('src', 'spell/' + matchHistory.games[game].spell2 + '.png');
+            $('.outSummonerSpell1:eq(' + game + ')').attr('src', '../spell/' + matchHistory.games[game].spell1 + '.png');
+            $('.outSummonerSpell2:eq(' + game + ')').attr('src', '../spell/' + matchHistory.games[game].spell2 + '.png');
             if(matchHistory.games[game].stats.win == true) {
                $('.matchHistory .content:eq(' + game + ')').css('background', 'rgba(26,188,156,0.45)');
             }else if (matchHistory.games[game].stats.win == false) {

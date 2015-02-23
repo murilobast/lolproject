@@ -1,0 +1,23 @@
+.header
+    .headerLogo
+        h1 Gankei
+    .formGroup
+        .search
+            select.serverOpt
+                option br
+                option na
+                option eune
+                option euw
+                option kr
+                option lan
+                option las
+                option oce
+                option tr
+                option ru
+            input.name(type="text", placeholder="Nome do Invocador", onfocus="this.placeholder = ''", onblur="this.placeholder = 'Nome do Invocador'")
+            button.send(type="submit") Enviar
+//        .modeSelect
+//            input(type="radio", name="mode", value="true", checked)#activeRadio.active.radio
+//            label.active(for='activeRadio') Histórico de Partidas
+//            input(type="radio", name="mode", value="false")#historyRaadio.history.radio
+//            label.history(for='historyRaadio') Partida em Andamento

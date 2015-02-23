@@ -1,0 +1,49 @@
+.modalItem
+    display: none
+    position: absolute
+    z-index: 1000
+    top: 0
+    left: 0
+    right: 0
+    //height: 240px
+    width: 200px
+    background: $dark
+    border: 1px solid $dark-transp
+    border-radius: 2px
+    @extend .shadow-4
+    p
+        color: $white
+        font-size: 12px
+        text-align: center
+        line-height: 20px
+        text-align: left
+    .header
+        height: 48px
+        overflow: hidden
+        background: $grey-white
+        @extend .shadow-1
+        .itemImg
+            width: 48px
+            float: left
+        .itemName
+            font-size: 14px
+            float: left
+            line-height: 24px
+            text-align: center
+            width: 152px
+            color: $dark
+            vertical-align: middle
+    .body
+        padding: 10px
+    .itemCost
+        padding-top: 30px
+    .itemDesc
+        color: $white
+        font-size: 12px
+        line-height: 15px
+        p, stats, passive, unique, i, active
+            
+        passive, active, unique
+            color: $sea-blue
+        i
+            color: $light-green

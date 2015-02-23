@@ -1,10 +1,12 @@
+
 <!-- Mach History Base--><!DOCTYPE HTML>
 <head>
   <title>Gankei - LoL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="jquery.js"></script>
-  <script src="base.js"></script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../jquery.js"></script>
+  <script src="../base.js"></script>
   <script src="activematch.js"></script>
   <script src="basicinfo.js"></script>
   <script src="functions.js"></script>
@@ -26,7 +28,7 @@
       </div>
       <div class="inpt-group">
         <div class="form-misc">
-          <input type="text" placeholder=" Summoner Name" class="name">
+          <input type="text" placeholder="Summoner" class="name">
           <div class="opt">
             <select class="serverOpt">
               <option>br</option>
@@ -43,40 +45,39 @@
           </div>
           <div class="switch">
             <input id="cb5" type="checkbox" class="tgl tgl-flip mode">
-            <label data-tg-off="Summoner Info" data-tg-on="Active Match" for="cb5" class="tgl-btn">      </label>
+            <label data-tg-off="Informações" data-tg-on="Partida em andamento" for="cb5" class="tgl-btn">      </label>
           </div>
         </div>
-        <button type="submit" class="send">Search </button>
+        <button type="submit" class="send">Enviar </button>
       </div>
     </form>
     <div class="container">
       <div id="Home">
         <div class="header">
-          <h1>Welcome Summoner!</h1>
+          <h1>Benvindo Summoner!</h1>
         </div>
         <div class="body">
-          <p>Type your Summoner Name in the box above, select an option ("Summoner Info" or "Active Match") and press "Search".</p>
-          <p>This website is currently under development and more features will come.</p><br><br>
-          <p>If you find any bug or have a sugestion, feel free to contact me at <i>contato@murilobast.com.</i></p>
-          <p>Only english language is avaible (except for item information).</p>
+          <p>Escreva o seu nome de summoner na caixa acima, Selecione uma opção ("Historico" ou "Partida em andamento") e clique em "Enviar".</p>
+          <p>Este site esta em desenvolvimento e mais funcionalidades virão com o passar do tempo.</p><br><br>
+          <p>Se você encontrar algum bug ou tiver alguma sugestão, entre em contato no seguinte email:<i>contato@murilobast.com.</i></p>
         </div>
       </div>
       <div id="About">
-        <h1>About Us</h1>
-        <p>Hello! My name is Murilo Bastos (murilobast) a brazilian guy who loves Development and League of Legends.</p>
-        <p>This website was made just for fun and study purposes, so, don't expect an excelent work hahah!</p><br>
-        <p>This is a Riot Games API based website and I used the following languages to build this website:</p>
+        <h1>Sobre</h1>
+        <p>Olá! Meu nome é Murilo Bastos (murilobast), sou uma pessoa que adora desenvolver e jogar League of Legends.</p>
+        <p>Este site foi feito apenas por hobby e para o meu aprendizado, então, não espere um trabalho exelente hahah!</p><br>
+        <p>Este site é baseado na API da Riot Games e foram utilizadas as seguintes liguagens:</p>
         <p>Javascript jQuery Html5 Css3 Node.js</p><br>
-        <p>Enjoy!</p>
+        <p>Divirta-se!</p>
       </div>
       <div id="Contact">
-        <h1>Contact</h1>
-        <p>I'm working in a "Contact Form", so, contact me by email:</p>
+        <h1>Contato</h1>
+        <p>Ainda estou trabalhando em um "Formulário de contato", por enquanto, entre em contato atraves do seguinte email::</p>
         <p>contato@murilobast.com</p>
       </div>
       <div id="Active">
         <div class="header">
-          <h1>Active Match</h1>
+          <h1>Partida em Andamento</h1>
         </div>
         <div class="summonerInfoHeader">
           <div class="icon"><img src="http://img3.wikia.nocookie.net/__cb20140528061130/leagueoflegends/images/5/53/ProfileIcon_Pentakill.jpg" class="outIcon"></div>
@@ -93,206 +94,206 @@
         <div class="info">
           <div class="blueTeam">
             <div class="header">
-              <h1>Blue team</h1>
+              <h1>Time Azul</h1>
             </div>
             <div class="inferior"></div>
             <div class="frame">
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outBluePlayer">Blue Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS</p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outBluePlayer">Blue Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS</p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outBluePlayer">Blue Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS</p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outBluePlayer">Blue Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS</p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outBluePlayer">Blue Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS</p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="purpleTeam">
             <div class="header">
-              <h1>Purple team</h1>
+              <h1>Time Roxo</h1>
             </div>
             <div class="inferior"></div>
             <div class="frame">
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outPurplePlayer">Purple Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS </p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outPurplePlayer">Purple Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS </p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outPurplePlayer">Purple Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS </p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outPurplePlayer">Purple Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS </p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
               <div class="player">
                 <div class="champ"><img src="http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png" class="outChampImg"/></div>
-                <div class="spells"><img src="spell/4.png" class="outSpell1"/><img src="spell/11.png" class="outSpell2"/></div>
+                <div class="spells"><img src="../spell/4.png" class="outSpell1"/><img src="../spell/11.png" class="outSpell2"/></div>
                 <div class="summonerInfo">
                   <p class="outPurplePlayer">Purple Player</p>
-                  <p class="outMastery">Mastery Page (WIP)</p>
-                  <p class="outRunePage">Rune Page (WIP)</p>
+                  <p class="outMastery">Página de Talentos (WIP)</p>
+                  <p class="outRunePage">Página de Runa (WIP)</p>
                   <div class="modalRunes"></div>
                 </div>
                 <div class="stats">
                   <p>KDA</p>
                   <p class="outKDA">--/--/-- (WIP)</p>
                 </div>
-                <div class="outRankedStats"><img src="tier/GOLD_III.png" class="outTierImg"/>
+                <div class="outRankedStats"><img src="../tier/GOLD_III.png" class="outTierImg"/>
                   <p class="outTier">GOLD III</p>
-                  <p class="outRankedWins">32/27 RANKED WINS</p>
-                  <p class="outNormalWinds">--- (WIP) NORMAL WINS </p>
+                  <p class="outRankedWins">32/27 Vitórias Ranked</p>
+                  <p class="outNormalWinds">--- (WIP) Vitórias Normal</p>
                 </div>
               </div>
             </div>
@@ -315,30 +316,30 @@
           </div>
           <div class="profileRanked">
             <div class="t3v3">
-              <h3>Team 3v3</h3><img src="tier/unranked.png" class="outTierImg">
+              <h3>Time 3v3</h3><img src="../tier/unranked.png" class="outTierImg">
               <p class="outTier">UNRANKED</p>
               <p class="outLP">0 LP</p>
-              <p class="outElo">0 Points</p>
-              <p class="outWins">0 Wins</p>
-              <p class="outLosses"> 0 Losses</p>
+              <p class="outElo">0 LP Total</p>
+              <p class="outWins">0 Vitorias</p>
+              <p class="outLosses"> 0 Derrotas</p>
               <p class="outRate">Win rate 00%</p>
             </div>
             <div class="solo">
-              <h3>Solo 5v5</h3><img src="tier/unranked.png" class="outTierImg">
+              <h3>Solo 5v5</h3><img src="../tier/unranked.png" class="outTierImg">
               <p class="outTier">UNRANKED</p>
               <p class="outLP">0 LP</p>
-              <p class="outElo">0 Points</p>
-              <p class="outWins">0 Wins</p>
-              <p class="outLosses"> 0 Losses</p>
+              <p class="outElo">0 LP Total</p>
+              <p class="outWins">0 Vitorias</p>
+              <p class="outLosses"> 0 Derrotas</p>
               <p class="outRate">Win rate 00%</p>
             </div>
             <div class="t5v5">
-              <h3>Team 5v5</h3><img src="tier/unranked.png" class="outTierImg">
+              <h3>Time 5v5</h3><img src="../tier/unranked.png" class="outTierImg">
               <p class="outTier">UNRANKED</p>
               <p class="outLP">0 LP</p>
-              <p class="outElo">0 Points</p>
-              <p class="outWins">0 Wins</p>
-              <p class="outLosses"> 0 Losses</p>
+              <p class="outElo">0 LP Total</p>
+              <p class="outWins">0 Vitórias</p>
+              <p class="outLosses"> 0 Derrotas</p>
               <p class="outRate">Win rate 00%</p>
             </div>
           </div>
@@ -350,21 +351,21 @@
         <!--        (adsbygoogle = window.adsbygoogle || []).push({});-->
         <div class="matchHistory">
           <div class="matchHeader">
-            <h2>Match History</h2>
+            <h2>HISTÓRICO DE PARTIDAS</h2>
           </div>
           <div class="container">
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -438,19 +439,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -458,15 +459,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -540,19 +541,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -560,15 +561,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -642,19 +643,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -662,15 +663,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -744,19 +745,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -764,15 +765,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -846,19 +847,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -866,15 +867,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -948,19 +949,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -968,15 +969,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -1050,19 +1051,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -1070,15 +1071,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -1152,19 +1153,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -1172,15 +1173,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -1254,19 +1255,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -1274,15 +1275,15 @@
             <div class="match">
               <div class="header">
                 <div class="mode">
-                  <p class="small">Mode</p>
+                  <p class="small">Modo</p>
                   <p class="outGameType">NORMAL 5v5</p>
                 </div>
                 <div class="date">
-                  <p class="small">When</p>
+                  <p class="small">Quando</p>
                   <p class="outDate">00 MINS AGO</p>
                 </div>
                 <div class="duration">
-                  <p class="small">Duration</p>
+                  <p class="small">Duração</p>
                   <p class="outDuration">35min</p>
                 </div>
                 <div class="gold">
@@ -1356,19 +1357,19 @@
                 <div class="matchInfo">
                   <div class="group">
                     <p class="outK">00 </p>
-                    <p class="small">Kills</p>
+                    <p class="small">Abates</p>
                   </div>
                   <div class="group">
                     <p class="outD">00 </p>
-                    <p class="small">Deaths</p>
+                    <p class="small">Mortes</p>
                   </div>
                   <div class="group">
                     <p class="outA">00</p>
-                    <p class="small">Assists</p>
+                    <p class="small">Assistencias</p>
                   </div>
                   <div class="group">
                     <p class="outCreeps">200</p>
-                    <p class="small">Creeps</p>
+                    <p class="small">Minions</p>
                   </div>
                 </div>
               </div>
@@ -1378,7 +1379,7 @@
       </div>
     </div>
     <footer class="footer">
-      <div class="menu"><a href="#" class="linkHome">Home</a><a href="#" class="linkAbout">About Us</a><a href="#" class="linkContact">Contact</a></div>
+      <div class="menu"><a href="#" class="linkHome">Home</a><a href="#" class="linkAbout">Sobre</a><a href="#" class="linkContact">Contato</a></div>
     </footer>
     <div class="modal"></div>
     <div class="modalMsg">

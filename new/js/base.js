@@ -15,6 +15,16 @@ var sidList3;
 var sidList4;
 var extra = [];
 $(function(){
+    $('.share').click(function(){
+        $('.modalShare').css('display', 'block');
+        $('.shareLink').val('http://gankei.com/?key=1&server=' + data.server + '&name=' + data.name);
+    });
+    
+    $('.close').click(function(){
+        $('.modalShare').css('display', 'none');
+        
+    });
+    
     if (getUrlParameter('key') == 1){
         infoByUrl();
     }
@@ -22,13 +32,7 @@ $(function(){
         activeByUrl();
     }
     data.server = $('.serverOpt').val();
-    resizeWindow();
     hideAllBut($('#Home'), 200);
-    $(window).resize(function(){ resizeWindow(); });
-    $('.linkHome').click(function(event){
-        event.preventDefault();
-        hideAllBut($('#Home'));
-    });  
     
     championData();
     itemFloat();

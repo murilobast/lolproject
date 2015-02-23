@@ -2,7 +2,7 @@ function activeMatch(event){
     //hideAllBut($('#Home'), 200);
     ajaxLoL(activeMatchURL(data.server, data.sid), function(result){
         //console.log(result);
-        var configId = {2: 'NORMAL 5X5', 14: 'NORMAL 5X5 DRAFT', 4: 'RANKED SOLO 5X5', 41: 'RANKED TEAM 3X3', 42: 'RANKED TEAM 5X5', 65: 'ARAM 5X5'}
+        var configId = {2: 'NORMAL 5X5', 14: 'NORMAL 5X5 DRAFT', 4: 'RANKED SOLO 5X5', 41: 'RANKED TIME 3X3', 42: 'RANKED TIME 5X5', 65: 'ARAM 5X5'}
         
         //Players information
         jQuery.each(result.participants, function(player){
@@ -13,18 +13,18 @@ function activeMatch(event){
             ajaxLoL(rankedURL(data.server, playerId), function(result){
                 ranked = result;
                 $('.player:eq(' + player + ') .outRankedStats .outTier').text(ranked[playerId][0].tier + ' ' + ranked[playerId][0].entries[0].division);
-                $('.player:eq(' + player + ') .outRankedStats .outTierImg').attr('src', 'tier/' + result[playerId][0].tier + '_' + ranked[playerId][0].entries[0].division+ '.png');
+                $('.player:eq(' + player + ') .outRankedStats .outTierImg').attr('src', '../tier/' + result[playerId][0].tier + '_' + ranked[playerId][0].entries[0].division+ '.png');
                 var wins = ranked[playerId][0].entries[0].wins
                 var losses = ranked[playerId][0].entries[0].losses
-                $('.player:eq(' + player + ') .outRankedStats .outRankedWins').text(wins + '/' + losses + ' RANKED WINS');
+                $('.player:eq(' + player + ') .outRankedStats .outRankedWins').text(wins + '/' + losses + ' Vitórias Ranked');
             }, 'ranked');
             var spell1 = result.participants[player].spell1Id;
             var spell2 = result.participants[player].spell2Id;
             var championId = result.participants[player].championId
             var championName = championsData[championId].key
             $('.outChampImg:eq(' + player + ')').attr('src', imageDb(data.ver, 'champion', championName));
-            $('.player:eq(' + player + ') .outSpell1').attr('src', 'spell/' + spell1 + '.png');
-            $('.player:eq(' + player + ') .outSpell2').attr('src', 'spell/' + spell2 + '.png');
+            $('.player:eq(' + player + ') .outSpell1').attr('src', '../spell/' + spell1 + '.png');
+            $('.player:eq(' + player + ') .outSpell2').attr('src', '../spell/' + spell2 + '.png');
             if (player < 5){
                 $('.outBluePlayer:eq(' + player + ')').text(playerName);
             };
@@ -45,10 +45,10 @@ function activeMatch(event){
             var minutes = parseInt( totalSec / 60 ) % 60;
             var seconds = totalSec % 60;
             var time = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-            $('.outGameTime').text('Time ' + time);
+            $('.outGameTime').text('Tempo ' + time);
         }, 1000);
         $('.outGameType').text(configId[result.gameQueueConfigId]);
-        $('.outServer').text(data.server + ' Server');
+        $('.outServer').text('Server ' + data.server);
         hideAllBut($('#Active'), 200);
     }, 'activematch');  
 };
@@ -63,7 +63,7 @@ runeTotalStats = {rFlatArmorModPerLevel: 0, rFlatArmorPenetrationMod: 0, rFlatAr
 $(function(){
     var i = 0;
     for (name in runeStatName){
-        runeStatName[name] = runesToStrEnUs[i];
+        runeStatName[name] = runesToStrPtBr[i];
         i++
     };
 });

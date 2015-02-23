@@ -8,17 +8,17 @@ function ajaxLoL(url, job, requestType){
             if (requestType == 'ranked') {
                 if (errorThrown == 'Not Found'){
                     $('.solo .outTier').text('UNRANKED');
-                    $('.solo .outTierImg').attr('src', 'tier/unranked.png');
+                    $('.solo .outTierImg').attr('src', '../tier/unranked.png');
                     $('.solo .outLP').text('0 LP');
-                    $('.solo .outElo').text('0 Total LP');
+                    $('.solo .outElo').text('0 LP Total');
                 }else{
                     alert(errorThrown);
                     hideAllBut($('#Home'));
                 };
             }else if (requestType == 'activematch'){
-                errorThrownModal(errorThrown, "Match not found",$('#Home'));
+                errorThrownModal(errorThrown, "Partida não encontrada",$('#Home'));
             }else{
-                errorThrownModal(errorThrown, "Summoner doesn't exist or wrong server was selected", $('#Home'));
+                errorThrownModal(errorThrown, "Summoner não existe ou o server incorreto foi selecionado", $('#Home'));
             };
         }
     });
@@ -46,25 +46,25 @@ function timeSince(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = Math.floor(seconds / 31536000);
     if (interval > 1) {
-        return interval + " YEARS AGO";
+        return "HÁ " + interval + " ANOS";
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
-        return interval + " MONTHS AGO";
+        return "HÁ " + interval + " MESES";
     }
     interval = Math.floor(seconds / 86400);
     if (interval > 1) {
-        return interval + " DAYS AGO";
+        return "HÁ " + interval + " DIAS";
     }
     interval = Math.floor(seconds / 3600);
     if (interval > 1) {
-        return interval + " HOURS AGO";
+        return "HÁ " + interval + " HORAS";
     }
     interval = Math.floor(seconds / 60);
     if (interval > 1) {
-        return interval + " MINUTES AGO";
+        return "HÁ " + interval + " MINUTOS";
     }
-    return Math.floor(seconds) + " SECONDS AGO";
+    return "HÁ " + Math.floor(seconds) + " SEGUNDOS";
 }
 
 //URL functions
@@ -125,12 +125,6 @@ function getRunes(){
     });
 };
 
-resizeWindow = (function(){
-    if ($(window).width() > 680){
-        $('#Home, #Active, #About, #Contact, .Result .container, .matchHistory').css('height', $(window).height() - 187 + 'px');
-    };
-});
-
 itemFloat = (function(){
     $('.outItem0, .outItem1, .outItem2, .outItem3, .outItem4, .outItem5, .outItem6, .outItem7').mouseenter(function(){
         $('.modalItem img').attr('src', this.getAttribute('src'));
@@ -146,7 +140,7 @@ itemFloat = (function(){
     $('.outItem0, .outItem1, .outItem2, .outItem3, .outItem4, .outItem5, .outItem6, .outItem7').on('mousemove', function(e){
         $('.modalItem').css({
            left:  e.pageX+20,
-           top:   e.pageY-160
+           top:   e.pageY-210
         });
     });
 });
@@ -270,19 +264,11 @@ function hideAllBut(element, time){
     $('#About').hide(time);
     $('#Contact').hide(time);
     $('#Active').hide(time);
-    $('.Result').hide(time);
+    $('#History').hide(time);
     $('.modal').hide(time);
     //add more
     element.show(time);
 };
-
-
-if (typeof String.prototype.startsWith != 'function') {
-  String.prototype.startsWith = function (str){
-    return this.indexOf(str) == 0;
-  };
-}
-
 
 function getUrlParameter(sParam)
 {
@@ -299,7 +285,6 @@ function getUrlParameter(sParam)
 } 
 
 function infoByUrl(){
-    resizeWindow();
     hideAllBut($('.modal'), 300);
         event.preventDefault();
         data.name = noAcentos(getUrlParameter('name').replace(/ /g,'').toLowerCase());
@@ -330,7 +315,6 @@ function infoByUrl(){
 
 
 function activeByUrl(){
-    resizeWindow();
     hideAllBut($('.modal'), 300);
         event.preventDefault();
         data.name = noAcentos(getUrlParameter('name').replace(/ /g,'').toLowerCase());

@@ -1,7 +1,6 @@
 @import includes/_vars
 @import includes/_base
 
-    
 body
     background: #555
     min-width: 320px
@@ -17,6 +16,13 @@ body
     text-align: center
     @extend .shadow-2
     .logo
+        .logoImg
+            width: 69px
+            float: left
+            margin-left: 10px
+            background-image: url('../logo.png')
+            background-size: cover
+            height: 69px
         font-size: 42px
         width: 360px
         float: left
@@ -25,7 +31,7 @@ body
         text-transform: uppercase
         font-weight: 100
     .inpt-group
-        width: 320px
+        width: 370px
         float: right
         height: 69px
         line-height: 70px
@@ -38,32 +44,32 @@ body
         height: 69px
         font-size: 16px
         line-height: 24px
-        //margin: 0 auto
         background: $light-green
         border: none
-        //@extend .shadow-1
-        //border-radius: 5px
         color: #fff
         vertical-align: middle
         padding: 0
         float: right
+        font-weight: 100
+        text-transform: uppercase
         &:hover
             @extend .shadow-1
     .name
         display: block
         height: 20px
         line-height: 20px
-        width: 160px
+        width: 200px
         margin: 0 auto
         font-size: 14px
         border-radius: 2px
-        padding-left: 10px
-        //margin-right: 10px
-        font-weight: bold
+        padding-left: 4px
+        vertical-align: middle
+        font-weight: 100
         border: solid 1px $dark-transp
         //vertical-align: middle
         &:focus
             outline: 0
+            font-weight: 300
     .opt
         display: inline-block
         vertical-align: top
@@ -73,7 +79,7 @@ body
     select
         text-transform: uppercase
         font-size: 14px
-        width: 50px
+        width: 60px
         height: 24px
         overflow: hidden
         background: url(../arrow.png) no-repear right #ddd
@@ -82,10 +88,12 @@ body
         display: inline-block
         vertical-align: top
         margin-top: 8px
+        font-weight: 100
+        width: 150px
     .form-misc
         padding-left: 2px
         float: left
-        width: 175px
+        width: 235px
         display: inline-block
         height: 60px
         padding-top: 5px
@@ -125,12 +133,20 @@ body
             text-align: center
             width: 128px
             display: inline-block
-            .outName
-                font-weight: bold
-            .outTierImg
-                width: 68px
-            .outTier
-                font-weight: bold
+        .outName
+            font-weight: bold
+        .outTierImg
+            width: 68px
+        .outTier
+            font-weight: bold
+            margin-top: -12px !important
+            font-weight: 500 !important
+            color: $dark
+            opacity: 0.95
+        .outRate
+            @extend .outTier
+            margin-top: 0 !important
+            opacity: 1
         .profileRanked
             line-height: 12px
             margin: 10px 0
@@ -151,11 +167,20 @@ body
                     width: 92px
                 p
                     font-size: 12px
-                    line-height: 20px
+                    line-height: 18px
+                    font-weight: 300
+                .outWins
+                    color: rgba(22,160,133,1)
+                    font-weight: 500
+                .outLosses
+                    color: rgba(231, 76, 60, 1)
+                    font-weight: 500
                 h3
                     font-size: 16px
                     line-height: 20px
-                    margin-bottom: -10px
+                    margin-bottom: -14px
+                    font-weight: 500
+                    color: $dark-transp
     .gamesContent
         display: none
             
@@ -427,6 +452,83 @@ ins
             color: $sea-blue
         i
             color: $light-green
+            
+            
+            
+.modalMatch
+    display: none
+    position: absolute
+    z-index: 1000
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    height: 500px
+    width: 65%
+    margin: auto
+    background: $dark
+    border: 1px solid $dark-transp
+    border-radius: 2px
+    @extend .shadow-4
+    p
+        color: $white
+        font-size: 12px
+        text-align: center
+        line-height: 20px
+        text-align: left
+    .header
+        height: 30px
+        overflow: hidden
+        background: $grey-white
+        @extend .shadow-3
+        .title
+            line-height: 30px
+            margin-left: 10px
+            color: $dark
+            display: inline-block
+            text-transform: uppercase
+        .exitMatch
+            color: $purple
+            text-transform: uppercase
+            display: inline-block
+            float: right
+            margin: 5px
+            line-height: 20px
+            &:hover
+                cursor: pointer
+    .body
+        height: 470px
+        overflow: auto
+        .headerBlue, .headerPurple
+            height: 24px
+            display: inline-block
+            margin: 1%
+            width: 48%
+            text-transform: uppercase
+            p
+                line-height: 24px
+                text-align: left
+                margin-left: 10px
+        .headerBlue
+            float: left
+            background: $blue
+        .headerPurple
+            float: right
+            background: $purple
+        .bodyBlue, .bodyPurple
+            margin: 1%
+            width: 48%
+            display: inline-block 
+            background: $white-transp
+            height: 87%
+            margin-top: 0
+        .bodyBlue
+            float: left
+        .bodyPurple
+            float: Right
+            
+            
+            
 body.loading 
     overflow: hidden
 
@@ -448,7 +550,7 @@ body.loading .modal
     margin-top: 20px
     box-sizing: border-box
     width: 95%
-    max-width: 1280px
+    max-width: 1600px
     @extend .shadow-3
     overflow: auto
     text-align: center

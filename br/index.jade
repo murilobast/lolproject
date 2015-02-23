@@ -16,7 +16,7 @@ body
                 //h1 Gankei.com
             .inpt-group
                 .form-misc
-                    input.name(type="text", placeholder=" Summoner Name")
+                    input.name(type="text", placeholder="Summoner")
                     .opt
                         select.serverOpt
                             option br
@@ -31,8 +31,8 @@ body
                             option ru
                     .switch
                         input#cb5.tgl.tgl-flip(type="checkbox").mode
-                        label.tgl-btn(data-tg-off="Summoner Info", data-tg-on="Active Match", for="cb5")       
-                button.send(type="submit") Search 
+                        label.tgl-btn(data-tg-off="Informações", data-tg-on="Partida em andamento", for="cb5")       
+                button.send(type="submit") Enviar 
         .container
             include ./includes/_home.jade
             include ./includes/_about.jade
@@ -45,7 +45,7 @@ body
 
                 .matchHistory
                     .matchHeader
-                        h2 Match History
+                        h2 HISTÓRICO DE PARTIDAS
                     .container
                         +match
                         +match

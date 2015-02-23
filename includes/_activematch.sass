@@ -6,6 +6,7 @@
             text-transform: uppercase
             margin-left: 20px
             margin-bottom: 20px
+            font-weight: 300
     .summonerInfoHeader
         background: $dark
         width: 97%
@@ -30,6 +31,7 @@
                 display: inline-block
                 margin: 0 10px
                 text-transform: uppercase
+                font-weight: 300
             .outSummonerName
                 text-transform: none
                 margin-left: 20px   
@@ -53,6 +55,7 @@
         width: 97%
         height: 386px
         margin: 0 auto
+        margin-bottom: 30px
         //@extend .shadow-2
         .blueTeam
             float: left
@@ -129,7 +132,7 @@
                         margin: 0
                         display: block
                 .summonerInfo
-                    width: 120px
+                    width: 135px
                     height: inherit
                     float: left
                     text-align: left
@@ -140,8 +143,10 @@
                         font-size: 12px
                         line-height: 20px
                         vertical-align: middle
+                        width: 140px
                     .outBluePlayer, .outPurplePlayer
                         font-size: 14px
+                        width: 135px
                 .stats
                     //float: left
                     height: inherit
@@ -160,8 +165,7 @@
                     img
                         width: 24px
                         display: inline-block
-                        position: absolute
-                        right: 65px
+                        margin-right: -35px
                         
                     p
                         display: inline-block
@@ -170,9 +174,46 @@
                         line-height: 18px
                         float: right
                         padding-right: 10px
+                    .outRankedWins
+                        margin-top: -6px
                     .outTier
                         line-height: 24px
 .active
     background: $sea-blue !important
     p
         color: $white
+        
+        
+.modalRunes
+    display: none
+    position: absolute
+    z-index: 1000
+    top: 0
+    left: 0
+    right: 0
+    width: 240px
+    background: $white
+    border: 1px solid $dark-transp
+    border-radius: 2px
+    //@extend .shadow-4
+    p
+        line-height: 20px
+        color: $dark
+        font-size: 12px
+        font-weight: 300
+        text-align: left
+        height: 20px !important
+        width: 240px !important
+        display: block
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
