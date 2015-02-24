@@ -8,7 +8,7 @@ mixin player
         .player
             img.outChampTeam(src='http://placehold.it/30x30')
             .playerInfo
-                p.outName Summoner Name
+                p.outName 
 
 mixin bluePlayer
     .player
@@ -58,28 +58,28 @@ mixin match
         .header
             .mode
                 p.small Modo
-                p.outGameType NORMAL 5v5
+                p.outGameType 
                 
             .date
                 p.small Quando
-                p.outDate 00 MINS AGO
+                p.outDate 
                 
             .duration
                 p.small Duração
-                p.outDuration 35min
+                p.outDuration 
                 
             .gold
                 p.small Gold
-                p.outGold 0k GOLD
+                p.outGold 
                 
 
         .contentMatch
             .championInfo
-                img.outChamp(src='http://placehold.it/72x72')
+                img.outChamp
                 .nameBlock
-                    p.outChampionName Champion Name
-                img.outSummonerSpell1(src="http://placehold.it/38x38")
-                img.outSummonerSpell2(src="http://placehold.it/38x38")
+                    p.outChampionName 
+                img.outSummonerSpell1
+                img.outSummonerSpell2
 
             .matchItems
                 img.outItem0(src='http://cdn.replays.io/resources/img/item/0.png')
@@ -104,14 +104,14 @@ mixin match
                     +player     
             .matchInfo
                 .group
-                    p.outK 00 
+                    p.outK 
                     p.small Abates
                 .group
-                    p.outD 00 
+                    p.outD 
                     p.small Mortes
                 .group
-                    p.outA 00
+                    p.outA 
                     p.small Assistencias
                 .group
-                    p.outCreeps 200
+                    p.outCreeps 
                     p.small Minions

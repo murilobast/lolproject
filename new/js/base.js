@@ -15,35 +15,29 @@ var sidList3;
 var sidList4;
 var extra = [];
 $(function(){
+    $('.headerNav a').click(function(){
+        if ($(this).hasClass('history') == true && $(this).hasClass('selected') == false){
+            $('.matchHistoryContent').css('display', 'block');            
+        }
+        if ($(this).hasClass('activeMatch') == true && $(this).hasClass('selected') == false){
+            $('.matchHistoryContent').css('display', 'none');
+            alert('Em desenvolvimento!');
+        }
+        $('.headerNav a').removeClass('selected');
+        $(this).addClass('selected');
+            
+    });
     $('.share').click(function(){
         $('.modalShare').css('display', 'block');
         $('.shareLink').val('http://gankei.com/?key=1&server=' + data.server + '&name=' + data.name);
+        $('a.btn.facebook').prop('href', 'https://www.facebook.com/sharer/sharer.php?u=http://gankei.com/?key=1&server=' + data.server + '&name=' + data.name);
+        $('a.btn.twitter').prop('href', 'https://twitter.com/intent/tweet?url=URL&text="http://gankei.com/?key=1&server=' + data.server + '&name=' + data.name + '"');
     });
     
     $('.close').click(function(){
         $('.modalShare').css('display', 'none');
         
     });
-    
-     if ($(window).width() < 1024) {
-        $('.modalMsg').css('display', 'block');
-        $('.modalMsg p').text('Desculpe, sua resolução ainda não é suportada.');
-        setTimeout(function(){
-            $('.modalMsg').css('display', 'none');
-        }, 5000) 
-     };
-    window.onresize = function() {
-        if ($(window).width() < 1024) {
-            $('#History, #Home').hide();
-            $('.modalMsg').css('display', 'block');
-            $('.modalMsg p').text('Desculpe, sua resolução ainda não é suportada.');
-            setTimeout(function(){
-                $('.modalMsg').css('display', 'none');
-            }, 5000) 
-        }else{
-            $('#History, #Home').show();
-        };
-    };
     
     if (getUrlParameter('key') == 1){
         infoByUrl();
@@ -52,7 +46,7 @@ $(function(){
         activeByUrl();
     }
     data.server = $('.serverOpt').val();
-    hideAllBut($('#Home'), 200);
+    //hideAllBut($('#Home'), 200);
     
     championData();
     itemFloat();
