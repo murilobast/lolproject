@@ -32,7 +32,7 @@ function basicInfo(){
             $(modeType[mode] + ' .outTierImg').attr('src', '../tier/' + result[data.sid][mode].tier + '_' + ranked[data.sid][mode].entries[0].division+ '.png');
             $(modeType[mode] + ' .outLP').text(ranked[data.sid][mode].entries[0].leaguePoints + ' LP');
             $(modeType[mode] + ' .outElo').text(totalLP[mode] + (parseInt(ranked[data.sid][mode].entries[0].leaguePoints) ) + ' LP Total');
-            $(modeType[mode] + ' .outWins').text(ranked[data.sid][mode].entries[0].wins + ' Vitórias');
+            $(modeType[mode] + ' .outWins').text(' Vitórias ' + ranked[data.sid][mode].entries[0].wins);
             $(modeType[mode] + ' .outLosses').text(ranked[data.sid][mode].entries[0].losses + ' Derrotas');
             var rate = ranked[data.sid][mode].entries[0].wins / (ranked[data.sid][mode].entries[0].wins + ranked[data.sid][mode].entries[0].losses) * 100
             $(modeType[mode] + ' .outRate').text('Win Rate ' + parseInt(rate) + '%');
@@ -210,9 +210,9 @@ function basicInfo(){
             $('.outSummonerSpell1:eq(' + game + ')').attr('src', '../spell/' + matchHistory.games[game].spell1 + '.png');
             $('.outSummonerSpell2:eq(' + game + ')').attr('src', '../spell/' + matchHistory.games[game].spell2 + '.png');
             if(matchHistory.games[game].stats.win == true) {
-               $('.matchHistory .contentMatch:eq(' + game + ')').css('background', 'rgba(26,188,156,0.25)');
+               $('.matchHistory .contentMatch:eq(' + game + ')').css('background', 'rgba(26,188,156,0.35)');
             }else if (matchHistory.games[game].stats.win == false) {
-                $('.matchHistory .contentMatch:eq(' + game + ')').css('background', 'rgba(231, 76, 60, 0.25)');
+                $('.matchHistory .contentMatch:eq(' + game + ')').css('background', 'rgba(231, 76, 60, 0.35)');
             }else{
                 $('.matchHistory .contentMatch:eq(' + game + ')').css('background', '#52B3D9');
             };                   
@@ -227,6 +227,7 @@ function basicInfo(){
                            team[game].blue[bluePlayer].name = result[id].name;
                            $('.players:eq(' + game + ') .outName:eq(' + bluePlayer + ')').text(team[game].blue[bluePlayer].name);
                            $('.players:eq(' + game + ') .outName:eq(' + bluePlayer + ')').attr('alt',team[game].blue[bluePlayer].sid);
+                           $('.players:eq(' + game + ') .playerLink:eq(' + [bluePlayer] + ')').attr('href', '?key=1&server=' + data.server + '&name=' + team[game].blue[bluePlayer].name);
                        };
                    });
                 });
@@ -241,6 +242,7 @@ function basicInfo(){
                            team[game].purple[purplePlayer].name = result[id].name;
                            $('.players:eq(' + game + ') .outName:eq(' + [purplePlayer+5] + ')').text(team[game].purple[purplePlayer].name);
                            $('.players:eq(' + game + ') .outName:eq(' + [purplePlayer+5] + ')').attr('alt', team[game].purple[purplePlayer].sid);
+                           $('.players:eq(' + game + ') .playerLink:eq(' + [purplePlayer+5] + ')').attr('href', '?key=1&server=' + data.server + '&name=' + team[game].purple[purplePlayer].name);
                        };
                    });
                 });
@@ -256,6 +258,7 @@ function basicInfo(){
                                team[game].purple[purplePlayer].name = result[id].name;
                                $('.players:eq(' + game + ') .outName:eq(' + [purplePlayer+5] + ')').text(team[game].purple[purplePlayer].name);
                                $('.players:eq(' + game + ') .outName:eq(' + [purplePlayer+5] + ')').attr('alt',team[game].purple[purplePlayer].sid);
+                                $('.players:eq(' + game + ') .playerLink:eq(' + [purplePlayer+5] + ')').attr('href', '?key=1&server=' + data.server + '&name=' + team[game].purple[purplePlayer].name);
                             };
                         });
                         jQuery.each(team[game].blue, function(bluePlayer){
@@ -263,6 +266,7 @@ function basicInfo(){
                                 team[game].blue[bluePlayer].name = result[id].name;
                                 $('.players:eq(' + game + ') .outName:eq(' + bluePlayer + ')').text(team[game].blue[bluePlayer].name);
                                 $('.players:eq(' + game + ') .outName:eq(' + bluePlayer + ')').attr('alt', team[game].blue[bluePlayer].sid);
+                                $('.players:eq(' + game + ') .playerLink:eq(' + [bluePlayer] + ')').attr('href', '?key=1&server=' + data.server + '&name=' + team[game].blue[bluePlayer].name);
                             };
                         });
                         
@@ -279,6 +283,7 @@ function basicInfo(){
                            extra[game].player[player].name = result[id].name;
                            $('.players:eq(' + game + ') .outName:eq(' + [player] + ')').text(extra[game].player[player].name);
                            $('.players:eq(' + game + ') .outName:eq(' + [player] + ')').attr('alt',extra[game].player[player].sid);
+                           $('.players:eq(' + game + ') .playerLink:eq(' + [player] + ')').attr('href', '?key=1&server=' + data.server + '&name=' + extra[game].player[player].name);
                         };
                     });
                 });
@@ -315,6 +320,7 @@ function basicInfo(){
                     };
                });                                     
             });
+            $('.modalMsg').css('display', 'none');
             hideAllBut($('#History'), 200);
         }, 'championInfo');
     }, 'matchHistory');

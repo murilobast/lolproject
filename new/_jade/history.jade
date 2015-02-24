@@ -11,33 +11,39 @@
                     img.outIcon(src='http://placehold.it/128x128')
 
                 .profileRanked
-                    .t3v3
-                        h3 Time 3v3
-                        img.outTierImg(src='../tier/unranked.png')
-                        p.outTier UNRANKED
-                        p.outLP
-                        p.outElo
-                        p.outRate
-                        p.outWins
-                        p.outLosses
-                    .solo
-                        h3 Solo 5v5
-                        img.outTierImg(src='../tier/unranked.png')
-                        p.outTier UNRANKED
-                        p.outLP
-                        p.outElo
-                        p.outRate
-                        p.outWins
-                        p.outLosses
                     .t5v5
                         h3 Time 5v5
                         img.outTierImg(src='../tier/unranked.png')
                         p.outTier UNRANKED
                         p.outLP
                         p.outElo
+                        .left
+                            p.outWins    
+                        .right
+                            p.outLosses
                         p.outRate
-                        p.outWins
-                        p.outLosses
+                    .solo
+                        h3 Solo
+                        img.outTierImg(src='../tier/unranked.png')
+                        p.outTier UNRANKED
+                        p.outLP
+                        p.outElo
+                        .left
+                            p.outWins    
+                        .right
+                            p.outLosses
+                        p.outRate
+                    .t3v3
+                        h3 Time 3v3
+                        img.outTierImg(src='../tier/unranked.png')
+                        p.outTier UNRANKED
+                        p.outLP
+                        p.outElo
+                        .left
+                            p.outWins    
+                        .right
+                            p.outLosses
+                        p.outRate
             .matchHistory
                 +match
                 +match

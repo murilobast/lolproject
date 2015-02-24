@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery.js"></script>
-    <!--script(src="js/style.js")-->
     <script src="js/base.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/basicinfo.js"></script>
@@ -28,9 +27,9 @@
     <div class="headerLogo">
       <h1>Gankei</h1>
     </div>
-    <div class="formGroup">
+    <form class="formGroup">
       <div class="search">
-        <select class="serverOpt">
+        <select id="srv" class="serverOpt">
           <option>br</option>
           <option>na</option>
           <option>eune</option>
@@ -45,6 +44,9 @@
         <input type="text" placeholder="Nome do Invocador" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do Invocador'" class="name">
         <button type="submit" class="send">Enviar</button>
       </div>
+    </form>
+    <div class="modalMsg">
+      <p>Error MSG</p>
     </div>
   </div>
   <!--        .modeSelect-->
@@ -86,32 +88,44 @@
           <div class="basicInfo">
             <div class="profileIcon"><img src="http://placehold.it/128x128" class="outIcon"></div>
             <div class="profileRanked">
-              <div class="t3v3">
-                <h3>Time 3v3</h3><img src="../tier/unranked.png" class="outTierImg">
-                <p class="outTier">UNRANKED</p>
-                <p class="outLP"></p>
-                <p class="outElo"></p>
-                <p class="outRate"></p>
-                <p class="outWins"></p>
-                <p class="outLosses"></p>
-              </div>
-              <div class="solo">
-                <h3>Solo 5v5</h3><img src="../tier/unranked.png" class="outTierImg">
-                <p class="outTier">UNRANKED</p>
-                <p class="outLP"></p>
-                <p class="outElo"></p>
-                <p class="outRate"></p>
-                <p class="outWins"></p>
-                <p class="outLosses"></p>
-              </div>
               <div class="t5v5">
                 <h3>Time 5v5</h3><img src="../tier/unranked.png" class="outTierImg">
                 <p class="outTier">UNRANKED</p>
                 <p class="outLP"></p>
                 <p class="outElo"></p>
+                <div class="left">
+                  <p class="outWins">   </p>
+                </div>
+                <div class="right">
+                  <p class="outLosses"></p>
+                </div>
                 <p class="outRate"></p>
-                <p class="outWins"></p>
-                <p class="outLosses"></p>
+              </div>
+              <div class="solo">
+                <h3>Solo</h3><img src="../tier/unranked.png" class="outTierImg">
+                <p class="outTier">UNRANKED</p>
+                <p class="outLP"></p>
+                <p class="outElo"></p>
+                <div class="left">
+                  <p class="outWins">   </p>
+                </div>
+                <div class="right">
+                  <p class="outLosses"></p>
+                </div>
+                <p class="outRate"></p>
+              </div>
+              <div class="t3v3">
+                <h3>Time 3v3</h3><img src="../tier/unranked.png" class="outTierImg">
+                <p class="outTier">UNRANKED</p>
+                <p class="outLP"></p>
+                <p class="outElo"></p>
+                <div class="left">
+                  <p class="outWins">   </p>
+                </div>
+                <div class="right">
+                  <p class="outLosses"></p>
+                </div>
+                <p class="outRate"></p>
               </div>
             </div>
           </div>
@@ -143,161 +157,59 @@
                 </div>
                 <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
                 <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="matchInfo">
-                  <div class="group">
-                    <p class="outK">00 </p>
-                    <p class="small">Abates</p>
-                  </div>
-                  <div class="group">
-                    <p class="outD">00 </p>
-                    <p class="small">Mortes</p>
-                  </div>
-                  <div class="group">
-                    <p class="outA">00</p>
-                    <p class="small">Assistencias</p>
-                  </div>
-                  <div class="group">
-                    <p class="outCreeps">200</p>
-                    <p class="small">Minions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="header">
-                <div class="mode">
-                  <p class="small">Modo</p>
-                  <p class="outGameType">NORMAL 5v5</p>
-                </div>
-                <div class="date">
-                  <p class="small">Quando</p>
-                  <p class="outDate">00 MINS AGO</p>
-                </div>
-                <div class="duration">
-                  <p class="small">Duração</p>
-                  <p class="outDuration">35min</p>
-                </div>
-                <div class="gold">
-                  <p class="small">Gold</p>
-                  <p class="outGold">0k GOLD</p>
-                </div>
-              </div>
-              <div class="contentMatch">
-                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
-                  <div class="nameBlock">
-                    <p class="outChampionName">Champion Name</p>
-                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
-                </div>
-                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
-                <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
                 </div>
                 <div class="matchInfo">
@@ -347,161 +259,59 @@
                 </div>
                 <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
                 <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="matchInfo">
-                  <div class="group">
-                    <p class="outK">00 </p>
-                    <p class="small">Abates</p>
-                  </div>
-                  <div class="group">
-                    <p class="outD">00 </p>
-                    <p class="small">Mortes</p>
-                  </div>
-                  <div class="group">
-                    <p class="outA">00</p>
-                    <p class="small">Assistencias</p>
-                  </div>
-                  <div class="group">
-                    <p class="outCreeps">200</p>
-                    <p class="small">Minions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="header">
-                <div class="mode">
-                  <p class="small">Modo</p>
-                  <p class="outGameType">NORMAL 5v5</p>
-                </div>
-                <div class="date">
-                  <p class="small">Quando</p>
-                  <p class="outDate">00 MINS AGO</p>
-                </div>
-                <div class="duration">
-                  <p class="small">Duração</p>
-                  <p class="outDuration">35min</p>
-                </div>
-                <div class="gold">
-                  <p class="small">Gold</p>
-                  <p class="outGold">0k GOLD</p>
-                </div>
-              </div>
-              <div class="contentMatch">
-                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
-                  <div class="nameBlock">
-                    <p class="outChampionName">Champion Name</p>
-                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
-                </div>
-                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
-                <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
                 </div>
                 <div class="matchInfo">
@@ -551,161 +361,59 @@
                 </div>
                 <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
                 <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="matchInfo">
-                  <div class="group">
-                    <p class="outK">00 </p>
-                    <p class="small">Abates</p>
-                  </div>
-                  <div class="group">
-                    <p class="outD">00 </p>
-                    <p class="small">Mortes</p>
-                  </div>
-                  <div class="group">
-                    <p class="outA">00</p>
-                    <p class="small">Assistencias</p>
-                  </div>
-                  <div class="group">
-                    <p class="outCreeps">200</p>
-                    <p class="small">Minions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="header">
-                <div class="mode">
-                  <p class="small">Modo</p>
-                  <p class="outGameType">NORMAL 5v5</p>
-                </div>
-                <div class="date">
-                  <p class="small">Quando</p>
-                  <p class="outDate">00 MINS AGO</p>
-                </div>
-                <div class="duration">
-                  <p class="small">Duração</p>
-                  <p class="outDuration">35min</p>
-                </div>
-                <div class="gold">
-                  <p class="small">Gold</p>
-                  <p class="outGold">0k GOLD</p>
-                </div>
-              </div>
-              <div class="contentMatch">
-                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
-                  <div class="nameBlock">
-                    <p class="outChampionName">Champion Name</p>
-                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
-                </div>
-                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
-                <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
                 </div>
                 <div class="matchInfo">
@@ -755,161 +463,59 @@
                 </div>
                 <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
                 <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="matchInfo">
-                  <div class="group">
-                    <p class="outK">00 </p>
-                    <p class="small">Abates</p>
-                  </div>
-                  <div class="group">
-                    <p class="outD">00 </p>
-                    <p class="small">Mortes</p>
-                  </div>
-                  <div class="group">
-                    <p class="outA">00</p>
-                    <p class="small">Assistencias</p>
-                  </div>
-                  <div class="group">
-                    <p class="outCreeps">200</p>
-                    <p class="small">Minions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="header">
-                <div class="mode">
-                  <p class="small">Modo</p>
-                  <p class="outGameType">NORMAL 5v5</p>
-                </div>
-                <div class="date">
-                  <p class="small">Quando</p>
-                  <p class="outDate">00 MINS AGO</p>
-                </div>
-                <div class="duration">
-                  <p class="small">Duração</p>
-                  <p class="outDuration">35min</p>
-                </div>
-                <div class="gold">
-                  <p class="small">Gold</p>
-                  <p class="outGold">0k GOLD</p>
-                </div>
-              </div>
-              <div class="contentMatch">
-                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
-                  <div class="nameBlock">
-                    <p class="outChampionName">Champion Name</p>
-                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
-                </div>
-                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
-                <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
                 </div>
                 <div class="matchInfo">
@@ -959,59 +565,59 @@
                 </div>
                 <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
                 <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
                 </div>
                 <div class="matchInfo">
@@ -1061,59 +667,467 @@
                 </div>
                 <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
                 <div class="players">
-                  <div class="outTeamMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
-                  <div class="outEnemyMembers">
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
-                    <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
-                      <div class="playerInfo">
-                        <p class="outName">Summoner Name</p>
-                      </div>
-                    </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+                <div class="matchInfo">
+                  <div class="group">
+                    <p class="outK">00 </p>
+                    <p class="small">Abates</p>
+                  </div>
+                  <div class="group">
+                    <p class="outD">00 </p>
+                    <p class="small">Mortes</p>
+                  </div>
+                  <div class="group">
+                    <p class="outA">00</p>
+                    <p class="small">Assistencias</p>
+                  </div>
+                  <div class="group">
+                    <p class="outCreeps">200</p>
+                    <p class="small">Minions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="match">
+              <div class="header">
+                <div class="mode">
+                  <p class="small">Modo</p>
+                  <p class="outGameType">NORMAL 5v5</p>
+                </div>
+                <div class="date">
+                  <p class="small">Quando</p>
+                  <p class="outDate">00 MINS AGO</p>
+                </div>
+                <div class="duration">
+                  <p class="small">Duração</p>
+                  <p class="outDuration">35min</p>
+                </div>
+                <div class="gold">
+                  <p class="small">Gold</p>
+                  <p class="outGold">0k GOLD</p>
+                </div>
+              </div>
+              <div class="contentMatch">
+                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
+                  <div class="nameBlock">
+                    <p class="outChampionName">Champion Name</p>
+                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
+                </div>
+                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
+                <div class="players">
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+                <div class="matchInfo">
+                  <div class="group">
+                    <p class="outK">00 </p>
+                    <p class="small">Abates</p>
+                  </div>
+                  <div class="group">
+                    <p class="outD">00 </p>
+                    <p class="small">Mortes</p>
+                  </div>
+                  <div class="group">
+                    <p class="outA">00</p>
+                    <p class="small">Assistencias</p>
+                  </div>
+                  <div class="group">
+                    <p class="outCreeps">200</p>
+                    <p class="small">Minions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="match">
+              <div class="header">
+                <div class="mode">
+                  <p class="small">Modo</p>
+                  <p class="outGameType">NORMAL 5v5</p>
+                </div>
+                <div class="date">
+                  <p class="small">Quando</p>
+                  <p class="outDate">00 MINS AGO</p>
+                </div>
+                <div class="duration">
+                  <p class="small">Duração</p>
+                  <p class="outDuration">35min</p>
+                </div>
+                <div class="gold">
+                  <p class="small">Gold</p>
+                  <p class="outGold">0k GOLD</p>
+                </div>
+              </div>
+              <div class="contentMatch">
+                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
+                  <div class="nameBlock">
+                    <p class="outChampionName">Champion Name</p>
+                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
+                </div>
+                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
+                <div class="players">
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+                <div class="matchInfo">
+                  <div class="group">
+                    <p class="outK">00 </p>
+                    <p class="small">Abates</p>
+                  </div>
+                  <div class="group">
+                    <p class="outD">00 </p>
+                    <p class="small">Mortes</p>
+                  </div>
+                  <div class="group">
+                    <p class="outA">00</p>
+                    <p class="small">Assistencias</p>
+                  </div>
+                  <div class="group">
+                    <p class="outCreeps">200</p>
+                    <p class="small">Minions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="match">
+              <div class="header">
+                <div class="mode">
+                  <p class="small">Modo</p>
+                  <p class="outGameType">NORMAL 5v5</p>
+                </div>
+                <div class="date">
+                  <p class="small">Quando</p>
+                  <p class="outDate">00 MINS AGO</p>
+                </div>
+                <div class="duration">
+                  <p class="small">Duração</p>
+                  <p class="outDuration">35min</p>
+                </div>
+                <div class="gold">
+                  <p class="small">Gold</p>
+                  <p class="outGold">0k GOLD</p>
+                </div>
+              </div>
+              <div class="contentMatch">
+                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
+                  <div class="nameBlock">
+                    <p class="outChampionName">Champion Name</p>
+                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
+                </div>
+                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
+                <div class="players">
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                </div>
+                <div class="matchInfo">
+                  <div class="group">
+                    <p class="outK">00 </p>
+                    <p class="small">Abates</p>
+                  </div>
+                  <div class="group">
+                    <p class="outD">00 </p>
+                    <p class="small">Mortes</p>
+                  </div>
+                  <div class="group">
+                    <p class="outA">00</p>
+                    <p class="small">Assistencias</p>
+                  </div>
+                  <div class="group">
+                    <p class="outCreeps">200</p>
+                    <p class="small">Minions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="match">
+              <div class="header">
+                <div class="mode">
+                  <p class="small">Modo</p>
+                  <p class="outGameType">NORMAL 5v5</p>
+                </div>
+                <div class="date">
+                  <p class="small">Quando</p>
+                  <p class="outDate">00 MINS AGO</p>
+                </div>
+                <div class="duration">
+                  <p class="small">Duração</p>
+                  <p class="outDuration">35min</p>
+                </div>
+                <div class="gold">
+                  <p class="small">Gold</p>
+                  <p class="outGold">0k GOLD</p>
+                </div>
+              </div>
+              <div class="contentMatch">
+                <div class="championInfo"><img src="http://placehold.it/72x72" class="outChamp"/>
+                  <div class="nameBlock">
+                    <p class="outChampionName">Champion Name</p>
+                  </div><img src="http://placehold.it/38x38" class="outSummonerSpell1"/><img src="http://placehold.it/38x38" class="outSummonerSpell2"/>
+                </div>
+                <div class="matchItems"><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem0"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem1"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem2"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem6"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem3"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem4"/><img src="http://cdn.replays.io/resources/img/item/0.png" class="outItem5"/></div>
+                <div class="players">
+                  <div class="outTeamMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
+                  </div>
+                  <div class="outEnemyMembers"><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a><a href="#" class="playerLink">
+                      <div class="player"><img src="http://placehold.it/30x30" class="outChampTeam"/>
+                        <div class="playerInfo">
+                          <p class="outName">Summoner Name</p>
+                        </div>
+                      </div></a>
                   </div>
                 </div>
                 <div class="matchInfo">
@@ -1166,4 +1180,5 @@
       <p>O sistema de compartilhamento por redes sociais ainda esta em construção, portanto, utilize o link por enquanto.</p>
     </div>
   </div>
+  <div class="modal"></div>
 </body>

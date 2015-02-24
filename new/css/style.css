@@ -22,9 +22,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .shadow-0 { border: 1px solid #eee; }
 
-.shadow-1, .btn, .contentHeader, #History .fullBox .basicInfo .profileRanked .t3v3 .outTier, #History .fullBox .basicInfo .profileRanked .t5v5 .outTier, #History .fullBox .basicInfo .profileRanked .solo .outTier, #History .matchHistory .matchHeader, #History .matchHistory .match .contentMatch .outChamp, #History .matchHistory .match .contentMatch .matchItems img, #History .matchHistory .match .contentMatch .matchInfo, #History .matchHistory .match .contentMatch .outSummonerSpell1, #History .matchHistory .match .contentMatch .outSummonerSpell2, #History .matchHistory .match .players .player, .modalItem .header { box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+.shadow-1, .btn, .contentHeader, #History .fullBox .basicInfo .profileIcon, #History .fullBox .basicInfo .profileRanked .t3v3 h3, #History .fullBox .basicInfo .profileRanked .t5v5 h3, #History .fullBox .basicInfo .profileRanked .solo h3, #History .matchHistory .matchHeader, #History .matchHistory .match, #History .matchHistory .match .contentMatch .outChamp, #History .matchHistory .match .contentMatch .matchItems img, #History .matchHistory .match .contentMatch .matchInfo, #History .matchHistory .match .contentMatch .outSummonerSpell1, #History .matchHistory .match .contentMatch .outSummonerSpell2, #History .matchHistory .match .players .player, .modalItem .header { box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
 
-.shadow-2, .modalShare, .content, .header .formGroup .search, .header .formGroup .modeSelect, #History .matchHistory, #History .matchHistory .match .header { box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2); }
+.shadow-2, .modalShare, .content, .header .formGroup .search, .header .formGroup .modeSelect, #History .fullBox .basicInfo, #History .matchHistory, #History .matchHistory .match .header { box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 8px 17px 0 rgba(0, 0, 0, 0.2); }
 
 .shadow-3 { box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19), 0 12px 15px 0 rgba(0, 0, 0, 0.24); }
 
@@ -40,7 +40,12 @@ p { font-size: 14px; }
 
 .btn { height: 30px; border-radius: 2px; display: inline-block; text-decoration: none; color: rgba(255, 255, 255, 0.6); line-height: 30px; text-align: center; padding: 0 10px; }
 
-.modalShare { display: none; width: 400px; height: 200px; position: fixed; z-index: 1000; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
+.modal { display: none; position: absolute; z-index: 1000; top: 0; left: 0; bottom: 0; right: 0; height: 100%; width: 100%; background: rgba(255, 255, 255, 0.8) url(../loader.gif) 50% 50% no-repeat; }
+
+.modalMsg { transition: all 1s; display: none; position: absolute; z-index: 1000; left: 0; right: 0; width: 600px; margin: 10px auto; background: rgba(255, 255, 255, 0.1); height: 40px; text-align: center; border-radius: 2px; }
+.modalMsg p { line-height: 40px; color: #eee; }
+
+.modalShare { transition: all 0.5s; display: none; width: 400px; height: 200px; position: fixed; z-index: 1000; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
 .modalShare .modalHeader { height: 60px; background: rgba(51, 51, 51, 0.9); width: 100%; text-align: center; }
 .modalShare .modalHeader h3 { color: rgba(255, 255, 255, 0.9); line-height: 60px; text-transform: uppercase; display: inline-block; }
 .modalShare .modalHeader .close { position: absolute; top: 0; right: 0; padding: 10px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; font-size: 10px; cursor: pointer; }
@@ -56,17 +61,7 @@ p { font-size: 14px; }
 
 .contentFooter { box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.16), 0 -2px 5px 0 rgba(0, 0, 0, 0.26); width: 100%; height: 60px; background: rgba(45, 45, 57, 0.9); border-radius: 0 0 2px 2px; margin-bottom: 20px; clear: both; }
 
-.sidebar { width: 20%; float: left; background: #333333; box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.16), 2px 0 5px 0 rgba(0, 0, 0, 0.26); }
-
-.boxRight { width: 80%; float: right; background: #fff; }
-
 .headTitle { font-size: 18px; line-height: 60px; padding-left: 20px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; }
-
-.subTitle { margin-top: 10px; font-size: 16px; line-height: 30px; padding-left: 10px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; vertical-align: middlemargin; }
-
-.div { height: 30px; width: 100%; background: #fff; }
-
-.textBox { margin: 0 20px; margin-bottom: 20px; }
 
 .footerInfo { float: right; padding: 20px; width: 200px; }
 .footerInfo p { color: rgba(255, 255, 255, 0.3); font-weight: 100; text-align: right; }
@@ -77,7 +72,7 @@ p { font-size: 14px; }
 .header .formGroup { width: 600px; margin: 0 auto; }
 .header .formGroup .search { width: 600px; height: 50px; margin: 0 auto; box-sizing: padding-box; border-radius: 2px; }
 .header .formGroup .search .opt { display: inline-block; vertical-align: top; font-weight: 100; }
-.header .formGroup .search select { outline: 0; float: left; text-transform: uppercase; font-size: 24px; font-weight: 100; width: 100px; height: 50px; overflow: hidden; border-radius: 2px 0 0 2px; padding-left: 10px; color: rgba(51, 51, 51, 0.6); border: none; background: #eee; font-weight: 100; }
+.header .formGroup .search select { outline: 0; float: left; text-transform: uppercase; font-size: 24px; font-weight: 100; width: 100px; height: 50px; overflow: hidden; border-radius: 2px 0 0 2px; padding-left: 10px; color: rgba(51, 51, 51, 0.6); border: none; background: #eee; font-weight: 100; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-border-radius: 2px 0 0 2px; -moz-border-radius: 2px 0 0 2px; background-image: url(../img/menu-bg.png); background-repeat: no-repeat; background-size: contain; }
 .header .formGroup .search .name { height: 50px; width: 390px; border: none; padding: 0; display: inline-block; float: left; vertical-align: top; font-weight: 100; color: rgba(30, 30, 30, 0.6); font-size: 24px; text-align: center; box-sizing: border-box; transition: padding-left 0.2s; }
 .header .formGroup .search .name:focus { color: #333333; text-align: left; padding-left: 20px; outline: 0; }
 .header .formGroup .search .send { outline: 0; height: 50px; width: 110px; border: none; display: inline-block; float: left; vertical-align: top; border-radius: 0 2px 2px 0; background: rgba(52, 152, 219, 0.95); color: white; text-transform: uppercase; font-size: 22px; color: rgba(255, 255, 255, 0.85); font-weight: 100; padding: 0; -webkit-appearance: push-button; }
@@ -87,30 +82,27 @@ p { font-size: 14px; }
 .header .formGroup .modeSelect .radio + label { height: 32px; width: 300px; background: rgba(51, 51, 51, 0.6); float: left; text-align: center; line-height: 32px; color: rgba(255, 255, 255, 0.85); font-weight: 100; text-transform: uppercase; }
 .header .formGroup .modeSelect .radio:checked + label { background: rgba(0, 171, 169, 0.6); box-shadow: inset 0 6px 20px 0 rgba(0, 0, 0, 0.19), inset 0 8px 17px 0 rgba(0, 0, 0, 0.2); font-weight: 300; }
 
-.fixed { height: 120px !important; overflow: hidden; }
-.fixed .headerLogo { height: 120px; padding: 0; float: left; }
-.fixed .formGroup { margin: 28px 0; float: right; padding-right: 20px; width: 460px !important; }
-.fixed .formGroup .search { height: 32px; overflow: hidden; width: 460px; }
-.fixed .formGroup .search select, .fixed .formGroup .search .name, .fixed .formGroup .search .send { height: 32px; font-size: 18px; }
-.fixed .formGroup .search select, .fixed .formGroup .search .send { width: 80px; }
-.fixed .formGroup .search .name { width: 300px; font-size: 16px; }
-.fixed .formGroup .search .send { font-size: 16px; }
-.fixed .modeSelect { margin-top: 12px !important; width: 460px !important; display: block !important; height: 20px !important; }
-.fixed .modeSelect .radio + label { width: 230px !important; font-size: 14px !important; line-height: 22px !important; height: 20px !important; vertical-align: middle !important; }
-
+#History { transition: all 0.2s; margin-bottom: 100px; }
 #History .contentHeader .headTitle { display: inline-block; }
 #History .contentHeader .share { background: rgba(0, 171, 169, 0.6); float: right; margin: 15px; }
 #History .fullBox { width: 100%; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
-#History .fullBox .basicInfo { text-align: center; height: 200px; width: 100%; background: rgba(255, 255, 255, 0.9); }
-#History .fullBox .basicInfo .profileIcon { width: 180px; height: 180px; margin: 10px; display: inline-block; vertical-align: top; }
+#History .fullBox .basicInfo { text-align: center; height: 200px; width: 100%; }
+#History .fullBox .basicInfo .profileIcon { width: 180px; height: 180px; margin: 10px; display: inline-block; vertical-align: top; border-radius: 2px; overflow: hidden; }
 #History .fullBox .basicInfo .profileIcon .outIcon { width: 180px; }
-#History .fullBox .basicInfo .profileRanked { width: 60%; display: inline-block; height: 180px; margin: 10px; }
-#History .fullBox .basicInfo .profileRanked .t3v3, #History .fullBox .basicInfo .profileRanked .t5v5, #History .fullBox .basicInfo .profileRanked .solo { width: 33%; height: 180px; float: right; margin: 0; padding: 0; }
-#History .fullBox .basicInfo .profileRanked .t3v3 h3, #History .fullBox .basicInfo .profileRanked .t5v5 h3, #History .fullBox .basicInfo .profileRanked .solo h3 { text-transform: uppercase; color: rgba(51, 51, 51, 0.6); text-align: center; margin-bottom: -25px; }
-#History .fullBox .basicInfo .profileRanked .t3v3 .outTier, #History .fullBox .basicInfo .profileRanked .t5v5 .outTier, #History .fullBox .basicInfo .profileRanked .solo .outTier { text-transform: uppercase; color: rgba(51, 51, 51, 0.9); text-align: center; display: block; margin: 0 auto; margin-top: -20px; width: 50%; line-height: 20px; padding: 0; background: none; margin-bottom: 5px; }
-#History .fullBox .basicInfo .profileRanked .t3v3 p, #History .fullBox .basicInfo .profileRanked .t5v5 p, #History .fullBox .basicInfo .profileRanked .solo p { display: inline-block; height: 16px; padding: 2px 4px; margin: 1px 0; background: rgba(255, 255, 255, 0.1); line-height: 16px; }
-#History .fullBox .basicInfo .profileRanked .t3v3 .outTierImg, #History .fullBox .basicInfo .profileRanked .t5v5 .outTierImg, #History .fullBox .basicInfo .profileRanked .solo .outTierImg { width: 60%; margin: 0 auto; display: block; }
-#History .matchHistory { padding-top: 20px; width: 100%; display: inline-block; text-align: center; }
+#History .fullBox .basicInfo .profileRanked { width: 60%; display: inline-block; height: 200px; margin: 0 10px; text-align: center; overflow: hidden; border-radius: 2px; }
+#History .fullBox .basicInfo .profileRanked .t3v3, #History .fullBox .basicInfo .profileRanked .t5v5, #History .fullBox .basicInfo .profileRanked .solo { width: 31%; height: 200px; display: inline-block; margin: 0; padding: 0; text-align: center; background: rgba(255, 255, 255, 0.1); vertical-align: top; }
+#History .fullBox .basicInfo .profileRanked .t3v3 h3, #History .fullBox .basicInfo .profileRanked .t5v5 h3, #History .fullBox .basicInfo .profileRanked .solo h3 { text-transform: uppercase; color: rgba(51, 51, 51, 0.6); text-align: center; height: 26px; line-height: 26px; clear: both; background: rgba(255, 255, 255, 0.6); font-weight: 700; }
+#History .fullBox .basicInfo .profileRanked .t3v3 p, #History .fullBox .basicInfo .profileRanked .t5v5 p, #History .fullBox .basicInfo .profileRanked .solo p { color: rgba(255, 255, 255, 0.6); display: inline-block; height: 16px; padding: 2px 4px; margin: 1px 0; line-height: 12px; box-sizing: border-box; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .outTier, #History .fullBox .basicInfo .profileRanked .t5v5 .outTier, #History .fullBox .basicInfo .profileRanked .solo .outTier { text-transform: uppercase; color: rgba(255, 255, 255, 0.6); text-align: center; display: block; margin-top: -14px; width: 100%; line-height: 16px; float: none; box-sizing: border-box; font-weight: 700; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .outLP, #History .fullBox .basicInfo .profileRanked .t3v3 .outElo, #History .fullBox .basicInfo .profileRanked .t5v5 .outLP, #History .fullBox .basicInfo .profileRanked .t5v5 .outElo, #History .fullBox .basicInfo .profileRanked .solo .outLP, #History .fullBox .basicInfo .profileRanked .solo .outElo { text-align: center; display: block; width: 100%; color: rgba(255, 255, 255, 0.6); line-height: 12px; font-weight: 500; font-size: 12px; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .outTierImg, #History .fullBox .basicInfo .profileRanked .t5v5 .outTierImg, #History .fullBox .basicInfo .profileRanked .solo .outTierImg { width: 45%; margin-top: -12px; display: inline-block; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .left, #History .fullBox .basicInfo .profileRanked .t3v3 .right, #History .fullBox .basicInfo .profileRanked .t5v5 .left, #History .fullBox .basicInfo .profileRanked .t5v5 .right, #History .fullBox .basicInfo .profileRanked .solo .left, #History .fullBox .basicInfo .profileRanked .solo .right { width: 50%; overflow: hidden; overflow-padding: 5px; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .left, #History .fullBox .basicInfo .profileRanked .t5v5 .left, #History .fullBox .basicInfo .profileRanked .solo .left { float: left; text-align: right; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .left p, #History .fullBox .basicInfo .profileRanked .t5v5 .left p, #History .fullBox .basicInfo .profileRanked .solo .left p { color: #16a085; font-weight: 500; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .right, #History .fullBox .basicInfo .profileRanked .t5v5 .right, #History .fullBox .basicInfo .profileRanked .solo .right { float: right; text-align: left; }
+#History .fullBox .basicInfo .profileRanked .t3v3 .right p, #History .fullBox .basicInfo .profileRanked .t5v5 .right p, #History .fullBox .basicInfo .profileRanked .solo .right p { color: #e74c3c; font-weight: 500; }
+#History .fullBox .basicInfo .profileRanked .solo { margin: 0 1%; }
+#History .matchHistory { padding: 20px 0; width: 100%; display: inline-block; text-align: center; }
 #History .matchHistory .matchHeader { text-transform: uppercase; height: 20px; position: absolute; background-color: #eee; width: 610px; margin-top: -20px; }
 #History .matchHistory .matchHeader h2 { line-height: 20px; }
 #History .matchHistory .container { overflow: auto; }
@@ -138,7 +130,9 @@ p { font-size: 14px; }
 #History .matchHistory .match .contentMatch .outSummonerSpell1, #History .matchHistory .match .contentMatch .outSummonerSpell2 { margin: 5px; display: inline-block; width: 38px; border-radius: 2px; }
 #History .matchHistory .match .players { width: 330px; display: block; height: 170px; background: rgba(30, 30, 30, 0.6); float: right; }
 #History .matchHistory .match .players .outTeamMembers, #History .matchHistory .match .players .outEnemyMembers { padding-top: 1px; width: 48%; display: inline-block; }
+#History .matchHistory .match .players .playerLink { text-decoration: none; }
 #History .matchHistory .match .players .player { margin: 2px auto; height: 30px; display: block; }
+#History .matchHistory .match .players .player:hover { background: rgba(255, 255, 255, 0.3); cursor: pointer; }
 #History .matchHistory .match .players .player img { float: left; display: inline-block; vertical-align: middle; width: 30px !important; }
 #History .matchHistory .match .players .player .playerInfo { height: 30px; line-height: 30px; overflow: hidden; }
 #History .matchHistory .match .players .player .playerInfo p { vertical-align: middle; display: block; line-height: 30px; font-size: 13px; color: #fff; text-align: left; padding-left: 5px; }
@@ -153,5 +147,45 @@ p { font-size: 14px; }
 .modalItem .itemDesc { color: #fff; font-size: 12px; line-height: 15px; }
 .modalItem .itemDesc passive, .modalItem .itemDesc active, .modalItem .itemDesc unique { color: rgba(0, 171, 169, 0.6); }
 .modalItem .itemDesc i { color: #1abc9c; }
+
+@media screen and (min-width: 320px) and (max-width: 1024px) { #History, #Home { display: none; }
+  .header { text-align: center; width: 96% !important; margin: auto; }
+  .headerLogo { width: 70% !important; }
+  .modalMsg { width: 55% !important; }
+  .formGroup { width: 80% !important; }
+  .formGroup .search { width: 75% !important; height: 40px !important; }
+  .formGroup .search select { width: 15% !important; height: 40px !important; font-size: 16px !important; background-position: center !important; }
+  .formGroup .search .name { width: 65% !important; height: 40px !important; font-size: 14px !important; }
+  .formGroup .search .send { width: 20% !important; height: 40px !important; font-size: 14px !important; }
+  .basicInfo { height: 540px !important; }
+  .profileIcon { width: 260px !important; height: 260px !important; overflow: hidden; }
+  .outIcon { width: 100% !important; }
+  .profileRanked { width: 100% !important; height: 260px !important; } }
+@media screen and (min-width: 320px) and (max-width: 640px) { .headerLogo { width: 100% !important; }
+  .modalMsg { width: 85% !important; }
+  .modalMsg p { font-size: 12px; }
+  .formGroup { width: 95% !important; }
+  .formGroup .search { width: 100% !important; height: 30px !important; }
+  .formGroup .search select { width: 15% !important; height: 30px !important; font-size: 16px !important; background-position: center !important; }
+  .formGroup .search .name { width: 65% !important; height: 30px !important; font-size: 14px !important; }
+  .formGroup .search .send { width: 20% !important; height: 30px !important; font-size: 14px !important; }
+  body #History { width: 100%; padding: 0; }
+  body #History .basicInfo { width: 96%; margin: 0; margin-bottom: 5px; }
+  body #History .matchHistory { max-width: 96%; overflow: hidden; margin: 0 auto; height: 3690px; margin-bottom: 70px; }
+  body #History .matchHistory .match { height: 369px; width: 100%; padding: 0; margin: 0; background-repeat: no-repeat; background-position: -170px 0 !important; } }
+@media screen and (min-width: 320px) and (max-width: 640px) and (min-width: 460px) { body #History .matchHistory .match { background-position: 0 0 !important; } }
+@media screen and (min-width: 320px) and (max-width: 640px) { body #History .matchHistory .match .header { width: inherit; border-radius: 0; height: 26px; }
+  body #History .matchHistory .match .header p { font-size: 11px; }
+  body #History .matchHistory .match .header .small { font-size: 8px; }
+  body #History .matchHistory .match .contentMatch { height: 338px; }
+  body #History .matchHistory .match .contentMatch .championInfo { margin-left: 20px; }
+  body #History .matchHistory .match .contentMatch .matchItems { float: right; margin-right: 20px; }
+  body #History .matchHistory .match .contentMatch .matchInfo { position: relative; top: -256px; float: right; margin-right: 20px; }
+  body #History .matchHistory .match .contentMatch .players { width: 100%; }
+  body #Home, body #Active, body #About, body #Contact { padding: 20px 10px; margin-bottom: 75px; margin-top: 15px; }
+  body #Home .header, body #Active .header, body #About .header, body #Contact .header { margin-bottom: 10px; }
+  body #Home .header h1, body #Active .header h1, body #About .header h1, body #Contact .header h1 { font-size: 24px; }
+  body #Home .body h3, body #Active .body h3, body #About .body h3, body #Contact .body h3 { font-size: 16px; }
+  body #Home .body p, body #Active .body p, body #About .body p, body #Contact .body p { font-size: 14px; } }
 
 /*# sourceMappingURL=style.css.map */

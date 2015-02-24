@@ -1,4 +1,6 @@
 #History
+    transition: all 0.2s
+    margin-bottom: 100px
     .contentHeader
         .headTitle
             display: inline-block
@@ -6,7 +8,6 @@
             background: $sea-blue
             float: right
             margin: 15px
-            
     .fullBox
         width: 100%
         background: $low-transp
@@ -15,57 +16,98 @@
             text-align: center
             height: 200px
             width: 100%
-            background: $white-transp-low
+            //background: $white-transp-low
+            @extend .shadow-2
             .profileIcon
                 width: 180px
                 height: 180px
                 margin: 10px
                 display: inline-block
                 vertical-align: top
+                border-radius: 2px
+                overflow: hidden
+                @extend .shadow-1
                 .outIcon
                     width: 180px
             .profileRanked
                 width: 60%
                 display: inline-block
-                height: 180px
-                margin: 10px
+                height: 200px
+                margin: 0 10px
+                text-align: center
+                overflow: hidden
+                border-radius: 2px
                 .t3v3, .t5v5, .solo
-                    width: 33%
-                    height: 180px
-                    float: right
+                    width: 31%
+                    height: 200px
+                    display: inline-block
                     margin: 0
                     padding: 0
+                    text-align: center
+                    background: $low-transp
+                    vertical-align: top
                     h3
                         text-transform: uppercase
                         color: $dark-transp-med
                         text-align: center
-                        margin-bottom: -25px
-                    .outTier
-                        text-transform: uppercase
-                        color: $dark-transp-low
-                        text-align: center
-                        display: block
-                        margin: 0 auto
-                        margin-top: -20px
+                        height: 26px
+                        line-height: 26px
+                        clear: both
+                        background: $white-transp-med
                         @extend .shadow-1
-                        width: 50%
-                        line-height: 20px
-                        padding: 0
-                        background: none
-                        margin-bottom: 5px
+                        font-weight: 700
                     p
+                        color: $white-transp-med
                         display: inline-block
                         height: 16px
                         padding: 2px 4px
                         margin: 1px 0
-                        background: $low-transp
-                        line-height: 16px
-                    .outTierImg
-                        width: 60%
-                        margin: 0 auto
+                        line-height: 12px
+                        box-sizing: border-box
+                    .outTier
+                        text-transform: uppercase
+                        color: $white-transp-med
+                        text-align: center
                         display: block
+                        margin-top: -14px
+                        width: 100%
+                        line-height: 16px
+                        float: none
+                        box-sizing: border-box
+                        font-weight: 700
+                    .outLP, .outElo
+                        text-align: center
+                        display: block
+                        width: 100%
+                        color: $white-transp-med
+                        line-height: 12px
+                        font-weight: 500
+                        font-size: 12px
+                    
+                    .outTierImg
+                        width: 45%
+                        margin-top: -12px
+                        display: inline-block
+                    .left, .right
+                        width: 50%
+                        overflow: hidden
+                            padding: 5px
+                    .left
+                        float: left
+                        text-align: right
+                        p
+                            color: $green
+                            font-weight: 500
+                    .right
+                        float: right
+                        text-align: left
+                        p
+                            color: $red
+                            font-weight: 500
+                .solo
+                    margin: 0 1%
     .matchHistory
-        padding-top: 20px
+        padding: 20px 0
         @extend .shadow-2
         width: 100%
         display: inline-block
@@ -91,6 +133,7 @@
             overflow: hidden
             background-size: cover !important
             display: inline-block
+            @extend .shadow-1
             .header
                 height: 30px
                 width: 590px
@@ -202,11 +245,16 @@
                     padding-top: 1px
                     width: 48%
                     display: inline-block
+                .playerLink
+                    text-decoration: none
                 .player
                     margin: 2px auto
                     height: 30px
                     display: block
                     @extend .shadow-1
+                    &:hover
+                        background: $white-transp-high
+                        cursor: pointer
                     img
                         float: left
                         display: inline-block

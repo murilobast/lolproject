@@ -25,6 +25,26 @@ $(function(){
         
     });
     
+     if ($(window).width() < 1024) {
+        $('.modalMsg').css('display', 'block');
+        $('.modalMsg p').text('Desculpe, sua resolução ainda não é suportada.');
+        setTimeout(function(){
+            $('.modalMsg').css('display', 'none');
+        }, 5000) 
+     };
+    window.onresize = function() {
+        if ($(window).width() < 1024) {
+            $('#History, #Home').hide();
+            $('.modalMsg').css('display', 'block');
+            $('.modalMsg p').text('Desculpe, sua resolução ainda não é suportada.');
+            setTimeout(function(){
+                $('.modalMsg').css('display', 'none');
+            }, 5000) 
+        }else{
+            $('#History, #Home').show();
+        };
+    };
+    
     if (getUrlParameter('key') == 1){
         infoByUrl();
     }
@@ -51,7 +71,9 @@ $(function(){
         hideAllBut($('#About'), 200);
     })
     $('.send').click(function(event){
-        hideAllBut($('.modal'), 300);
+        hideAllBut($(''), 300);
+        $('.modalMsg').css('display', 'block');
+        $('.modalMsg p').text('carregando...');
         event.preventDefault();
         data.name = noAcentos($('.name').val().replace(/ /g,'').toLowerCase());
         data.server = $('.serverOpt').val();

@@ -279,66 +279,70 @@ function getUrlParameter(sParam)
         var sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] == sParam) 
         {
-            return sParameterName[1];
+            return sParameterName[1].replace(/%20/g,'');
         }
     }
 } 
 
 function infoByUrl(){
-    hideAllBut($('.modal'), 300);
-        event.preventDefault();
-        data.name = noAcentos(getUrlParameter('name').replace(/ /g,'').toLowerCase());
-        data.server = getUrlParameter('server');
-        team = [];
-        games = [];
-        sidList1 = undefined;
-        sidList2 = undefined;
-        sidList3 = undefined;
-        sidList4 = undefined;
-        $('.player').show();
-        $('.name').val('');
-        getItems();
-        getRunes();
-        //Basic Summoner Info
-        ajaxLoL(basicInfoURL(data.server, data.name), function(result){
-            data.sid = result[data.name].id;
-            $('.outName').text(result[data.name].name);
-            $.each($('.players'), function(game){
-                $('.players:eq(' + game + ') .outName').text('');
-                $('.players:eq(' + game + ') .outName:eq(0)').text(result[data.name].name);
-            });
-            $('.outLevel').text('Level ' + result[data.name].summonerLevel);
-            $('.outIcon').attr('src', imageDb(data.ver, 'profileicon', result[data.name].profileIconId));
-            basicInfo();
-        }, 'basic');
+    //hideAllBut($('.modal'), 300);
+    $('.modalMsg').css('display', 'block');
+    $('.modalMsg p').text('carregando...');
+    event.preventDefault();
+    data.name = noAcentos(getUrlParameter('name').replace(/ /g,'').toLowerCase());
+    data.server = getUrlParameter('server');
+    team = [];
+    games = [];
+    sidList1 = undefined;
+    sidList2 = undefined;
+    sidList3 = undefined;
+    sidList4 = undefined;
+    $('.player').show();
+    $('.name').val('');
+    getItems();
+    getRunes();
+    //Basic Summoner Info
+    ajaxLoL(basicInfoURL(data.server, data.name), function(result){
+        data.sid = result[data.name].id;
+        $('.outName').text(result[data.name].name);
+        $.each($('.players'), function(game){
+            $('.players:eq(' + game + ') .outName').text('');
+            $('.players:eq(' + game + ') .outName:eq(0)').text(result[data.name].name);
+        });
+        $('.outLevel').text('Level ' + result[data.name].summonerLevel);
+        $('.outIcon').attr('src', imageDb(data.ver, 'profileicon', result[data.name].profileIconId));
+        basicInfo();
+    }, 'basic');
 };
 
 
 function activeByUrl(){
-    hideAllBut($('.modal'), 300);
-        event.preventDefault();
-        data.name = noAcentos(getUrlParameter('name').replace(/ /g,'').toLowerCase());
-        data.server = getUrlParameter('server');
-        team = [];
-        games = [];
-        sidList1 = undefined;
-        sidList2 = undefined;
-        sidList3 = undefined;
-        sidList4 = undefined;
-        $('.player').show();
-        $('.name').val('');
-        getItems();
-        getRunes();
-        //Basic Summoner Info
-        ajaxLoL(basicInfoURL(data.server, data.name), function(result){
-            data.sid = result[data.name].id;
-            $('.outName').text(result[data.name].name);
-            $.each($('.players'), function(game){
-                $('.players:eq(' + game + ') .outName').text('');
-                $('.players:eq(' + game + ') .outName:eq(0)').text(result[data.name].name);
-            });
-            $('.outLevel').text('Level ' + result[data.name].summonerLevel);
-            $('.outIcon').attr('src', imageDb(data.ver, 'profileicon', result[data.name].profileIconId));
-            activeMatch();
-        }, 'basic');
+    //hideAllBut($('.modal'), 300);
+    $('.modalMsg').css('display', 'block');
+    $('.modalMsg p').text('carregando...');
+    event.preventDefault();
+    data.name = noAcentos(getUrlParameter('name').replace(/ /g,'').toLowerCase());
+    data.server = getUrlParameter('server');
+    team = [];
+    games = [];
+    sidList1 = undefined;
+    sidList2 = undefined;
+    sidList3 = undefined;
+    sidList4 = undefined;
+    $('.player').show();
+    $('.name').val('');
+    getItems();
+    getRunes();
+    //Basic Summoner Info
+    ajaxLoL(basicInfoURL(data.server, data.name), function(result){
+        data.sid = result[data.name].id;
+        $('.outName').text(result[data.name].name);
+        $.each($('.players'), function(game){
+            $('.players:eq(' + game + ') .outName').text('');
+            $('.players:eq(' + game + ') .outName:eq(0)').text(result[data.name].name);
+        });
+        $('.outLevel').text('Level ' + result[data.name].summonerLevel);
+        $('.outIcon').attr('src', imageDb(data.ver, 'profileicon', result[data.name].profileIconId));
+        activeMatch();
+    }, 'basic');
 };

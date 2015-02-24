@@ -4,10 +4,11 @@ mixin modalRunes
         
 
 mixin player
-    .player
-        img.outChampTeam(src='http://placehold.it/30x30')
-        .playerInfo
-            p.outName Summoner Name
+    a.playerLink(href='#')
+        .player
+            img.outChampTeam(src='http://placehold.it/30x30')
+            .playerInfo
+                p.outName Summoner Name
 
 mixin bluePlayer
     .player

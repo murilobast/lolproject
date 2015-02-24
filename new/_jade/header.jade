@@ -1,9 +1,9 @@
 .header
     .headerLogo
         h1 Gankei
-    .formGroup
+    form.formGroup
         .search
-            select.serverOpt
+            select.serverOpt#srv
                 option br
                 option na
                 option eune
@@ -16,6 +16,8 @@
                 option ru
             input.name(type="text", placeholder="Nome do Invocador", onfocus="this.placeholder = ''", onblur="this.placeholder = 'Nome do Invocador'")
             button.send(type="submit") Enviar
+    .modalMsg
+        p Error MSG
 //        .modeSelect
 //            input(type="radio", name="mode", value="true", checked)#activeRadio.active.radio
 //            label.active(for='activeRadio') Histórico de Partidas
