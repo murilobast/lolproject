@@ -2,6 +2,7 @@
 function ajaxLoL(url, job, requestType){
     $.ajax({ 
         url: url,
+        cache: true,
         success: function(result){
             job(result);
         }, error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -98,6 +99,7 @@ $(function(){
         beforeSend: function() { $('body').addClass("loading"); },
         complete: function() { $('body').removeClass("loading"); },
         dataType: 'json',
+        cache: true,
         success: function(response) {
             data.ver = response[0];
             console.log(response[0]);
@@ -112,6 +114,7 @@ getItems = (function(){
         beforeSend: function() { $('body').addClass("loading"); },
         complete: function() { $('body').removeClass("loading"); },
         dataType: 'json',
+        cache: true,
         success: function(response) {
             items = response;
         }
@@ -345,4 +348,28 @@ function activeByUrl(){
         $('.outIcon').attr('src', imageDb(data.ver, 'profileicon', result[data.name].profileIconId));
         activeMatch();
     }, 'basic');
+};
+
+
+var localCache = {
+    timeout: 120000,
+    data: {},
+    remove: function (url) {
+        delete localCache.data[url];
+    },
+    exist: function (url) {
+        return !!localCache.data[url] && ((new Date().getTime() - localCache.data[url]._) < localCache.timeout);
+    },
+    get: function (url) {
+        console.log('Getting in cache for url' + url);
+        return localCache.data[url].data;
+    },
+    set: function (url, cachedData, callback) {
+        localCache.remove(url);
+        localCache.data[url] = {
+            _: new Date().getTime(),
+            data: cachedData
+        };
+        if ($.isFunction(callback)) callback(cachedData);
+    }
 };

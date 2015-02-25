@@ -46,7 +46,7 @@ $(function(){
         activeByUrl();
     }
     data.server = $('.serverOpt').val();
-    //hideAllBut($('#Home'), 200);
+    hideAllBut($('#Home'), 200);
     
     championData();
     itemFloat();
