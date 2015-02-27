@@ -4,12 +4,12 @@ include _jade/head
 body
     script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
         ga('create', 'UA-59904171-1', 'auto');
         ga('send', 'pageview');
+        
     include _jade/header
     .content
         include _jade/home
@@ -20,10 +20,9 @@ body
 
 
 
-
     include _jade/modal
     
-|<!--?php
+| <!--?php
 |    ob_start ("ob_gzhandler");
 |    header ("content-type: text/css; charset: UTF-8");
 |    header ("cache-control: must-revalidate");
@@ -32,14 +31,14 @@ body
 |    header ($expire);
 |    ?--> 
 
-|<!--?php
+| <!--?php
 |   ob_start ("ob_gzhandler");
 |   header ("content-type: text/javascript; charset: UTF-8");
 |   header ("cache-control: must-revalidate");
 |   $offset = 60 * 60;
 |   $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
 |   header ($expire);
-|?-->
+| ?-->
 
 
 | <?php ob_flush();?>

@@ -266,7 +266,7 @@ function hideAllBut(element, time){
     $('#Home').hide(time);
     $('#About').hide(time);
     $('#Contact').hide(time);
-    $('#Active').hide(time);
+    //$('#Active').hide(time);
     $('#History').hide(time);
     $('.modal').hide(time);
     //add more

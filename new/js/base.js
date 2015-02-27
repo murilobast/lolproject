@@ -17,11 +17,13 @@ var extra = [];
 $(function(){
     $('.headerNav a').click(function(){
         if ($(this).hasClass('history') == true && $(this).hasClass('selected') == false){
-            $('.matchHistoryContent').css('display', 'block');            
+            $('.matchHistoryContent').css('display', 'block');  
+            $('#Active1').css('display', 'none');
         }
         if ($(this).hasClass('activeMatch') == true && $(this).hasClass('selected') == false){
             $('.matchHistoryContent').css('display', 'none');
-            alert('Em desenvolvimento!');
+            $('#Active1').css('display', 'block');  
+            //alert('Em desenvolvimento!');
         }
         $('.headerNav a').removeClass('selected');
         $(this).addClass('selected');
@@ -46,7 +48,7 @@ $(function(){
         activeByUrl();
     }
     data.server = $('.serverOpt').val();
-    hideAllBut($('#Home'), 200);
+    //hideAllBut($('#Home'), 200);
     
     championData();
     itemFloat();
