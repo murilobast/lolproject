@@ -6,7 +6,8 @@ var items = new Object();
 var runes = new Object();
 var championsData = new Object();
 var mainHost = 'http://gankei-backend.herokuapp.com'
-//mainHost = 'http://localhost:3000'
+//var mainHost = 'http://localhost:3000'
+var totalSec = 0;
 var games = [];
 var team = [];
 var sidList1;
@@ -14,20 +15,28 @@ var sidList2;
 var sidList3;
 var sidList4;
 var extra = [];
+var interval;
+var totalSec = 0;
 $(function(){
+    //$('#ActiveMatch').css('display', 'none');
+    
+    $('.reload').click(function(e){
+        e.preventDefault();
+        $.jStorage.flush();
+         window.location = 'http://gankei.com/?key=1&server=' + data.server + '&name=' + data.name;
+    });
     $('.headerNav a').click(function(){
         if ($(this).hasClass('history') == true && $(this).hasClass('selected') == false){
             $('.matchHistoryContent').css('display', 'block');  
-            $('#Active1').css('display', 'none');
+            $('#ActiveMatch').css('display', 'none');
+            $('.headerNav a').removeClass('selected');
+            $(this).addClass('selected');
+            $('.reload').css('display', 'block');
         }
         if ($(this).hasClass('activeMatch') == true && $(this).hasClass('selected') == false){
-            $('.matchHistoryContent').css('display', 'none');
-            $('#Active1').css('display', 'block');  
-            //alert('Em desenvolvimento!');
-        }
-        $('.headerNav a').removeClass('selected');
-        $(this).addClass('selected');
-            
+            clearInterval(interval);
+            activeMatch();          
+        }            
     });
     $('.share').click(function(){
         $('.modalShare').css('display', 'block');
@@ -48,7 +57,7 @@ $(function(){
         activeByUrl();
     }
     data.server = $('.serverOpt').val();
-    //hideAllBut($('#Home'), 200);
+    hideAllBut($(''), 200);
     
     championData();
     itemFloat();
@@ -67,6 +76,13 @@ $(function(){
         hideAllBut($('#About'), 200);
     })
     $('.send').click(function(event){
+        
+        $('.matchHistoryContent').css('display', 'block');  
+        $('#ActiveMatch').css('display', 'none');
+        $('.headerNav a').removeClass('selected');
+        $('.history').addClass('selected');
+        
+        cleanUP();
         hideAllBut($(''), 300);
         $('.modalMsg').css('display', 'block');
         $('.modalMsg p').text('carregando...');

@@ -41,8 +41,6 @@ p { font-size: 14px; }
 .btn { height: 30px; border-radius: 2px; display: inline-block; text-decoration: none; color: rgba(255, 255, 255, 0.6); line-height: 30px; text-align: center; padding: 0 10px; }
 .btn:active { background: rgba(51, 51, 51, 0.6); }
 
-.modal { display: none; position: absolute; z-index: 1000; top: 0; left: 0; bottom: 0; right: 0; height: 100%; width: 100%; background: rgba(255, 255, 255, 0.8) url(../loader.gif) 50% 50% no-repeat; }
-
 .modalMsg { transition: all 1s; display: none; position: absolute; z-index: 1000; left: 0; right: 0; width: 600px; margin: 10px auto; background: rgba(255, 255, 255, 0.1); height: 40px; text-align: center; border-radius: 2px; }
 .modalMsg p { line-height: 40px; color: #eee; }
 
@@ -96,6 +94,8 @@ p { font-size: 14px; }
 #History .contentHeader .headerNav .btn:hover { box-shadow: none; transition: box-shadow 0.5s; }
 #History .contentHeader .headerNav .selected { box-shadow: inset 0 2px 10px 0 rgba(0, 0, 0, 0.16), inset 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
 #History .contentHeader .headerNav .selected:hover { box-shadow: none; }
+#History .contentHeader .reload { background-image: url(../img/reload.png); background-size: contain; padding: 0; height: 30px; width: 30px; margin: 15px; margin-left: 0; float: right; border-radius: 100%; }
+#History .contentHeader .reload:active { opacity: 0.6; }
 #History .contentHeader .share { background: rgba(0, 171, 169, 0.6); float: right; margin: 15px; }
 #History .contentHeader .share:active { background: rgba(51, 51, 51, 0.6); }
 #History .fullBox { width: 100%; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
@@ -154,7 +154,7 @@ p { font-size: 14px; }
 #ActiveMatch .summonerInfoHeader .icon { width: 100px; height: 100px; float: left; margin: 10px; border-radius: 2px; overflow: hidden; }
 #ActiveMatch .summonerInfoHeader .icon img { width: 100px; }
 #ActiveMatch .summonerInfoHeader .gameInfo { height: inherit; text-align: left; float: left; }
-#ActiveMatch .summonerInfoHeader .gameInfo p { color: #fff; line-height: 60px; display: inline-block; margin: 0 10px; text-transform: uppercase; font-weight: 300; }
+#ActiveMatch .summonerInfoHeader .gameInfo p { color: #fff; line-height: 120px; display: inline-block; margin: 0 10px; text-transform: uppercase; font-weight: 300; font-size: 16px; }
 #ActiveMatch .summonerInfoHeader .gameInfo .outSummonerName { text-transform: none; margin-left: 20px; }
 #ActiveMatch .summonerInfoHeader .gameType { float: right; height: 60px; }
 #ActiveMatch .summonerInfoHeader .gameType h3 { line-height: 60px; color: #fff; margin: 0 20px; text-transform: uppercase; opacity: 0.85; font-size: 18px; }
@@ -176,15 +176,15 @@ p { font-size: 14px; }
 #ActiveMatch .info .blueTeam .player .champ .outChampImg, #ActiveMatch .info .purpleTeam .player .champ .outChampImg { width: 60px; }
 #ActiveMatch .info .blueTeam .player .spells, #ActiveMatch .info .purpleTeam .player .spells { width: 30px; height: inherit; float: left; }
 #ActiveMatch .info .blueTeam .player .spells img, #ActiveMatch .info .purpleTeam .player .spells img { width: 30px; margin: 0; display: block; }
-#ActiveMatch .info .blueTeam .player .summonerInfo, #ActiveMatch .info .purpleTeam .player .summonerInfo { width: 135px; height: inherit; float: left; text-align: left; }
+#ActiveMatch .info .blueTeam .player .summonerInfo, #ActiveMatch .info .purpleTeam .player .summonerInfo { width: 140px; height: inherit; float: left; text-align: left; }
 #ActiveMatch .info .blueTeam .player .summonerInfo p, #ActiveMatch .info .purpleTeam .player .summonerInfo p { margin: 0; margin-left: 10px; font-size: 12px; line-height: 20px; vertical-align: middle; width: 140px; }
 #ActiveMatch .info .blueTeam .player .summonerInfo .outBluePlayer, #ActiveMatch .info .blueTeam .player .summonerInfo .outPurplePlayer, #ActiveMatch .info .purpleTeam .player .summonerInfo .outBluePlayer, #ActiveMatch .info .purpleTeam .player .summonerInfo .outPurplePlayer { font-size: 14px; width: 135px; }
-#ActiveMatch .info .blueTeam .player .stats, #ActiveMatch .info .purpleTeam .player .stats { height: inherit; margin: 0 auto; display: inline-block; }
-#ActiveMatch .info .blueTeam .player .stats p, #ActiveMatch .info .purpleTeam .player .stats p { margin: 0; font-size: 12px; line-height: 30px; }
-#ActiveMatch .info .blueTeam .player .outRankedStats, #ActiveMatch .info .purpleTeam .player .outRankedStats { width: 160px; height: inherit; float: right; position: relative; }
+#ActiveMatch .info .blueTeam .player .stats, #ActiveMatch .info .purpleTeam .player .stats { width: 120px; height: inherit; margin: 0 auto; display: inline-block; }
+#ActiveMatch .info .blueTeam .player .stats p, #ActiveMatch .info .purpleTeam .player .stats p { margin: 0; font-size: 12px; line-height: 20px; }
+#ActiveMatch .info .blueTeam .player .outRankedStats, #ActiveMatch .info .purpleTeam .player .outRankedStats { width: 125px; height: inherit; float: right; position: relative; }
 #ActiveMatch .info .blueTeam .player .outRankedStats img, #ActiveMatch .info .purpleTeam .player .outRankedStats img { width: 24px; display: inline-block; margin-right: -35px; }
 #ActiveMatch .info .blueTeam .player .outRankedStats p, #ActiveMatch .info .purpleTeam .player .outRankedStats p { display: inline-block; font-size: 12px; text-align: right; line-height: 18px; float: right; padding-right: 10px; }
-#ActiveMatch .info .blueTeam .player .outRankedStats .outRankedWins, #ActiveMatch .info .purpleTeam .player .outRankedStats .outRankedWins { margin-top: -6px; }
+#ActiveMatch .info .blueTeam .player .outRankedStats .outRankedWins, #ActiveMatch .info .purpleTeam .player .outRankedStats .outRankedWins { margin-top: -6px; text-align: center; }
 #ActiveMatch .info .blueTeam .player .outRankedStats .outTier, #ActiveMatch .info .purpleTeam .player .outRankedStats .outTier { line-height: 24px; }
 
 .active { background: rgba(0, 171, 169, 0.6) !important; }

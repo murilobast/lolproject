@@ -6,51 +6,53 @@ mixin modalRunes
 mixin player
     a.playerLink(href='#')
         .player
-            img.outChampTeam(src='http://placehold.it/30x30')
+            img.outChampTeam(src='')
             .playerInfo
                 p.outName 
 
 mixin bluePlayer
     .player
         .champ
-            img.outChampImg(src='http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png')
+            img.outChampImg(src='')
         .spells
-            img.outSpell1(src='../spell/4.png')
-            img.outSpell2(src='../spell/11.png')
+            img.outSpell1(src='')
+            img.outSpell2(src='')
         .summonerInfo
             p.outBluePlayer Blue Player
-            p.outMastery Página de Talentos (WIP)
-            p.outRunePage Página de Runa (WIP)
+            p.outMastery Página de Talentos
+            p.outRunePage Página de Runa
             +modalRunes
         .stats
-            p KDA
-            p.outKDA --/--/-- (WIP)
+            p Média por partida
+            p.outK 
+            p.outA 
         .outRankedStats
-            img.outTierImg(src='../tier/GOLD_III.png')
-            p.outTier GOLD III
-            p.outRankedWins 32/27 Vitórias Ranked
-            p.outNormalWinds --- (WIP) Vitórias Normal
+            img.outTierImg(src='')
+            p.outTier 
+            p.outRankedWins 32/27
+            p.outNormalWins 
 
 mixin purplePlayer
     .player
         .champ
-            img.outChampImg(src='http://ddragon.leagueoflegends.com/cdn/5.3.1/img/champion/Vayne.png')
+            img.outChampImg(src='')
         .spells
-            img.outSpell1(src='../spell/4.png')
-            img.outSpell2(src='../spell/11.png')
+            img.outSpell1(src='')
+            img.outSpell2(src='')
         .summonerInfo
             p.outPurplePlayer Purple Player
-            p.outMastery Página de Talentos (WIP)
-            p.outRunePage Página de Runa (WIP)
+            p.outMastery Página de Talentos
+            p.outRunePage Página de Runa
             +modalRunes
         .stats
-            p KDA
-            p.outKDA --/--/-- (WIP)
+            p Média por partida
+            p.outK 
+            p.outA 
         .outRankedStats
-            img.outTierImg(src='../tier/GOLD_III.png')
-            p.outTier GOLD III
-            p.outRankedWins 32/27 Vitórias Ranked
-            p.outNormalWinds --- (WIP) Vitórias Normal
+            img.outTierImg(src='')
+            p.outTier 
+            p.outRankedWins 32/27
+            p.outNormalWins 
 
 
 mixin match

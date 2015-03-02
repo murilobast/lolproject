@@ -1,28 +1,47 @@
 //Functions
 function ajaxLoL(url, job, requestType){
-    $.ajax({ 
-        url: url,
-        cache: true,
-        success: function(result){
-            job(result);
-        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
-            if (requestType == 'ranked') {
-                if (errorThrown == 'Not Found'){
-                    $('.solo .outTier').text('UNRANKED');
-                    $('.solo .outTierImg').attr('src', '../tier/unranked.png');
-                    $('.solo .outLP').text('0 LP');
-                    $('.solo .outElo').text('0 LP Total');
+    var value = $.jStorage.get(url);
+    if (requestType == ''){
+        value = 'activematch';
+    };
+    if (!value){
+        $.ajax({ 
+            url: url,
+            success: function(result){
+                $.jStorage.set(url, result);
+                $.jStorage.setTTL(url, 600000);
+                job(result);
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (requestType == 'ranked') {
+                    if (errorThrown == 'Not Found'){
+                        $('.solo .outTier').text('UNRANKED');
+                        $('.solo .outTierImg').attr('src', '../tier/unranked.png');
+                        $('.solo .outLP').text('0 LP');
+                        $('.solo .outElo').text('0 LP Total');
+                    }else{
+                        alert(errorThrown);
+                        hideAllBut($('#Home'));
+                    };
+                }else if (requestType == 'activematch'){
+                    $('.modalMsg p').text('Partida não encontrada');
+                    $('.modalMsg').css('display', 'block');
+                    setTimeout(function(){
+                        $('.modalMsg').css('display', 'none');
+                    }, 3000);
+//                    $('.matchHistoryContent').css('display', 'block');  
+//                    $('#ActiveMatch').css('display', 'none');
+//                    $('#ActiveMatch').removeClass('selected');
+//                    $('.matchHistoryContent').addClass('selected');
                 }else{
-                    alert(errorThrown);
-                    hideAllBut($('#Home'));
+                    errorThrownModal(errorThrown, "Summoner não existe ou o server incorreto foi selecionado", $('#Home'));
                 };
-            }else if (requestType == 'activematch'){
-                errorThrownModal(errorThrown, "Partida não encontrada",$('#Home'));
-            }else{
-                errorThrownModal(errorThrown, "Summoner não existe ou o server incorreto foi selecionado", $('#Home'));
-            };
-        }
-    });
+            }
+        });
+    }else{
+        result = value;
+        job(result);
+    }
+    
 };
 
 function errorThrownModal(error, msg, show){
@@ -72,6 +91,9 @@ function timeSince(date) {
 function basicInfoURL(server, name){
     return mainHost + '/basicbyname/' + server + '/' + name;
 };
+function statsURL(server, sid){
+    return mainHost + '/summonerstats/' + server + '/' + sid;
+};
 function rankedURL(server, sid){
     return mainHost + '/rankedbyid/' + server + '/' + sid;
 };
@@ -94,31 +116,46 @@ function imageDb(version, option, value){
 
 //Extra Functions
 $(function(){
-    $.ajax({
-        url: mainHost + '/staticdata/br',
-        beforeSend: function() { $('body').addClass("loading"); },
-        complete: function() { $('body').removeClass("loading"); },
-        dataType: 'json',
-        cache: true,
-        success: function(response) {
-            data.ver = response[0];
-            console.log(response[0]);
-        }
-    });
+    var value = $.jStorage.get('serverVer');
+    if (!value){
+        $.ajax({
+            url: mainHost + '/staticdata/br',
+            beforeSend: function() { $('body').addClass("loading"); },
+            complete: function() { $('body').removeClass("loading"); },
+            dataType: 'json',
+            success: function(result) {
+                $.jStorage.set('serverVer', result);
+                $.jStorage.setTTL('serverVer', 86400000);
+                data.ver = result[0];
+                console.log(result[0]);
+            }
+        });
+    }else{
+        result = value;
+        data.ver = result[0];
+        console.log(result[0]);
+    };
 });
 
 getItems = (function(){
     locale = {br: 'pt_BR', na: 'en_US', eune: 'en_US', euw: 'en_US', kr: 'ko_KR', lan: 'es_ES', las: 'es_ES', oce: 'en_US', tr: 'tr_TR', ru: 'ru_RU'};
-    $.ajax({
-        url: 'http://ddragon.leagueoflegends.com/cdn/' + data.ver + '/data/' + locale[data.server] + '/item.json',
-        beforeSend: function() { $('body').addClass("loading"); },
-        complete: function() { $('body').removeClass("loading"); },
-        dataType: 'json',
-        cache: true,
-        success: function(response) {
-            items = response;
-        }
-    });
+    var value = $.jStorage.get('itemData');
+    if (!value){
+        $.ajax({
+            url: 'http://ddragon.leagueoflegends.com/cdn/' + data.ver + '/data/' + locale[data.server] + '/item.json',
+            beforeSend: function() { $('body').addClass("loading"); },
+            complete: function() { $('body').removeClass("loading"); },
+            dataType: 'json',
+            success: function(result) {
+                $.jStorage.set('itemData', result);
+                $.jStorage.setTTL('itemData', 86400000);
+                items = result;
+            }
+        });
+    }else{
+        result = value;
+        items = result;
+    };
 });
 
 function getRunes(){
@@ -273,8 +310,7 @@ function hideAllBut(element, time){
     element.show(time);
 };
 
-function getUrlParameter(sParam)
-{
+function getUrlParameter(sParam){
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) 
@@ -351,25 +387,10 @@ function activeByUrl(){
 };
 
 
-var localCache = {
-    timeout: 120000,
-    data: {},
-    remove: function (url) {
-        delete localCache.data[url];
-    },
-    exist: function (url) {
-        return !!localCache.data[url] && ((new Date().getTime() - localCache.data[url]._) < localCache.timeout);
-    },
-    get: function (url) {
-        console.log('Getting in cache for url' + url);
-        return localCache.data[url].data;
-    },
-    set: function (url, cachedData, callback) {
-        localCache.remove(url);
-        localCache.data[url] = {
-            _: new Date().getTime(),
-            data: cachedData
-        };
-        if ($.isFunction(callback)) callback(cachedData);
-    }
+function cleanUP(){
+    
+    $('.profileRanked p').text('');
+    $('.outTier').text('UNRANKED');
+    
+    
 };

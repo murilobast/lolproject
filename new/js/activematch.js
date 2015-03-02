@@ -1,9 +1,7 @@
 function activeMatch(event){
-    //hideAllBut($('#Home'), 200);
+    $('.modalRunes p').remove();
     ajaxLoL(activeMatchURL(data.server, data.sid), function(result){
-        //console.log(result);
         var configId = {2: 'NORMAL 5X5', 14: 'NORMAL 5X5 DRAFT', 4: 'RANKED SOLO 5X5', 41: 'RANKED TIME 3X3', 42: 'RANKED TIME 5X5', 65: 'ARAM 5X5'}
-        
         //Players information
         jQuery.each(result.participants, function(player){
             var playerName = result.participants[player].summonerName;
@@ -12,34 +10,48 @@ function activeMatch(event){
             runeStats = getTotal(playerRunes);
             ajaxLoL(rankedURL(data.server, playerId), function(result){
                 ranked = result;
-                $('.player:eq(' + player + ') .outRankedStats .outTier').text(ranked[playerId][0].tier + ' ' + ranked[playerId][0].entries[0].division);
-                $('.player:eq(' + player + ') .outRankedStats .outTierImg').attr('src', '../tier/' + result[playerId][0].tier + '_' + ranked[playerId][0].entries[0].division+ '.png');
+                $('#ActiveMatch .player:eq(' + player + ') .outRankedStats .outTier').text(ranked[playerId][0].tier + ' ' + ranked[playerId][0].entries[0].division);
+                $('#ActiveMatch .player:eq(' + player + ') .outRankedStats .outTierImg').attr('src', '../tier/' + result[playerId][0].tier + '_' + ranked[playerId][0].entries[0].division+ '.png');
                 var wins = ranked[playerId][0].entries[0].wins
                 var losses = ranked[playerId][0].entries[0].losses
-                $('.player:eq(' + player + ') .outRankedStats .outRankedWins').text(wins + '/' + losses + ' Vitórias Ranked');
+                $('#ActiveMatch .player:eq(' + player + ') .outRankedStats .outRankedWins').text(wins + '/' + losses);
             }, 'ranked');
             var spell1 = result.participants[player].spell1Id;
             var spell2 = result.participants[player].spell2Id;
             var championId = result.participants[player].championId
             var championName = championsData[championId].key
-            $('.outChampImg:eq(' + player + ')').attr('src', imageDb(data.ver, 'champion', championName));
-            $('.player:eq(' + player + ') .outSpell1').attr('src', '../spell/' + spell1 + '.png');
-            $('.player:eq(' + player + ') .outSpell2').attr('src', '../spell/' + spell2 + '.png');
+            $('#ActiveMatch .outChampImg:eq(' + player + ')').attr('src', imageDb(data.ver, 'champion', championName));
+            $('#ActiveMatch .player:eq(' + player + ') .outSpell1').attr('src', '../spell/' + spell1 + '.png');
+            $('#ActiveMatch .player:eq(' + player + ') .outSpell2').attr('src', '../spell/' + spell2 + '.png');
             if (player < 5){
-                $('.outBluePlayer:eq(' + player + ')').text(playerName);
+                $('#ActiveMatch .outBluePlayer:eq(' + player + ')').text(playerName);
             };
             if (player > 4){
-                $('.outPurplePlayer:eq(' + [player-5] + ')').text(playerName);
+                $('#ActiveMatch .outPurplePlayer:eq(' + [player-5] + ')').text(playerName);
             };
             
             
             $.each(runeStats, function(stat){
-                $('.modalRunes:eq(' + player + ')').append('<p>' + (runeStats[stat].value).toFixed(2) + runeStats[stat].desc + '</p>');
+                $('#ActiveMatch .modalRunes:eq(' + player + ')').append('<p>' + (runeStats[stat].value).toFixed(1) + runeStats[stat].desc + '</p>');
             });
+            ajaxLoL(statsURL(data.server, playerId), function(result){
+                $.each(result.playerStatSummaries, function(mode){
+                    if (result.playerStatSummaries[mode].playerStatSummaryType == "Unranked"){
+                        $('.outNormalWins:eq(' + player +')').text(result.playerStatSummaries[mode].wins + ' Vitórias Normal');
+                    };
+                    if (result.playerStatSummaries[mode].playerStatSummaryType == "RankedSolo5x5"){
+                        var games = result.playerStatSummaries[mode].wins + result.playerStatSummaries[mode].losses;
+                        var avKills = (result.playerStatSummaries[mode].aggregatedStats.totalChampionKills / games).toFixed(0);
+                        var avAssits = (result.playerStatSummaries[mode].aggregatedStats.totalAssists / games).toFixed(0);
+                        $('.stats .outK:eq(' + player +')').text(avKills + ' Abates');
+                        $('.stats .outA:eq(' + player +')').text(avAssits + ' Assistências');
+                    };
+                });
+             });        
         })
         //General information
         var totalSec = result.gameLength;
-        setInterval(function(){
+        interval = setInterval(function(){
             totalSec++
             var hours = parseInt( totalSec / 3600 ) % 24;
             var minutes = parseInt( totalSec / 60 ) % 60;
@@ -47,9 +59,15 @@ function activeMatch(event){
             var time = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
             $('.outGameTime').text('Tempo ' + time);
         }, 1000);
+        
         $('.outGameType').text(configId[result.gameQueueConfigId]);
         $('.outServer').text('Server ' + data.server);
-        hideAllBut($('#Active'), 200);
+        
+        $('.history').removeClass('selected');
+        $('.activeMatch').addClass('selected');
+        $('.matchHistoryContent').css('display', 'none');
+        $('#ActiveMatch').css('display', 'block');
+        $('.reload').css('display', 'none');
     }, 'activematch');  
 };
 
@@ -77,7 +95,7 @@ function getTotal(runeObj){
         runeStats.push(runes[runeObj[obj].runeId].stats);
         propertyName = Object.getOwnPropertyNames(runeStats[obj]);
         count = runeObj[obj].count;
-        if(propertyName == 'PercentAttackSpeedMod' || propertyName == 'rPercentCooldownMod' || propertyName == 'PercentMovementSpeedMod' || propertyName == 'rPercentCooldownModPerLevel'){
+        if(propertyName == 'PercentAttackSpeedMod' || propertyName == 'rPercentCooldownMod' || propertyName == 'PercentMovementSpeedMod' || propertyName == 'rPercentCooldownModPerLevel'|| propertyName == 'FlatCritChanceMod'){
             runeTotalStats[propertyName] = runeTotalStats[propertyName] + ((runeStats[obj][propertyName]*100)*count);
         }else{
             runeTotalStats[propertyName] = runeTotalStats[propertyName] + (runeStats[obj][propertyName]*count);
