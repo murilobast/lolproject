@@ -50,14 +50,16 @@ function activeMatch(event){
              });        
         })
         //General information
-        var totalSec = result.gameLength;
+        var gameLength = window.totalSec || result.gameLength;
+        var dataInicial = Date.now() - gameLength * 1000;
         interval = setInterval(function(){
-            totalSec++
+            window.totalSec = parseInt((Date.now() - dataInicial) / 1000);
             var hours = parseInt( totalSec / 3600 ) % 24;
             var minutes = parseInt( totalSec / 60 ) % 60;
             var seconds = totalSec % 60;
             var time = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
             $('.outGameTime').text('Tempo ' + time);
+            console.log(totalSec + ' ' + dataInicial);
         }, 1000);
         
         $('.outGameType').text(configId[result.gameQueueConfigId]);

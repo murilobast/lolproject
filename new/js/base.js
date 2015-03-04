@@ -76,7 +76,7 @@ $(function(){
         hideAllBut($('#About'), 200);
     })
     $('.send').click(function(event){
-        
+        totalSec = undefined;
         $('.matchHistoryContent').css('display', 'block');  
         $('#ActiveMatch').css('display', 'none');
         $('.headerNav a').removeClass('selected');
